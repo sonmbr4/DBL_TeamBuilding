@@ -122,7 +122,7 @@
       }
     },
     "base_stats": {
-      "power": 10488,
+      "power": 10260,
       "health": 26274,
       "strike_atk": 2772,
       "strike_def": 1650,
@@ -130,7 +130,7 @@
       "blast_def": 1633
     },
     "max_stats": {
-      "power": 933153,
+      "power": 919240,
       "health": 1605029,
       "strike_atk": 169339,
       "strike_def": 100772,
@@ -281,7 +281,7 @@
       }
     },
     "base_stats": {
-      "power": 10488,
+      "power": 10470,
       "health": 26574,
       "strike_atk": 2558,
       "strike_def": 1739,
@@ -289,7 +289,7 @@
       "blast_def": 1722
     },
     "max_stats": {
-      "power": 933153,
+      "power": 925910,
       "health": 2683431,
       "strike_atk": 258277,
       "strike_def": 175625,
@@ -382,7 +382,217 @@
           "When on battlefield"
         ]
       }
-    }
+    },
+    "assault_z_ability": {
+      "assault_z_ability_i": {
+        "applies_to": "Increases the following stats of allies when this character is a battle member",
+        "effects": [
+          "+3% to base Strike Attack",
+          "+3% to base Blast Attack",
+          "+3% to base Strike Defense",
+          "+3% to base Blast Defense"
+        ]
+      }
+    },
+    "z_ability": {
+      "one": {
+        "condition": "If Saiyan",
+        "effect": "Base Strike Defense +22%. Base Blast Defense +22%."
+      },
+      "two": {
+        "condition": "If Saiyan",
+        "effect": "Base Strike Defense +26%. Base Blast Defense +26%."
+      },
+      "three": {
+        "condition": "If Saiyan",
+        "effect": "Base Strike Defense +30%. Base Blast Defense +30%.",
+        "condition_2":"If Team Bardock",
+        "effect_2":"Base Strike Attack +19%"
+      },
+      "four": {
+        "condition": "If Saiyan",
+        "effect": "Base Strike Defense +38%. Base Blast Defense +38%.",
+        "condition_2":"If Team Bardock",
+        "effect_2":"Base Strike Attack +22%"
+      }
+    },
+    "held_arts_cards": {
+      "strike_high_area": "Enemy Ki -50 on hit",
+      "blast": "No additional effects",
+      "strike_arts_card": {
+        "name": "Strike (Damage Guard Penetration)",
+        "effect": "Strike (Impact). On activation, Damage Guard Penetration +20% (10 counts)."
+      },
+      "blast_arts_card": {
+        "name": "Blast (Damage Guard Penetration)",
+        "effect": "Blast (Impact). On activation, Damage Guard Penetration +20% (10 counts)."
+      },
+      "extra_arts_card": {
+        "name": "Fighting Spirit of the Defier",
+        "effect": "Draw 1 card. Health +10%. Ki +50. Damage +20% (10 counts). Nullify Special Cover Change (5 counts). Also, per defeated battle member: Draw 1 card if hand has 3 or fewer. Damage +20% (10 counts)"
+      }
+    },
+    "base_stats": {
+      "power": 10505,
+      "health": 26705,
+      "strike_atk": 2766,
+      "strike_def": 1774,
+      "blast_atk": 2389,
+      "blast_def": 1739
+    },
+    "max_stats": {
+      "power": 925203,
+      "health": 2696646,
+      "strike_atk": 279338,
+      "strike_def": 179171,
+      "blast_atk": 241217,
+      "blast_def": 175634
+    },
+    "strike": "Strike (Impact)",
+    "shot": "Blast (Impact)",
+    "image_url": "/assets/imgs/Characters/BChaCut_0725_Bardock_725.webp",
+    "is_lf": false,
+    "is_tag": false,
+    "has_zenkai": false
+  },
+  {
+    "name": "Super Saiyan 3 Goku (mini)",
+    "id": "DBL93-02L",
+    "color": "PUR",
+    "rarity": "LEGEND",
+    "tags": [
+      "Son Family",
+      "Saiyan",
+      "Kids",
+      "Super Saiyan 3",
+      "DAIMA",
+      "Male",
+      "LEGEND",
+      "Melee Type",
+      "PUR",
+      "DAIMA Saga",
+      "Goku",
+      "Special Cover Change (Strike)",
+      "Endurance",
+      "Armored Strike Arts"
+    ],
+    "main_ability":{
+      "name": "Clash of Wills",
+      "effect": "Destroy 1 card, then draw Ulimate Arts next. Health +30%. Ki +50. Cancel Attribute Downgraes/Abnormal Conditions. Enemy Dragon Balls -2. *Requeriment: 25 timer counts elapsed"
+    },
+    "legend_action":{
+      "activation_area": "High Area",
+      "on_activation":[
+        "Destroy 1 card, then draw Special Move Arts next (2 times)",
+        "Ki +50",
+        "Vanishing Gauge +80%(2 times)",
+        "Also, if Unique Gauge is 1% or more: Unique Gauge +10%"
+      ],
+      "comboable_into": ["Special Move art", "Ultimate art"]
+    },
+    "unique_ability":{
+      "unique_start_abilities":[
+        {
+          "ability_name": "Starter Ability",
+          "ability_effect": "Damage +330%. Damage Guard +260%. Ki Recovery +80%. Draw Speed +1. Nullify Attribute Downgrades up to 3 times. Endurance(40% recovery). Also, if at least 1 other ally battle memeber is DAIMA: Overdrive Gauge charge rate +50%. *All uncancellable"
+        },
+        {
+          "ability_name": [
+            "▼On Battlefield Entry: Dar 1 card if hand has 3 or fewer. Health +10%. Ki +40. Nullify damage received Element disadvantage(5 counts). Also, if there are 3 battle members remining and Unique Gauge is 1% or more: ・Unique Gauge +20%. ・Damage Guard +30% (10 counts). ・All enemy Strike Arts costs +50(3 counts).",
+            "▼Based on Strike/Blast/Special Arts: *Uses reset on Switch/Area Change [1st]・Damage + 50% (10 counts). ・Nullify Special Cover CHanges(5 counts) [3rd] Next activated Special Move damage +50% (non-stacking).",
+            "▼When Hit by Enemy Arts (1 time): ・Health +10%. ・Destroy 1 enemy card. ・Enemy Ki -35",
+            "▼While Not Defeated, Enemy Activates Ultimate/Awakened Arts or Rising Rush, and at Least 1 Other Ally Battle Member Is DAIMA: ・Ally sub counts -5. ・Cancel enemt Buff Effects(2 times)"
+          ]
+        }
+      ]
+    },
+    "special_cover_change":{
+      "effective_against":["Strike art"],
+      "comboable_into": ["Special Move art"]
+    },
+    "unique_gauge":{
+      "type": "Release Type",
+      "starts_with": "100% charge",
+      "while_active":[
+        "Damage +70% (uncancellabe)",
+        "Draw Speed +1(uncancellable)",
+        "Health Restoration +20% (uncancellable)",
+        "Sub counts on switch -1 (uncancellable)",
+        "Ally tag Daima or Saiyan damage +20% (uncancellable)"
+      ]
+    },
+    "z_ability":{
+      "one":{
+        "condition": "If DAIMA",
+        "effect": [
+          "Base Strike Attack +22%",
+          "Base Blast Attack +22%"
+        ]
+      },
+      "two":{
+        "condition":"If DAIMA or Saiyan or Son Family",
+        "effect":[
+          "Base Strike Attack +26%",
+          "Base Blast Attack +26%"
+        ]
+      },
+      "three":{
+        "condition": "If DAIMA or Saiyan or Son Family",
+        "effect":[
+          "Base Strike Attack +30%",
+          "Base Blast Attack +30%"
+        ],
+        "condition_2": "If DAIMA",
+        "effect_2": "Base Blast Defense +15%"
+      },
+      "four":{
+        "condition": "If DAIMA or Saiyan or Son Family",
+        "effect":[
+          "Base Strike Attack +38%",
+          "Base Blast Attack +38%"
+        ],
+        "condition_2": "If DAIMA",
+        "effect_2": "Base Blast Defense +18%"
+      }
+    },
+    "held_arts_cards":{
+     "strike_high_area":"Strike damage +50% on unse (2 counts)",
+     "blast": "No additional effects",
+     "strike_arts_card":{
+        "name": "Strike (Impact)",
+        "effect": "On hit, all Arts costs -2 (10 counts). *Blast Armor when charging forward"
+      },
+      "blast_arts_card":{
+        "name": "Blast (Impact)",
+        "effect": "On activation, health +3%"
+       },
+       "extra_arts_card":{
+          "name": "Burst Charge",
+          "effect": "Draw 1 card. Health +10%. Ki +50. Nullify Element disdvantages(5 counts). Ally sub counts -2. Also, if Unique Gauge is 1% or mode: Unique gauge +20%"
+       }
+    },
+    "base_stats": {
+      "power": 10505,
+      "health": 24044,
+      "strike_atk": 2756,
+      "strike_def": 1735,
+      "blast_atk": 2511,
+      "blast_def": 1710
+    },
+    "max_stats": {
+      "power": 925203,
+      "health": 2427952,
+      "strike_atk": 278321,
+      "strike_def": 175237,
+      "blast_atk": 253538,
+      "blast_def": 172646
+    },
+    "strike": "Strike (Impact)",
+    "shot": "Blast (Impact)",
+    "image_url": "/assets/imgs/Characters/BChaCut_0722_GokuKidDMSS3_722.webp",
+    "is_lf": false,
+    "is_tag": false,
+    "has_zenkai": false    
   },
   {
     "name": "Legendary Super Saiyan Broly",

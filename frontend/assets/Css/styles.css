@@ -134,6 +134,34 @@ body {
     min-height: 128px;
 }
 
+.character-type-badge {
+    position: absolute;
+    top: -8px;
+    right: 14rem;
+    z-index: 4;
+    pointer-events: none;
+}
+
+.character-type-icon {
+    width: 60px;
+    height: 34px;
+    display: block;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.45));
+}
+
+.character-type-icon-fallback {
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .character-media {
     position: relative;
     min-height: 128px;
@@ -419,6 +447,12 @@ body {
 .team-slot.filled {
     border-color: rgba(255, 255, 255, 0.12);
     background: rgba(255, 255, 255, 0.04);
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+    aspect-ratio: auto;
+    min-height: 235px;
 }
 
 .team-slot.filled:hover {
@@ -431,6 +465,58 @@ body {
     border-radius: 0;
     object-fit: cover;
     background: rgba(255, 255, 255, 0.05);
+}
+
+.team-slot-portrait {
+    position: relative;
+    width: 100%;
+    min-height: 155px;
+    flex: 1;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.team-equipment-row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.team-equipment-slot {
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-equipment-slot.empty {
+    background: rgba(255, 255, 255, 0.06);
+    border-style: dashed;
+}
+
+.team-equipment-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.team-equipment-fallback {
+    background: linear-gradient(135deg, rgba(125, 211, 252, 0.22), rgba(59, 130, 246, 0.28));
+    color: #e0f2fe;
+    font-weight: 900;
+    font-size: 0.95rem;
+}
+
+.team-equipment-placeholder {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.35rem;
+    font-weight: 900;
+    line-height: 1;
 }
 
 .slot-remove {
@@ -598,6 +684,14 @@ body {
     .team-slot {
         aspect-ratio: 1 / 1;
     }
+
+    .team-slot.filled {
+        min-height: 210px;
+    }
+
+    .team-slot-portrait {
+        min-height: 138px;
+    }
 }
 
 @media (max-width: 600px) {
@@ -607,6 +701,10 @@ body {
 
     .team-panel {
         min-height: auto;
+    }
+
+    .team-slot.filled {
+        min-height: 198px;
     }
 }
 
@@ -671,4 +769,372 @@ body {
     font-size: 1.2rem;
     font-weight: 800;
     color: #DCC50B;
+}
+
+/*  
+    ESTILOS PARA EL MODAL Y EQUIPAMIENTOS
+*/
+
+/* ========== MODAL DE EQUIPAMIENTOS ========== */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal {
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: 20px;
+    width: min(800px, 95vw);
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 28px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    animation: slideUp 0.3s ease;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-character-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.modal-character-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 14px;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.modal-character-name {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+
+.modal-character-meta {
+    margin: 4px 0 0;
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+.modal-close {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text);
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+    background: rgba(248, 113, 113, 0.2);
+    border-color: rgba(248, 113, 113, 0.5);
+}
+
+/* Slots de equipamientos en el modal */
+.equipment-slots {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 24px;
+}
+
+.equipment-slot {
+    position: relative;
+    border: 2px dashed rgba(255, 255, 255, 0.15);
+    border-radius: 14px;
+    min-height: 140px;
+    display: flex;
+    padding: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.equipment-slot:hover {
+    border-color: var(--accent);
+    background: rgba(125, 211, 252, 0.05);
+}
+
+.equipment-slot.filled {
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.equipment-slot.filled:hover {
+    border-color: #f87171;
+    background: rgba(248, 113, 113, 0.08);
+}
+
+.slot-label {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: #0f172a;
+    padding: 4px 14px;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.equipment-slot.filled .slot-label {
+    background: #22c55e;
+}
+
+.equipment-empty-text {
+    color: var(--muted);
+    font-size: 0.85rem;
+    text-align: center;
+    opacity: 0.6;
+}
+
+.equipment-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    width: 100%;
+    padding-top: 18px;
+    text-align: left;
+}
+
+.equipment-img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+.equipment-fallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(125, 211, 252, 0.18), rgba(59, 130, 246, 0.24));
+    color: #e0f2fe;
+    font-size: 1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    flex-shrink: 0;
+}
+
+.equipment-name {
+    margin: 0;
+    font-size: 0.90rem;
+    font-weight: 700;
+    text-align: left;
+    line-height: 1.2;
+}
+
+.equipment-type {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-align: left;
+}
+
+.equipment-remove {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(248, 113, 113, 0.8);
+    color: white;
+    font-size: 0.7rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: background 0.2s ease, transform 0.2s ease;
+    z-index: 3;
+}
+
+.equipment-slot.filled:hover .equipment-remove {
+    transform: scale(1.05);
+}
+
+/* Lista de equipamientos disponibles */
+.equipment-list {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 22px;
+}
+
+.equipment-list-title {
+    margin: 0 0 16px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.equipment-list-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 12px;
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+.equipment-list-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 22px;
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.025));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    overflow: hidden;
+}
+
+.equipment-list-item:hover {
+    border-color: var(--accent);
+    background: linear-gradient(180deg, rgba(125, 211, 252, 0.12), rgba(255, 255, 255, 0.03));
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+}
+
+.equipment-list-item.selected {
+    border-color: #22c55e;
+    background: linear-gradient(180deg, rgba(34, 197, 94, 0.16), rgba(34, 197, 94, 0.07));
+    box-shadow: 0 10px 24px rgba(34, 197, 94, 0.08);
+}
+
+.equipment-list-img {
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+    border-radius: 16px;
+    flex-shrink: 0;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.24);
+}
+
+.equipment-list-img.equipment-fallback {
+    background: linear-gradient(135deg, rgba(125, 211, 252, 0.2), rgba(59, 130, 246, 0.28));
+}
+
+.equipment-list-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.equipment-list-name {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.equipment-list-effect {
+    margin: 4px 0 0;
+    font-size: 0.75rem;
+    color: var(--muted);
+    line-height: 1.35;
+}
+
+/* Scrollbar para la lista */
+.equipment-list-grid::-webkit-scrollbar {
+    width: 6px;
+}
+
+.equipment-list-grid::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+}
+
+.equipment-list-grid::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+/* Indicador de equipamientos en los slots del equipo */
+.slot-equipment-indicators {
+    display: flex;
+    gap: 4px;
+    margin-top: 6px;
+}
+
+.slot-equipment-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.slot-equipment-dot.equipped {
+    background: #22c55e;
+    box-shadow: 0 0 6px rgba(34, 197, 94, 0.5);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { 
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Responsive del modal */
+@media (max-width: 768px) {
+    .equipment-slots {
+        grid-template-columns: 1fr;
+    }
+    
+    .equipment-list-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal {
+        padding: 20px;
+    }
 }

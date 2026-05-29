@@ -1,0 +1,46 @@
+[
+    {
+        "name":"This is fusion!",
+        "id": "EQP_01",
+        "tag": [
+            "Fusion"
+        ],
+        "rarity": "Unique",
+        "Slots":{
+            "slot_1": "Special Move Damage 5 ~ 10%. Health Restoration 5 -10%",
+            "slot_2": "Base Strike Defense 10 ~ 28%",
+            "slot_3": "Base Strike Attack 15 ~ 38%"
+        },
+        "image_url": "/assets/imgs/Equipment/eq001.wep"
+    },
+    {
+        "name": "I am they; we are one! Unfortunately for you, Omega...",
+        "id": "EQP_02",
+        "tag":[
+            "Fusion Warrior",
+            "PUR"
+        ],
+        "rarity": "Unique",
+        "Slots":{
+            "slot_1": "Base Blast Defense 12 ~ 30%",
+            "slot_2": "Special Move Damage 5 ~ 10%. Ultimate Damage 5 ~ 10%",
+            "slot_3": "Base Strike Attack 15 ~ 35%"
+        },
+        "image_url": "/assets/imgs/Equipment/eq002.wep"
+    },
+    {
+        "name":"Confident Smile",
+        "id": "EQP_03",
+        "tag":[
+            "Sagas From the Movies",
+            "Saiyan"
+        ],
+        "rarity": "Gold",
+        "Slots":{
+            "slot_1": "Base Blast Defense 5 ~ 13%",
+            "slot_2": "Special Move Damage 5 ~ 12%",
+            "slot_3": "Base Strike Attack 10 ~ 25%"
+        },
+        "image_url": "/assets/imgs/Equipment/eq003.wep"
+    }
+]

@@ -11,6 +11,7 @@ const teamNameInput = document.getElementById("teamNameInput")
 const saveTeamBtn = document.getElementById("saveTeamBtn")
 const clearTeamBtn = document.getElementById("clearTeamBtn")
 const teamPower = document.getElementById("teamPower")
+const equipmentModal = new EquipmentModal()
 
 if (clearTeamBtn) {
     clearTeamBtn.addEventListener("click", clearTeam)
@@ -50,6 +51,15 @@ const RARITY_IMAGE_MAP = {
 
 const LF_PLATE_IMAGE = './assets/imgs/CharaInfo_icnLimitedPlate.webp'
 
+const TYPE_COLOR_ICON_MAP = {
+    RED: './assets/imgs/TypeColor/Cmn_icnAttributeRED1.webp',
+    BLU: './assets/imgs/TypeColor/Cmn_icnAttributeBLU1.webp',
+    YEL: './assets/imgs/TypeColor/Cmn_icnAttributeYEL1.webp',
+    PUR: './assets/imgs/TypeColor/Cmn_icnAttributePUR1.webp',
+    GRN: './assets/imgs/TypeColor/Cmn_icnAttributeGRN1.webp',
+    LGT: './assets/imgs/TypeColor/Cmn_icnAttributeLGT1.webp'
+}
+
 // === TEAM BUILDER FUNCIONES ===
 
 //Agregar personaje al equipo
@@ -69,6 +79,55 @@ function addToTeam(character) {
     currentTeam.push(character)
     renderTeamSlots()
     updateButtons()
+}
+
+async function openEquipmentModal(teamIndex) {
+    const character = currentTeam[teamIndex]
+
+    if (!character) {
+        return
+    }
+
+    await equipmentModal.open(character, teamIndex)
+}
+
+function getEquipmentImageUrl(equipment) {
+    const rawUrl = (equipment?.image_url || '').toString().trim()
+
+    if (!rawUrl) {
+        return null
+    }
+
+    return rawUrl
+        .replace('/assets/imgs/equipments/', '/assets/imgs/Equipment/')
+        .replace(/\.wep$/i, '.webp')
+}
+
+function renderTeamEquipmentSlots(character) {
+    const equipments = Array.isArray(character?.equipments) ? character.equipments : []
+
+    return Array.from({ length: 3 }, (_, index) => {
+        const equipment = equipments[index]
+
+        if (!equipment) {
+            return `
+                <div class="team-equipment-slot empty">
+                    <span class="team-equipment-placeholder">+</span>
+                </div>
+            `
+        }
+
+        const imageUrl = getEquipmentImageUrl(equipment)
+        const fallbackLabel = (equipment.name || '?').trim().charAt(0).toUpperCase()
+
+        return `
+            <div class="team-equipment-slot filled">
+                ${imageUrl
+                    ? `<img class="team-equipment-image" src="${imageUrl}" alt="${equipment.name}">`
+                    : `<div class="team-equipment-image team-equipment-fallback" aria-hidden="true">${fallbackLabel}</div>`}
+            </div>
+        `
+    }).join('')
 }
 
 //Eliminar personaje del equipo
@@ -98,17 +157,20 @@ function renderTeamSlots() {
 
         if (character) {
             //Slot ocupado
-            const colorHex = COLOR_MAP[character.color?.toUpperCase()] || "#666"
-
             html += `
-                <div class="team-slot filled team-slot-tile" style="background: ${colorHex}">
-                    <img class="slot-image" 
-                         src="${character.image_url}" 
-                         alt="${character.name}"
-                         loading="lazy"
-                         onerror="this.src='./assets/imgs/placeholder.webp'">
+                <div class="team-slot filled team-slot-tile" onclick="openEquipmentModal(${i})" onkeydown="if(event.key==='Enter' || event.key===' '){openEquipmentModal(${i})}" tabindex="0" role="button" aria-label="Abrir equipamientos de ${character.name}">
+                    <div class="team-slot-portrait">
+                        <img class="slot-image" 
+                             src="${character.image_url}" 
+                             alt="${character.name}"
+                             loading="lazy"
+                             onerror="this.src='./assets/imgs/placeholder.webp'">
+                    </div>
+                    <div class="team-equipment-row" aria-label="Equipamientos de ${character.name}">
+                        ${renderTeamEquipmentSlots(character)}
+                    </div>
                     <button class="slot-remove slot-remove-overlay" 
-                            onclick="removeFromTeam(${i})" 
+                            onclick="event.stopPropagation(); removeFromTeam(${i})" 
                             title="Eliminar del equipo">
                         ✕
                     </button>
@@ -177,6 +239,11 @@ function getRarityClass(rarity) {
     return RARITY_CLASS_MAP[normalizedRarity] || "rarity-default"
 }
 
+function getTypeColorIcon(color) {
+    const normalizedColor = (color || "").toString().trim().toUpperCase()
+    return TYPE_COLOR_ICON_MAP[normalizedColor] || null
+}
+
 function buildCard(character) {
     const colorBg = getColorBackground(character.color)
     const rarityLabel = character.rarity ?? "N/D"
@@ -188,6 +255,10 @@ function buildCard(character) {
         ? `<img class="rarity-img" src="${rarityImg}" alt="${rarityKey}">`
         : `<span class="rarity-badge ${rarityClass}">${rarityLabel}</span>`
     const lfCardClass = character.is_lf ? " lf-card" : ""
+    const typeColorIcon = getTypeColorIcon(character.color)
+    const typeColorHtml = typeColorIcon
+        ? `<img class="character-type-icon" src="${typeColorIcon}" alt="${character.color || 'Attribute'}">`
+        : `<span class="character-type-icon character-type-icon-fallback">${character.color || ''}</span>`
     const lfPlateHtml = character.is_lf
         ? `
             <div class="lf-plate-wrap" aria-hidden="true">
@@ -200,6 +271,9 @@ function buildCard(character) {
 
     return `
         <article class="character-card${lfCardClass}" style="--card-accent: ${colorBg}">
+            <div class="character-type-badge" aria-hidden="true">
+                ${typeColorHtml}
+            </div>
             <div class="character-media" style="background: ${colorBg};">
                 <img src="${character.image_url}" alt="${character.name}" loading="lazy">
             </div>
@@ -210,7 +284,6 @@ function buildCard(character) {
                     <span class="character-id">${character.id ?? "Sin ID"}</span>
                 </div>
                 <div class="meta-row">
-                    <span class="color-pill">${colorLabel}</span>
                     ${rarityHtml}
                 </div>
                 <button class="btn-add-team" onclick='addToTeam(${JSON.stringify(character).replace(/'/g, "&#39;")})'>

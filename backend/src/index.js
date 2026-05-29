@@ -2,6 +2,7 @@ const express = require("express")
 const cors = require("cors")
 const path = require("path")
 const characters = require("../data/characters.json")
+const equipments = require("../data/equipment.json")
 
 const app = express()
 const port = process.env.PORT || 4000
@@ -38,7 +39,7 @@ app.use('/static', express.static(path.join(__dirname, 'assests')));
 
 
 
-
+//Obtener personajes
 app.get("/", (req, res) => {
 	res.json({
 		message: "API de Dragon Ball lista para consultar personajes.",
@@ -74,6 +75,28 @@ app.get("/characters/:id", (req, res) => {
 
 	res.json(character)
 })
+
+//Obtener equipamiento
+app.get("/equipment", (req, res) => {
+	const name = req.query.name
+
+	if (name) {
+		const filtered = equipments.filter((equipment) =>
+			equipment.name.toLowerCase().includes(String(name).toLowerCase())
+		)
+
+		return res.json(filtered)
+	}
+
+	res.json(equipments)
+})
+
+
+
+
+
+
+
 
 app.listen(port, () => {
 	console.log(`API escuchando en http://localhost:${port}`)
