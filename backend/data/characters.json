@@ -595,6 +595,175 @@
     "has_zenkai": false    
   },
   {
+    "name":"Fused with Kami Piccolo",
+    "id":"DBL92-03L",
+    "color":"BLU",
+    "rarity":"LEGEND",
+    "tags":[
+      "Super Warrior",
+      "Regeneration",
+      "Merging",
+      "Namekian",
+      "Unknown",
+      "LEGEND", 
+      "Ranged Type",
+      "BLU",
+      "Cell Saga(Z)",
+      "Piccolo",
+      "Special Cover Change (Blast)",
+      "Armored Strike Arts",
+      "Revive Disruption",
+      "Indestructible"
+    ],
+    "main Ability":{
+      "name": "I´ll show you what true power is!!",
+      "effect":[
+        "Draw Ultimate Arts next",
+        "Health +30%",
+        "Ki +50",
+        "Enemy Ki -100",
+        "Enemy Dragon balls -2"
+      ]
+    },
+    "legend_action":{
+      "activation_area": "low Area",
+      "on_activation":[
+        "Destroy 1 card, then draw Ultimate Arts next(1 time)"
+      ],
+      "comboable_into":["Special Move art", "Ultimate art"]
+    },
+    "unique_ability":{
+      "unique_start_abilities":[
+        {
+          "ability_name": "Starter Ability",
+          "ability_effect":[
+            "Damage +350%",
+            "Damage Guard +280%",
+            "Ki Recovery +50%",
+            "Draw Speed +1",
+            "Health Restoration +15%",
+            "Revive Disruption: revival health -60%" 
+          ]
+        },
+        {
+          "ability_name": [
+            "▼On Battlefield Entry or Area Change: ・Draw 1 card if hand has 3 or fewer. ・Health +15%. ・Ki +30. ・Unique Gauge charge rate for next activated Strike or Blast Arts +200%. ・Nullify damage received Element disadvantage (5 counts)",
+            "▼On Strike/Blast Arts Use: ・Damage +30% (10 counts). ・Nullify Special Cover CHange(5 counts)(1 Time). *Activations reset on switch/Area change",
+            "▼When Health is Reduced to 0 by Enemy Attack (1 Time): ・Activate Indestructible (uncancellable). ・Nullify Attribute Downgrades/Abnormal Conditions (15 counts). ・Cancel Attribute Downgrades/Abnormal Conditions. ・Destroy entire enemy hand. ・Enemy Ki -50",
+            "▼After Indestructible Ends: ・Health +50%"
+          ]
+        }
+      ]
+    },
+    "special_cover_change":{
+      "effective_againts":["Blast art"],
+      "comboable_into":["Special Move art"]
+    },
+    "unique_gauge":{
+      "type":"Attack Type",
+      "when_full":[
+        "Draw up to 2 cards if hand or fewer",
+        "Health +10%",
+        "Ki +50",
+        "Overdrive Gauge +20%",
+        "Damage +40% (20 counts) (uncancellable)",
+        "Nullify Special Cover Changes (5 counts)",
+        "Protect hand (5 counts)",
+        "Cancel Attribute Downgrades/Abnormal Conditions"
+      ],
+      "charges": "Each time a Strike/Blast Arts is used",
+      "consumed": "Entirely, when Unique Gauge is full"
+    },
+    "assault_z_ability":{
+      "assault_z_ability_i":{
+        "applies_to": "Increases the following stats of allies when this character is a battle member",
+        "effects":[
+          "+10% to base Strike Attack.",
+          "+10% to base Blast Attack",
+          "+10% to base Strike Defense",
+          "+10% to base Blast Defense"
+        ]
+      }
+    },
+    "z_ability":{
+      "one":{
+        "condition": "If Regeneration",
+        "effect":[
+          "Base Blast Attack +22%",
+          "Base Strike Defense +22%"
+        ]
+      },
+      "two":{
+        "condition":"If Regeneration or Super Warrior or Cell Saga (Z)",
+        "effect":[
+          "Base Blast Attack +26%",
+          "Base Strike Defense +26%"
+        ]
+      },
+      "three":{
+        "condition": "If Regeneration or Super Warrior or Cell Saga (Z)",
+        "effect":[
+          "Base Blast Attack +30%",
+          "Base Strike Defense +30%"
+        ],
+        "condition_2": "If Regeneration",
+        "effect_2": "Base Blast Defense +15%"
+      },
+      "four":{
+        "condition": "If Regeneration or Super Warrior or Cell Saga (Z)",
+        "effect":[
+          "Base Blast Attack +38%",
+          "Base Strike Defense +38%"
+        ],
+        "condition_2": "If Regeneration",
+        "effect_2": "Base Blast Defense +18%"
+      }
+    },
+    "held_arts_cards":{
+      "strike_arts_card":{
+        "name":"Strike [Ki Recovery UP]",
+        "effect": "Ki Recovery +30% on use (10 counts)"
+      },
+      "blast_arts_card":{
+        "name": "Blast (Anti-Armor)",
+        "effect": "Blast (Impact). Damage against enemy armor +170%"
+      },
+      "extra_arts_card":{
+        "name": "Fighting Spirit Explosion",
+        "effect": [
+          "Draw 1 card",
+          "Health +15%",
+          "Ki +50",
+          "Sub counts on switch -5 (non-stacking)",
+          "Nullify Element disadvantages (5 counts)",
+          "Seal enemy Blast Arts (5 counts)"
+        ]
+      }
+    },
+    "base_stats": {
+      "power": 10505,
+      "health": 26572,
+      "strike_atk": 2620,
+      "strike_def": 1727,
+      "blast_atk": 2756,
+      "blast_def": 1727
+    },
+    "max_stats": {
+      "power": 925203,
+      "health": 2683264,
+      "strike_atk": 264553,
+      "strike_def": 174371,
+      "blast_atk": 278335,
+      "blast_def": 174379
+    },
+    "strike": "Strike (Impact)",
+    "shot": "Blast (Impact)",
+    "image_url": "/assets/imgs/Characters/BChaCut_0719_Piccolo_719.webp",
+    "is_lf": false,
+    "is_tag": false,
+    "has_zenkai": false
+  },
+  {
     "name": "Legendary Super Saiyan Broly",
     "id": "DBL51-03U",
     "color": "PUR",

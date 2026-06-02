@@ -1,9 +1,13 @@
 const API_URL = "http://localhost:4000/characters"
+const API_TEAMS_URL = "http://localhost:4000/api/teams"
 
 //Elementos del DOM
 const grid = document.getElementById("charactersGrid")
 const statusText = document.getElementById("statusText")
 const charactersCount = document.getElementById("charactersCount")
+const characterSearchInput = document.getElementById("characterSearchInput")
+const characterColorFilter = document.getElementById("characterColorFilter")
+const characterRarityFilter = document.getElementById("characterRarityFilter")
 const teamSlots = document.getElementById("teamSlots")
 const teamSlotsCounter = document.getElementById("teamSlotsCounter")
 const teamCounter = document.getElementById("teamCounter")
@@ -15,6 +19,10 @@ const equipmentModal = new EquipmentModal()
 
 if (clearTeamBtn) {
     clearTeamBtn.addEventListener("click", clearTeam)
+}
+
+if (saveTeamBtn) {
+    saveTeamBtn.addEventListener("click", saveTeam)
 }
 
 //Estado del equipo
@@ -60,6 +68,47 @@ const TYPE_COLOR_ICON_MAP = {
     LGT: './assets/imgs/TypeColor/Cmn_icnAttributeLGT1.webp'
 }
 
+let searchDebounceTimer = null
+let currentColorFilter = "ALL"
+let currentRarityFilter = "ALL"
+
+
+if (characterSearchInput) {
+    characterSearchInput.addEventListener("input", () => {
+        window.clearTimeout(searchDebounceTimer)
+
+        searchDebounceTimer = window.setTimeout(() => {
+            loadCharacters(
+                characterSearchInput.value.trim(),
+                currentColorFilter,
+                currentRarityFilter
+            )
+        }, 150)
+    })
+}
+
+if (characterColorFilter) {
+    characterColorFilter.addEventListener("change", () => {
+        currentColorFilter = characterColorFilter.value || "ALL"
+        loadCharacters(
+            characterSearchInput ? characterSearchInput.value.trim() : "",
+            currentColorFilter,
+            currentRarityFilter
+        )
+    })
+}
+
+if (characterRarityFilter) {
+    characterRarityFilter.addEventListener("change", () => {
+        currentRarityFilter = characterRarityFilter.value || "ALL"
+        loadCharacters(
+            characterSearchInput ? characterSearchInput.value.trim() : "",
+            currentColorFilter,
+            currentRarityFilter
+        )
+    })
+}
+
 // === TEAM BUILDER FUNCIONES ===
 
 //Agregar personaje al equipo
@@ -90,6 +139,43 @@ async function openEquipmentModal(teamIndex) {
 
     await equipmentModal.open(character, teamIndex)
 }
+
+function buildCharactersUrl(searchTerm = "") {
+    const normalizedSearchTerm = searchTerm.trim()
+
+    if (!normalizedSearchTerm) {
+        return API_URL
+    }
+
+    return `${API_URL}?name=${encodeURIComponent(normalizedSearchTerm)}`
+}
+
+function applyColorFilter(characters, colorFilter = "ALL") {
+    const normalizedFilter = colorFilter.toString().trim().toUpperCase()
+
+    if (normalizedFilter === "ALL" || !normalizedFilter) {
+        return characters
+    }
+
+    return characters.filter((character) => {
+        const normalizedCharacterColor = (character.color || "").toString().trim().toUpperCase()
+        return normalizedCharacterColor === normalizedFilter
+    })
+}
+
+function applyRarityFilter(characters, rarityFilter = "ALL") {
+    const normalizedFilter = rarityFilter.toString().trim().toUpperCase()
+
+    if (normalizedFilter === "ALL") {
+        return characters
+    }
+
+    return characters.filter((character) => {
+        const normalizedCharacterRarity = (character.rarity || "").toString().trim().toUpperCase()
+        return normalizedCharacterRarity === normalizedFilter
+    })
+}
+
 
 function getEquipmentImageUrl(equipment) {
     const rawUrl = (equipment?.image_url || '').toString().trim()
@@ -123,8 +209,8 @@ function renderTeamEquipmentSlots(character) {
         return `
             <div class="team-equipment-slot filled">
                 ${imageUrl
-                    ? `<img class="team-equipment-image" src="${imageUrl}" alt="${equipment.name}">`
-                    : `<div class="team-equipment-image team-equipment-fallback" aria-hidden="true">${fallbackLabel}</div>`}
+                ? `<img class="team-equipment-image" src="${imageUrl}" alt="${equipment.name}">`
+                : `<div class="team-equipment-image team-equipment-fallback" aria-hidden="true">${fallbackLabel}</div>`}
             </div>
         `
     }).join('')
@@ -215,11 +301,392 @@ function updateTeamPower() {
 }
 
 //Actualizar estado de botones
-function updateButtons(){
+function updateButtons() {
     if (saveTeamBtn) {
         saveTeamBtn.disabled = currentTeam.length === 0
     }
 }
+
+function buildTeamPayload() {
+    const teamName = teamNameInput?.value.trim()
+
+    if (!teamName) {
+        showNotification("⚠️ Por favor, asigna un nombre al equipo", "error")
+        return null
+    }
+
+    return {
+        name: teamName,
+        characters: currentTeam.map((character, index) => ({
+            character_id: String(character.id || character.character_id || index),
+            name: character.name || "Desconocido",
+            color: character.color || "N/D",
+            rarity: character.rarity || "N/D",
+            image_url: character.image_url || "",
+            position: index + 1,
+            power: getCharacterPower(character),
+            health: Number(character?.max_stats?.health || character?.health || 0) || 0,
+            tags: Array.isArray(character.tags) ? character.tags : [],
+            equipments: Array.isArray(character.equipments)
+                ? character.equipments.slice(0, 3).map((equipment, eqIndex) => ({
+                    id: equipment.id || `eq-${index}-${eqIndex}`,
+                    name: equipment.name || "Equipamiento",
+                    type: equipment.type || "",
+                    rarity: equipment.rarity || "",
+                    image_url: equipment.image_url || "",
+                    effects: equipment.effects || {}
+                }))
+                : []
+        }))
+    }
+}
+
+async function saveTeam() {
+    if (!currentTeam.length) {
+        showNotification("⚠️ No hay personajes en el equipo", "error")
+        return
+    }
+
+    const payload = buildTeamPayload()
+    if (!payload) return // Ya se mostró la notificación de error
+
+    if (saveTeamBtn) {
+        saveTeamBtn.disabled = true
+        saveTeamBtn.textContent = "⏳ Guardando..."
+    }
+
+    try {
+        // Si estamos editando un equipo existente
+        if (teamManager.currentTeamId) {
+            const result = await teamManager.updateTeam(teamManager.currentTeamId, payload)
+
+            if (result.success) {
+                showNotification(`✅ ${result.message}`, "success")
+                statusText.textContent = "Equipo actualizado correctamente"
+            } else {
+                showNotification(`❌ ${result.message}`, "error")
+            }
+        } else {
+            // Nuevo equipo
+            const result = await teamManager.saveTeam(payload)
+
+            if (result.success) {
+                showNotification(`✅ ${result.message}`, "success")
+                statusText.textContent = `Equipo "${payload.name}" guardado`
+
+                // Mostrar ID del equipo guardado
+                console.log('Equipo guardado:', result.data)
+
+                // Opcional: limpiar el equipo después de guardar
+                if (confirm("¿Quieres limpiar el equipo actual?")) {
+                    clearTeam()
+                }
+            } else {
+                showNotification(`❌ ${result.message}`, "error")
+            }
+        }
+
+        // Recargar lista de equipos guardados
+        await loadAndRenderSavedTeams()
+
+    } catch (error) {
+        console.error('Error:', error)
+        showNotification("❌ Error inesperado al guardar", "error")
+    } finally {
+        if (saveTeamBtn) {
+            saveTeamBtn.disabled = currentTeam.length === 0
+            saveTeamBtn.textContent = "💾 Guardar Equipo"
+        }
+    }
+}
+
+// Cargar un equipo guardado al builder
+async function loadTeamToBuilder(teamId) {
+    const result = await teamManager.loadTeamById(teamId)
+
+    if (!result.success) {
+        showNotification(`❌ ${result.message}`, "error")
+        return
+    }
+
+    const team = result.data
+
+    // Convertir personajes del equipo al formato del builder
+    currentTeam = team.characters.map(char => ({
+        id: char.character_id,
+        name: char.name,
+        color: char.color,
+        rarity: char.rarity,
+        image_url: char.image_url,
+        power: char.power || 0,
+        health: char.health || 0,
+        tags: char.tags || [],
+        equipments: char.equipments || [],
+        max_stats: {
+            power: char.power || 0,
+            health: char.health || 0
+        }
+    }))
+
+    // Actualizar UI
+    if (teamNameInput) {
+        teamNameInput.value = team.name || ""
+    }
+
+    teamManager.currentTeamId = team._id
+    renderTeamSlots()
+    updateButtons()
+
+    // Cambiar texto del botón
+    if (saveTeamBtn) {
+        saveTeamBtn.textContent = "📝 Actualizar Equipo"
+    }
+
+    showNotification(`✅ Equipo "${team.name}" cargado`, "success")
+    statusText.textContent = `Editando: ${team.name}`
+}
+
+// Eliminar un equipo guardado
+async function deleteSavedTeam(teamId, teamName) {
+    if (!confirm(`¿Estás seguro de eliminar el equipo "${teamName}"?`)) return
+
+    const result = await teamManager.deleteTeam(teamId)
+
+    if (result.success) {
+        showNotification(`🗑️ ${result.message}`, "info")
+
+        // Si estamos editando este equipo, limpiar el builder
+        if (teamManager.currentTeamId === teamId) {
+            clearTeam()
+            teamManager.currentTeamId = null
+            if (saveTeamBtn) {
+                saveTeamBtn.textContent = "💾 Guardar Equipo"
+            }
+            statusText.textContent = "Personajes cargados"
+        }
+
+        await loadAndRenderSavedTeams()
+    } else {
+        showNotification(`❌ ${result.message}`, "error")
+    }
+}
+
+// Cargar y renderizar equipos guardados
+async function loadAndRenderSavedTeams() {
+    const container = document.getElementById("savedTeamsList")
+    if (!container) return
+
+    container.innerHTML = '<p class="loading-text">Cargando equipos...</p>'
+
+    const result = await teamManager.loadSavedTeams()
+
+    if (!result.success) {
+        container.innerHTML = `<p class="empty-state">Error al cargar equipos: ${result.message}</p>`
+        return
+    }
+
+    renderSavedTeams(result.data)
+}
+
+// Renderizar lista de equipos guardados
+function renderSavedTeams(teams) {
+    const container = document.getElementById("savedTeamsList")
+    if (!container) return
+
+    if (!teams || teams.length === 0) {
+        container.innerHTML = `
+            <div class="empty-state">
+                <p>📭 No hay equipos guardados aún</p>
+                <p style="font-size: 0.85rem;">Crea tu primer equipo y guárdalo aquí</p>
+            </div>
+        `
+        return
+    }
+
+    container.innerHTML = teams.map(team => {
+        const date = new Date(team.createdAt).toLocaleDateString('es-ES', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        })
+
+        const characterNames = team.characters
+            .slice(0, 3)
+            .map(c => c.name)
+            .join(', ')
+
+        const moreCount = team.characters.length > 3
+            ? ` +${team.characters.length - 3} más`
+            : ''
+
+        return `
+            <div class="saved-team-card ${teamManager.currentTeamId === team._id ? 'active' : ''}">
+                <div class="saved-team-header">
+                    <h4>${escapeHtml(team.name)}</h4>
+                    <span class="saved-team-date">${date}</span>
+                </div>
+                <div class="saved-team-characters">
+                    ${characterNames}${moreCount}
+                </div>
+                <div class="saved-team-info">
+                    <span class="team-stat">
+                        <span class="stats-label">Personajes:</span> 
+                        <span class="stats-value">${team.characters.length}/6</span>
+                    </span>
+                    <span class="team-stat">
+                        <span class="stats-label">Power:</span> 
+                        <span class="stats-value">${team.stats?.totalPower?.toLocaleString() || 'N/A'}</span>
+                    </span>
+                </div>
+                <div class="saved-team-actions">
+                    <button onclick="loadTeamToBuilder('${team._id}')" class="btn-small btn-load">
+                        📂 Cargar
+                    </button>
+                    <button onclick="deleteSavedTeam('${team._id}', '${escapeHtml(team.name)}')" class="btn-small btn-delete">
+                        🗑️ Eliminar
+                    </button>
+                </div>
+            </div>
+        `
+    }).join('')
+}
+
+// Sistema de notificaciones mejorado
+function showNotification(message, type = "info") {
+    // Eliminar notificación anterior si existe
+    const existingNotification = document.querySelector('.notification-toast')
+    if (existingNotification) {
+        existingNotification.remove()
+    }
+
+    const notification = document.createElement("div")
+    notification.className = `notification-toast notification-${type}`
+
+    const icons = {
+        success: '✅',
+        error: '❌',
+        info: 'ℹ️',
+        warning: '⚠️'
+    }
+
+    notification.innerHTML = `
+        <span class="notification-icon">${icons[type] || ''}</span>
+        <span class="notification-message">${message}</span>
+    `
+
+    // Agregar estilos si no existen
+    if (!document.getElementById('notification-toast-styles')) {
+        const style = document.createElement('style')
+        style.id = 'notification-toast-styles'
+        style.textContent = `
+            .notification-toast {
+                position: fixed;
+                bottom: 24px;
+                right: 24px;
+                padding: 14px 20px;
+                border-radius: 12px;
+                font-weight: 600;
+                font-size: 0.9rem;
+                z-index: 9999;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                min-width: 280px;
+                max-width: 420px;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+                animation: slideInRight 0.3s ease;
+                backdrop-filter: blur(10px);
+            }
+            .notification-success {
+                background: rgba(34, 197, 94, 0.95);
+                color: #fff;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            }
+            .notification-error {
+                background: rgba(239, 68, 68, 0.95);
+                color: #fff;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            }
+            .notification-info {
+                background: rgba(59, 130, 246, 0.95);
+                color: #fff;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            }
+            .notification-warning {
+                background: rgba(234, 179, 8, 0.95);
+                color: #000;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            }
+            .notification-icon {
+                font-size: 1.2rem;
+                flex-shrink: 0;
+            }
+            .notification-message {
+                flex: 1;
+                line-height: 1.4;
+            }
+            @keyframes slideInRight {
+                from {
+                    transform: translateX(120%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            @keyframes slideOutRight {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(120%);
+                    opacity: 0;
+                }
+            }
+        `
+        document.head.appendChild(style)
+    }
+
+    document.body.appendChild(notification)
+
+    // Auto-eliminar después de 3.5 segundos
+    setTimeout(() => {
+        notification.style.animation = 'slideOutRight 0.3s ease forwards'
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.remove()
+            }
+        }, 300)
+    }, 3500)
+
+    // Cerrar al hacer click
+    notification.addEventListener('click', () => {
+        notification.style.animation = 'slideOutRight 0.3s ease forwards'
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.remove()
+            }
+        }, 300)
+    })
+}
+
+// Inicializar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', () => {
+    loadAndRenderSavedTeams()
+    renderTeamSlots()
+})
+
+
+
+
+
+
+
+
 
 // === FUNCIONES DE RENDERIZACION DE CARDS ===
 
@@ -304,14 +771,13 @@ function renderCharacters(characters) {
     }
 
     grid.innerHTML = characters.map(buildCard).join("")
-    charactersCount.textContent = `${characters.length} personaje${characters.length === 1 ? "" : "s"}`
 }
 
-async function loadCharacters() {
+async function loadCharacters(searchTerm = "", colorFilter = "ALL", rarityFilter = "ALL") {
     try {
         statusText.textContent = "Cargando personajes..."
 
-        const response = await fetch(API_URL)
+        const response = await fetch(buildCharactersUrl(searchTerm))
 
         if (!response.ok) {
             throw new Error(`Error al consultar la API: ${response.status}`)
@@ -320,7 +786,9 @@ async function loadCharacters() {
         const characters = await response.json()
 
         try {
-            renderCharacters(characters)
+            const colorFilteredCharacters = applyColorFilter(characters, colorFilter)
+            const filteredCharacters = applyRarityFilter(colorFilteredCharacters, rarityFilter)
+            renderCharacters(filteredCharacters)
         } catch (renderError) {
             console.error(renderError)
             grid.innerHTML = `
@@ -329,11 +797,30 @@ async function loadCharacters() {
                 </div>
             `
             statusText.textContent = "Error al renderizar personajes"
-            charactersCount.textContent = "0 personajes"
             return
         }
 
-        statusText.textContent = "Personajes cargados correctamente"
+        const hasSearch = Boolean(searchTerm)
+        const hasColorFilter = colorFilter !== "ALL"
+        const hasRarityFilter = rarityFilter !== "ALL"
+
+        if (hasSearch && hasColorFilter && hasRarityFilter) {
+            statusText.textContent = `Resultados para "${searchTerm}", color ${colorFilter} y rareza ${rarityFilter}`
+        } else if (hasSearch && hasColorFilter) {
+            statusText.textContent = `Resultados para "${searchTerm}" y color ${colorFilter}`
+        } else if (hasSearch && hasRarityFilter) {
+            statusText.textContent = `Resultados para "${searchTerm}" y rareza ${rarityFilter}`
+        } else if (hasSearch) {
+            statusText.textContent = `Resultados para "${searchTerm}"`
+        } else if (hasColorFilter && hasRarityFilter) {
+            statusText.textContent = `Filtrando por color ${colorFilter} y rareza ${rarityFilter}`
+        } else if (hasColorFilter) {
+            statusText.textContent = `Filtrando por color ${colorFilter}`
+        } else if (hasRarityFilter) {
+            statusText.textContent = `Filtrando por rareza ${rarityFilter}`
+        } else {
+            statusText.textContent = "Personajes cargados"
+        }
     } catch (error) {
         console.error(error)
         grid.innerHTML = `
@@ -342,7 +829,6 @@ async function loadCharacters() {
             </div>
         `
         statusText.textContent = "Error al cargar personajes"
-        charactersCount.textContent = "0 personajes"
     }
 }
 

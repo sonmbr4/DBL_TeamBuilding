@@ -27,7 +27,7 @@ body {
 }
 
 .page-shell {
-    width: min(1100px, calc(100% - 24px));
+    width: min(1300px, calc(100% - 24px));
     margin: 0 auto;
     padding: 20px 0 32px;
 }
@@ -96,6 +96,65 @@ body {
     gap: 10px;
 }
 
+.toolbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.character-search-input {
+    width: min(320px, 42vw);
+    min-width: 180px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text);
+    padding: 10px 14px;
+    font: inherit;
+    outline: none;
+    transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.character-search-input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.character-search-input:focus {
+    border-color: var(--accent);
+    background: rgba(125, 211, 252, 0.08);
+    box-shadow: 0 0 0 3px rgba(125, 211, 252, 0.12);
+}
+
+.character-color-select {
+    width: min(180px, 28vw);
+    min-width: 150px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text);
+    padding: 10px 14px;
+    font: inherit;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.character-color-select:focus {
+    border-color: var(--accent);
+    background: rgba(125, 211, 252, 0.08);
+    box-shadow: 0 0 0 3px rgba(125, 211, 252, 0.12);
+}
+
+/* Estilos para las opciones del select */
+.character-color-select option {
+    background: #1a1a2e;
+    color: var(--text);
+    padding: 8px;
+}
+
+
 .toolbar-label {
     margin: 0 0 4px;
     color: var(--muted);
@@ -137,7 +196,7 @@ body {
 .character-type-badge {
     position: absolute;
     top: -8px;
-    right: 14rem;
+    right: 19rem;
     z-index: 4;
     pointer-events: none;
 }
@@ -359,6 +418,19 @@ body {
     .toolbar {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .toolbar-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .character-search-input {
+        width: 100%;
+    }
+
+    .character-color-select {
+        width: 100%;
     }
 }
 
