@@ -1,4 +1,4 @@
-const TEAM_API_URL = "http://localhost:4000/api/teams"
+const TEAM_API_URL = "/api/teams";
 
 const TEAM_LEADER_COLOR_MAP = {
     RED: "#C7201E",
@@ -320,7 +320,8 @@ window.deleteTeamById = async (id) => {
 */
 
 window.openTeamDetail = (teamId) => {
-    window.location.href = `./teamDetail.html?id=${teamId}`
+    const cleanId = String(teamId).trim();
+    window.location.href = `/equipo/${cleanId}`;
 }
 
 // Inicializar al cargar la página

@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express")
 const cors = require("cors")
 const path = require("path")
@@ -11,46 +12,45 @@ const port = process.env.PORT || 4000
 
 connectDB();
 
-/*const characters = [
-	{
-		id: 1,
-		name: "Goku",
-		race: "Saiyan",
-		role: "Protagonista",
-		powerLevel: "Muy alto",
-	},
-	{
-		id: 2,
-		name: "Vegeta",
-		race: "Saiyan",
-		role: "Principe Saiyan",
-		powerLevel: "Muy alto",
-	},
-	{
-		id: 3,
-		name: "Gohan",
-		race: "Saiyan-Humano",
-		role: "Hijo de Goku",
-		powerLevel: "Alto",
-	},
-]*/
-
 //Middleware
 app.use(cors())
 app.use(express.json())
+
+//Archivos estaticos desde frontend
 app.use(express.static(path.join(__dirname, '../../frontend')));
+
+//Servir assest con ruta /static
 app.use('/static', express.static(path.join(__dirname, '../../frontend/assets')));
+
+//Rutas limpias
+app.get('/', (req, res) => {
+	res.sendFile(path.join(__dirname, '..', '..', 'frontend', 'index.html'))
+});
+
+app.get('/equipos', (req, res) =>{
+	res.sendFile(path.join(__dirname, '..', '..', 'frontend', 'index.html'))
+})
+
+
+app.get('/builder', (req, res) =>{
+	res.sendFile(path.join(__dirname, '..', '..', 'frontend', 'createTeam.html'))
+})
+
+app.get('/equipo/:id', (req, res) => {
+	res.sendFile(path.join(__dirname, '..', '..', 'frontend', 'teamDetail.html'))
+})
+
 
 
 
 //Obtener personajes
-app.get("/", (req, res) => {
+app.get("/api", (req, res) => {
 	res.json({
-		message: "API de Dragon Ball lista para consultar personajes.",
+		message: "API de Dragon Ball legends para consultar personajes.",
 		version: "1.0.0",
 		endpoints: {
-			characters: ["GET /characters", "GET /characters/:id"],
-			equipments: ["GET /equipment"],
+			characters: ["GET /api/characters", "GET /api/characters/:id"],
+			equipments: ["GET /api/equipment"],
 			teams: [
 				"GET /api/teams",
                 "GET /api/teams/:id",
@@ -58,11 +58,18 @@ app.get("/", (req, res) => {
                 "PUT /api/teams/:id",
                 "DELETE /api/teams/:id"
 			],
+			pages:[
+				"GET /",
+				"GET /builder",
+				"GET /equipos/:id"
+			],
 			"health": "GET /health"
-		},
+		}
 	})
 })
 
+
+//Health check
 app.get("/health", (req, res) => {
 	res.json({ 
 		status: "ok",
@@ -71,8 +78,8 @@ app.get("/health", (req, res) => {
 	});
 });
 
-//Rutas de personajes
-app.get("/characters", (req, res) => {
+//API - Rutas de personajes
+app.get("/api/characters", (req, res) => {
 	const name = req.query.name
 
 	if (name) {
@@ -80,13 +87,13 @@ app.get("/characters", (req, res) => {
 			character.name.toLowerCase().includes(String(name).toLowerCase())
 		)
 
-		return res.json(filtered)
+		return res.json(filtered);
 	}
 
-	res.json(characters)
+	res.json(characters);
 })
 
-app.get("/characters/:id", (req, res) => {
+app.get("/api/characters/:id", (req, res) => {
 	const characterId = Number(req.params.id)
 	const character = characters.find((item) => item.id === characterId)
 
@@ -94,11 +101,11 @@ app.get("/characters/:id", (req, res) => {
 		return res.status(404).json({ message: "Personaje no encontrado" })
 	}
 
-	res.json(character)
+	res.json(character);
 })
 
-//Obtener equipamiento
-app.get("/equipment", (req, res) => {
+//API - Equipamiento
+app.get("/api/equipment", (req, res) => {
 	const name = req.query.name
 
 	if (name) {
@@ -112,15 +119,19 @@ app.get("/equipment", (req, res) => {
 	res.json(equipments)
 })
 
-//Rutas de equipos(MongoDB)
+//API - Equipos(MongoDB)
 app.use('/api/teams', require('../routes/teams'));
 
-//Middleware 404
+//404 - Redirigir al index
 app.use((req, res) => {
-	res.status(404).json({
-		error:"Ruta no encontrada",
-		message: `La ruta ${req.originalUrl} no existe en esta API.`
-	});
+    // Si la ruta no es de API, redirigir al index
+    if (!req.path.startsWith('/api/')) {
+        return res.sendFile(path.join(__dirname, '..', 'frontend', 'index.html'));
+    }
+    res.status(404).json({
+        error: "Ruta no encontrada",
+        message: `La ruta ${req.originalUrl} no existe en esta API`
+    });
 });
 
 //Middleware de errores

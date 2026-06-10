@@ -1,5 +1,5 @@
-const API_URL = "http://localhost:4000/characters"
-const API_TEAMS_URL = "http://localhost:4000/api/teams"
+const API_URL = "api/characters"
+const API_TEAMS_URL = "api/teams"
 
 //Elementos del DOM
 const grid = document.getElementById("charactersGrid")

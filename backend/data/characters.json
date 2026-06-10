@@ -1170,6 +1170,96 @@
     "has_zenkai": false
   },
   {
+    "name":"Beast Gohan",
+    "id":"DBL78-05U",
+    "color":"YEL",
+    "rarity":"ULTRA",
+    "tags":[
+      "Son Family",
+      "Hybrid Saiyan",
+      "Male",
+      "ULTRA",
+      "Melee Type",
+      "YEL",
+      "Sagas From the Movies",
+      "Gohan",
+      "Special Cover Change (Strike)",
+      "Armored Strike Arts",
+      "Rising Rush Counter",
+      "Active Gauge"
+    ],
+    "base_stats": {
+      "power": 10419,
+      "health": 24531,
+      "strike_atk": 2673,
+      "strike_def": 1704,
+      "blast_atk": 2662,
+      "blast_def": 1687
+    },
+    "max_stats": {
+      "power": 924088,
+      "health": 2477177,
+      "strike_atk": 269906,
+      "strike_def": 172083,
+      "blast_atk": 268841,
+      "blast_def": 170375
+    },
+    "strike": "Strike (Impact)",
+    "shot": "Blast (Impact)",
+    "image_url": "https://i.imgur.com/7hlhngP.png",
+    "is_lf": false,
+    "is_tag": false,
+    "has_zenkai": false
+  },
+  {
+    "name":"Super Saiyan God SS Vegito",
+    "id":"DBL61-01U",
+    "color":"RED",
+    "rarity":"ULTRA",
+    "tags":[
+      "Saiyan",
+      "Future",
+      "Potara",
+      "Fusion Warrior",
+      "God Ki",
+      "Super Saiyan God SS",
+      "5th",
+      "Male",
+      "ULTRA",
+      "Melee Type",
+      "RED",
+      "\"Future\" Trunks Saga (S)",
+      "Vegito",
+      "DBL61-01U",
+      "Special Cover Change (Strike)",
+      "Armored Strike Arts",
+      "Counter",
+      "Arts Action"
+    ],
+    "base_stats": {
+      "power": 10494,
+      "health": 26077,
+      "strike_atk": 2724,
+      "strike_def": 1685,
+      "blast_atk": 2570,
+      "blast_def": 1719
+    },
+    "max_stats": {
+      "power": 928577,
+      "health": 2633228,
+      "strike_atk": 275079,
+      "strike_def": 170132,
+      "blast_atk": 259546,
+      "blast_def": 173546
+    },
+    "strike": "Strike (Impact)",
+    "shot": "Blast (Impact)",
+    "image_url": "https://i.imgur.com/jca3NbC.png",
+    "is_lf": false,
+    "is_tag": false,
+    "has_zenkai": false
+  },
+  {
     "name": "Legendary Super Saiyan Broly",
     "id": "DBL51-03U",
     "color": "PUR",
@@ -2278,6 +2368,220 @@
       }
     },
     "is_lf": false,
+    "is_tag": false,
+    "has_zenkai": false
+  },
+  {
+    "name":"Kaioken Goku",
+    "id":"DBL84-01S",
+    "color":"RED",
+    "rarity":"SPARKING",
+    "tags":[
+      "Son Family",
+      "Saiyan",
+      "7th",
+      "Male",
+      "Sparking",
+      "Melee Type",
+      "RED",
+      "Saiyan Saga (Z)",
+      "Goku",
+      "Special Cover Change (Blast)",
+      "Armored Strike Arts",
+      "Transform"
+    ],
+    "z_ability":{
+      "one":{
+        "tags":["Saiyan Saga (Z)"],
+        "effect":[
+          "Base Strike Attack +22%",
+          "Base Strike Defense +22%"
+        ]
+      },
+      "two":{
+        "tags":["Saiyan Saga (Z)", "Son Family", "Saiyan"],
+        "effect":[
+          "Base Strike Attack +26%",
+          "Base Strike Defense +26%"
+        ]
+      },
+      "three":{
+        "tags":["Saiyan Saga (Z)", "Son Family", "Saiyan"],
+        "effect":[
+          "Base Strike Attack +30%",
+          "Base Strike Defense +30%"
+        ],
+        "condition_2": "If Saiyan Saga (Z)",
+        "effect_2": "Base Blast Attack +15%"
+      },
+      "four":{
+        "tags":["Saiyan Saga (Z)", "Son Family", "Saiyan"],
+        "effect":[
+          "Base Strike Attack +38%",
+          "Base Strike Defense +38%"
+        ],
+        "condition_2": "If Saiyan Saga (Z)",
+        "effect_2": "Base Blast Attack +18%"
+      }
+    },
+    "base_stats": {
+      "power": 10874,
+      "health": 25786,
+      "strike_atk": 2635,
+      "strike_def": 1746,
+      "blast_atk": 2392,
+      "blast_def": 1720
+    },
+    "max_stats": {
+      "power": 945641,
+      "health": 2603880,
+      "strike_atk": 266070,
+      "strike_def": 176319,
+      "blast_atk": 241496,
+      "blast_def": 173697
+    },
+    "strike":"Strike (Impact)",
+    "shot": "Blast (Impact)",
+    "image_url":"https://i.imgur.com/CsRP5hM.png",
+    "is_lf": true,
+    "is_tag": false,
+    "has_zenkai": false
+
+  },
+  {
+    "name": "Vegito",
+    "id":"DBL77-03S",
+    "color":"GRN",
+    "rarity":"SPARKING",
+    "tags":[
+      "Saiyan",
+      "Future",
+      "Potara",
+      "Fusion Warrior",
+      "Male",
+      "SPARKING",
+      "Ranged Type",
+      "GRN",
+      "\"Future\" Trunks Saga (S)",
+      "Vegito",
+      "Special Cover Change (Strike)",
+      "Armored Strike Arts"
+    ],
+    "base_stats": {
+      "power": 10980,
+      "health": 25814,
+      "strike_atk": 2453,
+      "strike_def": 1714,
+      "blast_atk": 2624,
+      "blast_def": 1748
+    },
+    "max_stats": {
+      "power": 952782,
+      "health": 2606662,
+      "strike_atk": 247666,
+      "strike_def": 173042,
+      "blast_atk": 264937,
+      "blast_def": 176525
+    },
+    "strike":"Strike (Impact)",
+    "shot": "Blast (Impact)",
+    "image_url":"https://i.imgur.com/10spgcX.png",
+    "is_lf": true,
+    "is_tag": false,
+    "has_zenkai": false
+  },
+  {
+    "name":"Vegeta & Goku: Super Vegito",
+    "id":"DBL71-01S",
+    "color":"BLU",
+    "rarity":"SPARKING",
+    "tags":[
+      "Son Family",
+      "Vegeta Clan",
+      "Saiyan",
+      "Super Saiyan",
+      "Otherworld Warrior",
+      "Potara",
+      "Fusion Warrior",
+      "6th",
+      "Male",
+      "SPARKING",
+      "Melee Type",
+      "BLU",
+      "Majin Buu Saga (Z)",
+      "Vegito",
+      "Special Cover Change (Strike)",
+      "Armored Strike Arts",
+      "Revive Disruption",
+      "RR Defeat Nullification"
+    ],
+    "base_stats": {
+      "power": 10954,
+      "health": 2542,
+      "strike_atk": 2542,
+      "strike_def": 1724,
+      "blast_atk": 2529,
+      "blast_def": 1707
+    },
+    "max_stats": {
+      "power": 958352,
+      "health": 2428680,
+      "strike_atk": 256684,
+      "strike_def": 174101,
+      "blast_atk": 255392,
+      "blast_def": 172377
+    },
+    "strike":"Strike (Impact)",
+    "shot": "Blast (Impact)",
+    "image_url":"https://i.imgur.com/hxSJc0L.png",
+    "is_lf": true,
+    "is_tag": false,
+    "has_zenkai": false
+  },
+  {
+    "name":"Super Saiyan God Goku",
+    "id":"DBL72-01S",
+    "color":"GRN",
+    "rarity":"SPARKING",
+    "tags":[
+      "Son Family",
+      "Saiyan",
+      "God Ki",
+      "Super Saiyan God",
+      "6th",
+      "Male",
+      "SPARKING",
+      "Melee Type",
+      "GRN",
+      "Sagas From the Movies",
+      "Goku",
+      "DBL72-01S",
+      "Special Cover Change (Strike)",
+      "Endurance",
+      "Wide-Range Special Arts",
+      "Nullify wide-range Special Arts",
+      "Armored Strike Arts"
+    ],
+    "base_stats": {
+      "power": 10271,
+      "health": 24293,
+      "strike_atk": 2639,
+      "strike_def": 1692,
+      "blast_atk": 2613,
+      "blast_def": 1650
+    },
+    "max_stats": {
+      "power": 915533,
+      "health": 2453081,
+      "strike_atk": 266474,
+      "strike_def": 170859,
+      "blast_atk": 263844,
+      "blast_def": 166666
+    },
+    "strike":"Strike (Impact)",
+    "shot": "Blast (Impact)",
+    "image_url":"https://i.imgur.com/q12CTiQ.png",
+    "is_lf": true,
     "is_tag": false,
     "has_zenkai": false
   },

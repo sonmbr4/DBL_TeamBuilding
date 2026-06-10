@@ -1,15 +1,65 @@
 // teamDetail.js – Renderiza el detalle completo de un equipo
 
-const urlParams = new URLSearchParams(window.location.search);
-const teamId = urlParams.get('id');
+// Agrega esta función al inicio de teamDetail.js
+function fixImageUrl(url) {
+    if (!url) return './assets/imgs/Characters/BChaCut_9800_Shallot_01.webp';
+    
+    // Si ya es una URL absoluta, devolverla
+    if (url.startsWith('http://') || url.startsWith('https://')) {
+        return url;
+    }
+    
+    // Si empieza con ./ o ../ o solo el nombre, convertir a absoluta
+    if (url.startsWith('./')) {
+        return url.replace('./', '/');
+    }
+    
+    // Si empieza con assets/ (sin barra inicial)
+    if (url.startsWith('assets/')) {
+        return '/' + url;
+    }
+    
+    // Si no empieza con /, agregarla
+    if (!url.startsWith('/')) {
+        return '/' + url;
+    }
+    
+    return url;
+}
+
+
+
+
+// ⭐ Obtener ID desde la ruta limpia /equipo/:id
+function getTeamIdFromUrl() {
+    // Opción 1: Extraer de la ruta /equipo/ID
+    const pathParts = window.location.pathname.split('/').filter(part => part !== '');
+    
+    // Buscar el patrón: ["equipo", "ID"]
+    const equipoIndex = pathParts.findIndex(part => part.toLowerCase() === 'equipo');
+    if (equipoIndex !== -1 && pathParts[equipoIndex + 1]) {
+        return pathParts[equipoIndex + 1];
+    }
+    
+    // Opción 2: Fallback a query string ?id=xxx (compatibilidad)
+    const urlParams = new URLSearchParams(window.location.search);
+    const queryId = urlParams.get('id');
+    if (queryId) return queryId;
+    
+    return null;
+}
+
+const teamId = getTeamIdFromUrl();
 
 if (!teamId) {
     document.getElementById('teamDetailSection').innerHTML = `
         <div class="saved-teams-empty">
-            <p>No se especificó un equipo. <a href="./savedTeams.html">Ver equipos guardados</a></p>
+            <p>No se especificó un equipo.</p>
+            <a href="/equipos">Ver equipos guardados</a>
         </div>
     `;
 } else {
+    console.log('ID del equipo:', teamId); // Para debug
     loadAndRenderTeamDetail(teamId);
 }
 
@@ -81,8 +131,8 @@ function renderTeamDetail(team, container) {
         return `
             <div class="detail-character-card">
                 <div class="detail-character-image" style="background-color: ${getColorForCharacter(char)}">
-                    <img src="${char.image_url}" alt="${char.name}" 
-                         onerror="this.src='./assets/imgs/placeholder.webp'">
+                    <img src="${fixImageUrl(char.image_url)}" alt="${char.name}" 
+                         onerror="this.src='./assets/imgs/Characters/BChaCut_9800_Shallot_01.webp'">
                 </div>
                 <div class="detail-character-info">
                     <h3>${char.name}</h3>
@@ -105,9 +155,9 @@ function renderTeamDetail(team, container) {
     const leaderHtml = leader ? `
         <div class="team-detail-leader">
         <div class="leader-image" style="background: linear-gradient(to left, ${leaderColor}, ${leaderColor}dd 40%, transparent 90%);">
-            <img src="${leader.image_url}" 
+            <img src="${fixImageUrl(leader.image_url)}" 
                  alt="${leader.name}"
-                 onerror="this.src='./assets/imgs/placeholder.webp'">
+                 onerror="this.src='./assets/imgs/Characters/BChaCut_9800_Shallot_01.webp'">
         </div>
     </div>
     ` : '';
@@ -116,7 +166,7 @@ function renderTeamDetail(team, container) {
 
     const html = `
         <div class="team-detail">
-            <div class="team-detail-header" style="background-image: url('${leader?.image_url || null}'); --leader-color: ${getColorForCharacter(leader)};">
+            <div class="team-detail-header" style="background-image: url('${fixImageUrl(leader?.image_url) || null}'); --leader-color: ${getColorForCharacter(leader)};">
                 <div class="team-detail-header-left">
                     <h1>${escapeHtml(team.name)}</h1>
                 </div>

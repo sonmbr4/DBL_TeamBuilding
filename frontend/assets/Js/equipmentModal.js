@@ -12,7 +12,7 @@ class EquipmentModal {
     //Cargar equipamientos desde el backend
     async loadEquipments() {
         try {
-            const response = await fetch('http://localhost:4000/equipment');
+            const response = await fetch('api/equipment');
             if (response.ok) {
                 this.allEquipments = await response.json();
             } else {
