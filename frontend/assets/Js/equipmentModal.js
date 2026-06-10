@@ -94,7 +94,7 @@ class EquipmentModal {
             return `<img class="${className}" src="${imageUrl}" alt="${equipment.name}">`;
         }
         return `
-            <div class="${className} equipment-fallback" aria-hidden="true">
+            <div class="${className} equipment-fallback" aria-hidden="true" >
                 <span>${this.getEquipmentFallbackLabel(equipment)}</span>
             </div>
         `;
@@ -140,6 +140,62 @@ class EquipmentModal {
         }
     }
 
+    filterAndRenderEquipments() {
+        if (!this.modal) return;
+
+        const searchInput = this.modal.querySelector('#equipmentSearchInput');
+        const rarityFilter = this.modal.querySelector('#equipmentRarityFilter');
+        const equipmentList = this.modal.querySelector('#equipmentList');
+
+        if (!equipmentList) return;
+
+        const searchTerm = searchInput?.value?.trim().toLowerCase() || '';
+        const rarityValue = rarityFilter?.value || 'ALL';
+
+        let filtered = [...this.allEquipments];
+
+        // Filtrar por búsqueda
+        if (searchTerm) {
+            filtered = filtered.filter(eq =>
+                eq.name.toLowerCase().includes(searchTerm)
+            );
+        }
+
+        // Filtrar por rareza
+        if (rarityValue !== 'ALL') {
+            filtered = filtered.filter(eq =>
+                eq.rarity?.toLowerCase() === rarityValue.toLowerCase()
+            );
+        }
+
+        // Re-renderizar la lista
+        equipmentList.innerHTML = filtered.length === 0
+            ? '<div class="empty-state">No se encontraron equipamientos.</div>'
+            : filtered.map(equipment => {
+                const equipped = this.currentCharacter.equipments.some(
+                    item => item.id === equipment.id
+                );
+                const effectText = this.getEquipmentEffectText(equipment);
+
+                return `
+                <button class="equipment-list-item${equipped ? ' selected' : ''}" 
+                        type="button" 
+                        data-equipment-id="${equipment.id}">
+                    ${this.renderEquipmentVisual(equipment, 'equipment-list-img')}
+                    <div class="equipment-list-info">
+                        <p class="equipment-list-name">${equipment.name}</p>
+                        <p class="equipment-list-effect">${effectText}</p>
+                    </div>
+                </button>
+            `;
+            }).join('');
+    }
+
+
+
+
+
+
     // Renderizar el modal completo
     render() {
         this.close(); //Cerrar modal existente si hay uno
@@ -156,7 +212,8 @@ class EquipmentModal {
                         <img class="modal-character-img" 
                              src="${this.currentCharacter.image_url}" 
                              alt="${this.currentCharacter.name}"
-                             style="border-color: ${colorBg}">
+                             style="border-color: ${colorBg}"
+                             onerror="this.onerror=null;this.src='./assets/imgs/Equipment/eq_PlaceHolder.webp';">
                         <div>
                             <h2 class="modal-character-name">${this.currentCharacter.name}</h2>
                             <p class="modal-character-meta">
@@ -193,6 +250,7 @@ class EquipmentModal {
 
         // event Listeners
         this.attachEvents();
+        this.filterAndRenderEquipments();
     }
 
     renderEquipmentSlots() {
@@ -264,25 +322,35 @@ class EquipmentModal {
         }
 
         const closeButton = this.modal.querySelector('#closeModal');
-        const equipmentItems = this.modal.querySelectorAll('[data-equipment-id]');
-        const removeButtons = this.modal.querySelectorAll('[data-remove-index]');
 
         if (closeButton) {
             closeButton.addEventListener('click', () => this.close());
         }
 
-        equipmentItems.forEach((button) => {
-            button.addEventListener('click', () => {
-                this.equipEquipment(button.dataset.equipmentId);
-            });
-        });
+        // ⭐ Delegación de eventos: escuchar clicks en todo el modal
+        const modalContent = this.modal.querySelector('.modal');
+        if (modalContent) {
+            modalContent.addEventListener('click', (event) => {
+                const target = event.target;
 
-        removeButtons.forEach((button) => {
-            button.addEventListener('click', (event) => {
-                event.stopPropagation();
-                this.removeEquipment(Number(button.dataset.removeIndex));
+                // Click en botón de equipamiento
+                const equipButton = target.closest('[data-equipment-id]');
+                if (equipButton) {
+                    event.preventDefault();
+                    this.equipEquipment(equipButton.dataset.equipmentId);
+                    return;
+                }
+
+                // Click en botón de eliminar equipamiento
+                const removeButton = target.closest('[data-remove-index]');
+                if (removeButton) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    this.removeEquipment(Number(removeButton.dataset.removeIndex));
+                    return;
+                }
             });
-        });
+        }
 
         document.addEventListener('keydown', this.boundHandleKeyDown);
     }

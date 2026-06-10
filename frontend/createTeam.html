@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Frontend sencillo para mostrar cards con personajes de Dragon Ball Legends">
+    <title>DB Legends Team Builder</title>
+    <link rel="stylesheet" href="./assets/Css/styles.css">
+    <link rel="stylesheet" href="./assets/Css/anotherStyle.css">
+</head>
+
+<body>
+    <main class="page-shell">
+        <!--Hero Header-->
+        <section class="hero">
+            <div>
+                <p class="eyebrow">DBL Teams</p>
+                <h1>Crea Tu Equipo</h1>
+                <p class="lead">
+                    Selecciona hasta 6 personajes para formar tu equipo.
+                </p>
+            </div>
+
+            <div class="hero-meta">
+                <span class="meta-pill">Equipo: <strong>0/6</strong></span>
+            </div>
+        </section>
+
+        <!--Contenedor principal-->
+        <div class="main-layout">
+            <!--Lista de personajes-->
+            <section class="characters-section">
+                <div class="toolbar" arial-label="Resumen de personajes">
+                    <div>
+                        <h2 id="statusText"></h2>
+                    </div>
+                    <div class="toolbar-actions">
+                        <input type="search" id="characterSearchInput" class="character-search-input"
+                            placeholder="Buscar por nombre..." aria-label="Buscar personajes por nombre">
+                        <select id="characterColorFilter" class="character-color-select"
+                            aria-label="Filtrar personajes por color">
+                            <option value="ALL">Todos los colores</option>
+                            <option value="RED">RED</option>
+                            <option value="BLU">BLU</option>
+                            <option value="YEL">YEL</option>
+                            <option value="PUR">PUR</option>
+                            <option value="GRN">GRN</option>
+                            <option value="LGT">LGT</option>
+                            <option value="DRK">DRK</option>
+                        </select>
+
+                        <select id="characterRarityFilter" class="character-color-select">
+                            <option value="All">Todas las rarezas</option>
+                            <option value="LEGEND">LEGEND</option>
+                            <option value="ULTRA">ULTRA</option>
+                            <option value="SPARKING">SPARKING</option>
+                            <option value="EXTREME">EXTREME</option>
+                            <option value="HERO">HERO</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="characters-grid" id="charactersGrid" aria-live="polite"></div>
+            </section>
+
+            <!-- columna del team-->
+             
+            <aside class="team-section">
+                <div class="team-panel">
+                    <div class="team-header">
+                        <h2>Tu Equipo</h2>
+                        <span class="team-slots-counter" id="teamSlotsCounter">0 / 6</span>
+                    </div>
+
+                    <!-- Slots del equipo -->
+                    <div class="team-slots" id="teamSlots">
+                        <!-- Se generan dinamicamente -->
+                    </div>
+
+                    <!-- Acciones del equipo -->
+                    <div class="team-actions">
+                        <input type="text" id="teamNameInput" class="team-name-input"
+                            placeholder="Nombre del equipo...">
+
+                        <button id="saveTeamBtn" class="btn-save" disabled>
+                            Guardar Equipo
+                        </button>
+
+                        <button id="clearTeamBtn" class="btn-clear">
+                            Limpiar Equipo
+                        </button>
+
+                        <a href="./index.html" class="btn-small btn-load">Ver equipos guardados</a>
+                    </div>
+                    <div class="team-stats-power">
+                        <p class="stats-label">LP: <span id="teamPower" class="stats-value">0</span> </p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <script src="./assets/Js/equipmentModal.js"></script>
+    <script src="./assets/Js/teamManager.js"></script>
+    <script src="./assets/Js/app.js"></script>
+</body>
+
+</html>

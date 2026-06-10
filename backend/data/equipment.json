@@ -1,46 +1,170 @@
 [
     {
-        "name":"This is fusion!",
+        "name":"Outta the Way! - Awakened",
         "id": "EQP_01",
-        "tag": [
-            "Fusion"
-        ],
         "rarity": "Unique",
+        "tags":[
+            "Beerus",
+            "DBL07-11S"
+        ],
         "Slots":{
-            "slot_1": "Special Move Damage 5 ~ 10%. Health Restoration 5 -10%",
-            "slot_2": "Base Strike Defense 10 ~ 28%",
-            "slot_3": "Base Strike Attack 15 ~ 38%"
+            "slot_1": "Base Strike Attack 15.00 ~ 40.00%. Base Blast Attack 15.00 ~ 35.00%",
+            "slot_2": "Base Strike Defense 5.00 ~ 30.00%. Base Blast Defense 5.00 ~ 30.00%. Base Blast Defense 5.00 ~ 30.00%",
+            "slot_3": "Base Health 5.00 ~ 15.00%. Special Move Damage 15.00 ~ 40.00%. Ultimate Damage 20.00 ~ 40.00%"
         },
-        "image_url": "/assets/imgs/Equipment/eq001.wep"
+        "image_url": "/assets/imgs/Equipment/eq001.wep",
+        "Awakened": true
     },
     {
-        "name": "I am they; we are one! Unfortunately for you, Omega...",
+        "name": "Belive in yourself, Gohan! - Awakened",
         "id": "EQP_02",
-        "tag":[
-            "Fusion Warrior",
-            "PUR"
-        ],
         "rarity": "Unique",
+        "tags":[
+            "Gohan",
+            "DBL10-06S"
+        ],
         "Slots":{
-            "slot_1": "Base Blast Defense 12 ~ 30%",
-            "slot_2": "Special Move Damage 5 ~ 10%. Ultimate Damage 5 ~ 10%",
-            "slot_3": "Base Strike Attack 15 ~ 35%"
+            "slot_1": "Health Restoration 10.00 ~ 15.00%",
+            "slot_2": "8.00 ~ 12.50% to Strike & Blast Defense per 'Tag: Son Family' battle member",
+            "slot_3": "Base Strike Attack 15.00 ~ 25.00%"
         },
-        "image_url": "/assets/imgs/Equipment/eq002.wep"
+        "image_url": "/assets/imgs/Equipment/eq002.wep",
+        "Awakened": true
     },
     {
-        "name":"Confident Smile",
+        "name":"Family Kamehameha - Awakened",
         "id": "EQP_03",
-        "tag":[
-            "Sagas From the Movies",
-            "Saiyan"
+        "rarity": "Unique",
+        "tags":[
+            "Goten",
+            "DBL12-06S"
         ],
-        "rarity": "Gold",
         "Slots":{
-            "slot_1": "Base Blast Defense 5 ~ 13%",
-            "slot_2": "Special Move Damage 5 ~ 12%",
-            "slot_3": "Base Strike Attack 10 ~ 25%"
+            "slot_1": "Special Move Damage 10.00 ~ 21.50%. Utimate Damage 10.00 ~ 21.50%",
+            "slot_2": "5.00 ~ 12.00% to Strike & Blast Defense per 'Tag: Son Family' battle member. Restores own health by 3.00 ~ 5.00% when switched to standby",
+            "slot_3": "5.00 ~ 8.00% to Strike & Blast Attack for each 'Tag: Son Family' battle member when character enters the battlefield."
         },
-        "image_url": "/assets/imgs/Equipment/eq003.wep"
+        "image_url": "/assets/imgs/Equipment/eq003.wep",
+        "Awakened": true
+    },
+    {
+        "name":"You fool! - Awakened",
+        "id": "EQP_04",
+        "rarity": "Unique",
+        "tags":[
+            "Goku",
+            "DBL15-05S"
+        ],
+        "Slots":{
+            "slot_1":"Base Health 6.00 ~ 10.00%. Base Strike Defense 6.00 ~ 10.00%. Base Blast Defense 6.00 ~ 10.00%",
+            "slot_2": "Base Strike Attack 10.00 ~ 25.00%. Base Blast Attack 10.00 ~ 25.00%",
+            "slot_3": "10.00 ~ 15.00% damage to Lineage of Evil. 10.00 ~ 15.00% defense against Lineage of Evil"
+        },
+        "image_url": "/assets/imgs/Equipment/eq004.wep",
+        "Awakened": true
+    },
+    {
+        "name": "Frenzied Power - Awakened",
+        "id": "EQP_05",
+        "rarity": "Unique",
+        "tags":[
+            "Sagas From the Movies",
+            "BLU"
+        ],
+        "Slots":{
+            "slot_1":"Base Strike Defense 12.00 ~ 20.00%",
+            "slot_2": "Base Blast Defense 15.00 ~ 30.00%",
+            "slot_3": "Base Health 5.00 ~ 10.00%. Health Restoration 5.00 ~ 10.00%"
+        },
+        "image_url": "/assets/imgs/Equipment/eq005.wep",
+        "Awakened": true
+    },
+    {
+        "name":"I wanna see teamwork! - Awakened",
+        "id": "EQP_06",
+        "rarity": "Unique",
+        "Slots":{
+            "slot_1":"Base Strike Defense +10.00%. Base Blast Defense +10.00%",
+            "slot_2": "+4.00% to Base Blast Attack per party member using this same Equipment.",
+            "slot_3": "+4.00% to Base Strike Attack per party member using this same Equipment."
+        },
+        "image_url": "/assets/imgs/Equipment/eq006.wep",
+        "Awakened": true
+    },
+    {
+        "name": "Historic Showdown - Awakened",
+        "id": "EQP_07",
+        "rarity": "Unique",
+        "tags":[
+            "Gogeta",
+            "Broly"
+        ],
+        "Slots":{
+            "slot_1":"Base Health 10.00 ~ 10.00%. Special Move Damage 10.00 ~ 10.00%. Ultimate Damage 10.00 ~ 10.00%",
+            "slot_2": "6.00 ~ 15.00% to own Blast Attack when 3 battle members are 'Episode: Sagas From the Movies'.",
+            "slot_3": "6.00 ~ 15.00% to own Strike Attack when 3 battle members are 'Tag: Saiyan'."
+        },
+        "image_url": "/assets/imgs/Equipment/eq007.wep",
+        "Awakened": true
+    },
+    {
+        "name": "Once again, you have returned. - Awakened",
+        "id": "EQP_08",
+        "rarity": "Unique",
+        "tags":[
+            "Melee Type"
+        ],
+        "Slots":{
+            "slot_1":"Base Strike Attack 15.00 ~ 15.00%",
+            "slot_2": "Base Strike Attack 8.00 ~ 15.00%. Base Strike Defense 8.00 ~ 15.00%",
+            "slot_3": "Base Strike Attack 8.00 ~ 15.00%. Base Strike Defense 8.00 ~ 15.00%"
+        },
+        "image_url": "/assets/imgs/Equipment/eq008.wep",
+        "Awakened": true
+    },
+    {
+        "name": "10x Kamehameha - Awakened",
+        "id": "EQP_09",
+        "rarity": "Unique",
+        "tags":[
+            "Ranged Type"
+        ],
+        "Slots":{
+            "slot_1":"Base Blast Attack 15.00 ~ 15.00%",
+            "slot_2": "Base Blast Attack 8.00 ~ 15.00%. Base Blast Defense 8.00 ~ 15.00%",
+            "slot_3": "Base Blast Attack 8.00 ~ 15.00%. Base Blast Defense 8.00 ~ 15.00%"
+        },
+        "image_url": "/assets/imgs/Equipment/eq009.wep",
+        "Awakened": true
+    },
+    {
+        "name":"You don't even like all that fighting, huh? - Awakened",
+        "id": "EQP_10",
+        "rarity": "Unique",
+        "tags":[
+            "Defense Type"
+        ],
+        "Slots":{
+            "slot_1":"Base Strike Defense 15.00 ~ 15.00%. Base Blast Defense 15.00 ~ 15.00%",
+            "slot_2": "Base Strike Defense 8.00 ~ 15.00%. Base Blast Defense 8.00 ~ 15.00%",
+            "slot_3": "Base Strike Defense 8.00 ~ 15.00%. Base Blast Defense 8.00 ~ 15.00%"
+        },
+        "image_url": "/assets/imgs/Equipment/eq010.wep",
+        "Awakened": true
+    },
+    {
+        "name": "King Kai's Power - Awakened",
+        "id": "EQP_11",
+        "rarity": "Unique",
+        "tags":[
+            "Support Type"
+        ],
+        "Slots":{
+            "slot_1":"Base Ki Recovery 15.00 ~ 15.00%. Base Health 5.00 ~ 5.00%",
+            "slot_2": "Base Ki Recovery 8.00 ~ 15.00%. Base Health 3.00 ~ 5.00%",
+            "slot_3": "Base Ki Recovery 8.00 ~ 15.00%. Base Health 3.00 ~ 5.00%"
+        },
+        "image_url": "/assets/imgs/Equipment/eq011.wep",
+        "Awakened": true
     }
 ]

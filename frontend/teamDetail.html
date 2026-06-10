@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del equipo | DB Legends Team Builder</title>
+    <link rel="stylesheet" href="./assets/Css/anotherStyle.css">
+    <link rel="stylesheet" href="./assets/Css/teamDetail.css">
+    <style>
+        /* Ajustes rápidos para la página de detalle */
+        .detail-container {
+            width: min(1000px, calc(100% - 24px));
+            margin: 0 auto;
+            padding: 20px 0 32px;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--accent);
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .back-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <main class="detail-container">
+        <a href="index.html" class="back-link">← Volver a equipos guardados</a>
+        
+        <section id="teamDetailSection">
+            <div class="loading-text">Cargando equipo...</div>
+        </section>
+    </main>
+
+    <script src="./assets/Js/teamManager.js"></script>
+    <script src="./assets/Js/teamDetail.js"></script>
+</body>
+</html>

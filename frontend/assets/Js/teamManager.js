@@ -1,5 +1,23 @@
 const TEAM_API_URL = "http://localhost:4000/api/teams"
 
+const TEAM_LEADER_COLOR_MAP = {
+    RED: "#C7201E",
+    BLU: "#0B81F6",
+    YEL: "#DCC50B",
+    PUR: "#8F12E4",
+    GRN: "#1DC720",
+    LGT: "#C2C1AB",
+    DRK: "#64748b"
+}
+
+let currentTeamNameFilter = '';
+let currentTeamColorFilter = 'ALL';
+let allLoadedTeams = []; //Cache de todos los equipos
+
+
+
+
+
 
 class TeamManager {
     constructor() {
@@ -153,6 +171,31 @@ class TeamManager {
         }
     }
 
+    //Aplicar filtros a los equipos
+    filterTeams(teams, nameFilter = '', colorFilter = 'ALL') {
+        let filtered = [...teams];
+
+        //filtrar por nombre
+        if (nameFilter && nameFilter.trim()) {
+            const term = nameFilter.trim().toLowerCase();
+            filtered = filtered.filter(team =>
+                team.name.toLowerCase().includes(term)
+            );
+        }
+
+        //Filtrar por color del líder
+        if (colorFilter !== 'ALL') {
+            filtered = filtered.filter(team => {
+                const leader = team.characters?.[0];
+                const leaderColor = leader?.color?.toString().trim().toUpperCase() || '';
+                return leaderColor === colorFilter.toUpperCase();
+            });
+        }
+
+        return filtered;
+    }
+
+
     //Renderizar lista de equipos guardados
     async renderTeamList(containerId = 'savedTeamsList', statusId = 'savedTeamsStatus', countId = 'savedTeamsCount') {
         const container = document.getElementById(containerId)
@@ -175,55 +218,78 @@ class TeamManager {
                 return
             }
 
-            const teams = result.data
-            if (statusEl) statusEl.textContent = `${teams.length} equipo(s) encontrado(s)`
-            if (countEl) countEl.textContent = `${teams.length} equipo(s)`
+            //Guardar en caché
+            allLoadedTeams = result.data;
 
-            container.innerHTML = teams.map(team => {
-                //Obtener URLL de la imagen del primer personaje (lider)
-                const leaderImage = team.characters?.[0]?.image_url || ''
-                const leaderName = team.characters?.[0]?.name || 'Sin líder'
+            //Aplicar filtros actuales
+            const filteredTeams = this.filterTeams(
+                allLoadedTeams,
+                currentTeamNameFilter,
+                currentTeamColorFilter
+            );
 
-                //Fondo: imagen del líder con fallback a gradiente oscuro
-                const backgroundStyle = leaderImage
-                    ? `background-image: url('${leaderImage}'); background-size: cover; background-position: center;`
-                    : 'background: linear-gradient(135deg, #384964, #0f172a);'
+            this.renderFilteredTeams(filteredTeams, container, statusEl, countEl);
 
-                const date = new Date(team.createdAt).toLocaleDateString('es-Es', {
-                    day: 'numeric', month: 'short', year: 'numeric'
-                })
-                const power = team.stats?.totalPower || 0
-                const charCount = team.characters?.length || 0
-                const characterName = team.characters?.[0]?.name || 'Sin personajes'
-
-                return `
-                    <div class="saved-team-card" style="${backgroundStyle}">
-                        <div class="saved-team-card-overlay">
-                            <div class="saved-team-header">
-                                <h4>${team.name}</h4>
-                                <span class="saved-team-date">${date}</span>
-                            </div>
-                            <div class="saved-team-meta">
-                                <span class="saved-team-chip">👥 ${charCount}/6</span>
-                                <span class="saved-team-chip">⚡ ${power.toLocaleString()}</span>
-                                <span class="saved-team-chip">⭐ ${leaderName}</span>
-                            </div>
-                            <div class="saved-team-character-list">
-                                ${characterName}
-                            </div>
-                            <div class="saved-team-actions">
-                                <button class="btn-small btn-load" onclick="window.loadTeamById('${team._id}')">📂 Cargar</button>
-                                <button class="btn-small btn-delete" onclick="window.deleteTeamById('${team._id}')">🗑️ Eliminar</button>
-                            </div>
-                        </div>
-                    </div>
-                `
-            }).join('')
         } catch (error) {
             console.error(error)
             container.innerHTML = '<div class="saved-teams-empty">Error al cargar equipos. intenta de nuevo</div>'
             if (statusEl) statusEl.textContent = 'Error al cargar equipos'
         }
+    }
+
+    //Nuevo metodo de renterizado
+    renderFilteredTeams(teams, container, statusEl, countEl) {
+        if (teams.length === 0) {
+            container.innerHTML = '<div class="saved-teams-empty">No se encontraron equipos.</div>';
+            if (statusEl) statusEl.textContent = 'Sin resultados';
+            if (countEl) countEl.textContent = '0 equipos';
+            return;
+        }
+
+        if (statusEl) statusEl.textContent = `${teams.length} equipo(s) encontrado(s)`;
+        if (countEl) countEl.textContent = `${teams.length} equipo(s)`;
+
+        container.innerHTML = teams.map(team => {
+            //Obtener URLL de la imagen del primer personaje (lider)
+            const leader = team.characters?.[0];
+            const leaderImage = leader?.image_url || '';
+            const leaderColor = leader?.color?.toString().trim().toUpperCase() || '';
+            const cssColor = TEAM_LEADER_COLOR_MAP[leaderColor] || '#888';
+
+            //Fondo: imagen del líder con fallback a gradiente oscuro
+            const backgroundStyle = leaderImage
+                ? `background-image: url('${leaderImage}'); background-size: cover; background-position: center;`
+                : 'background: linear-gradient(135deg, #1e293b, #0f172a);';
+
+            const date = new Date(team.createdAt).toLocaleDateString('es-Es', {
+                day: 'numeric', month: 'short', year: 'numeric'
+            })
+            const power = team.stats?.totalPower || 0
+            const charCount = team.characters?.map(c=> c.name)
+
+            return `
+                    <div class="saved-team-card" style="${backgroundStyle} --leader-color: ${cssColor};">
+                        <div class="saved-team-card-overlay">
+                            <div class="saved-team-header">
+                                <h4>${team.name}</h4>
+                            </div>
+                            <div class="saved-team-meta">
+                                <span class="saved-team-chip">⚡ ${power.toLocaleString()}</span>
+                            </div>
+                            <div class="saved-team-actions">
+                                <button class="btn-small btn-view" onclick="window.openTeamDetail('${team._id}')"> Ver Equipo completo</button>
+                            </div>
+                        </div>
+                    </div>
+                `
+        }).join('');
+    }
+
+    //Helper para escapar HTML
+    escapeHtml(text){
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
     }
 }
 
@@ -234,13 +300,14 @@ window.teamManager = teamManager
 // Funciones globalespara botones (se llaman desde el HTML)
 window.loadTeamById = async (id) => {
     const result = await teamManager.loadTeamById(id)
-    if (result.success){
+    if (result.success) {
         alert(`Equipo "${result.data.name}" cargando. Implementa la lógica para llevarlo al builder.`)
     } else {
         alert('Error al cargar el equipo')
     }
 }
 
+/*
 window.deleteTeamById = async (id) => {
     if(!confirm('¿Estás seguro de que deseas eliminar este equipo? Esta acción no se puede deshacer.')) return
     const result = await teamManager.deleteTeam(id)
@@ -250,14 +317,62 @@ window.deleteTeamById = async (id) => {
         alert('Error al eliminar el equipo')
     }
 }
+*/
+
+window.openTeamDetail = (teamId) => {
+    window.location.href = `./teamDetail.html?id=${teamId}`
+}
 
 // Inicializar al cargar la página
 document.addEventListener('DOMContentLoaded', () => {
-    teamManager.renderTeamList()
+    teamManager.renderTeamList();
 
-    const refreshBtn = document.getElementById('refreshSavedTeamsBtn')
+    const refreshBtn = document.getElementById('refreshSavedTeamsBtn');
     if (refreshBtn) {
-        refreshBtn.addEventListener('click', () => teamManager.renderTeamList())
+        refreshBtn.addEventListener('click', () => teamManager.renderTeamList());
     }
-})
+
+    // ⭐ Filtro por nombre de equipo
+    const teamSearchInput = document.getElementById('teamSearchInput');
+    let searchDebounceTimer = null;
+    
+    if (teamSearchInput) {
+        teamSearchInput.addEventListener('input', () => {
+            clearTimeout(searchDebounceTimer);
+            searchDebounceTimer = setTimeout(() => {
+                currentTeamNameFilter = teamSearchInput.value.trim();
+                const filteredTeams = teamManager.filterTeams(
+                    allLoadedTeams,
+                    currentTeamNameFilter,
+                    currentTeamColorFilter
+                );
+                teamManager.renderFilteredTeams(
+                    filteredTeams,
+                    document.getElementById('savedTeamsList'),
+                    document.getElementById('savedTeamsStatus'),
+                    document.getElementById('savedTeamsCount')
+                );
+            }, 150);
+        });
+    }
+
+    // ⭐ Filtro por color del líder
+    const teamColorFilter = document.getElementById('teamColorFilter');
+    if (teamColorFilter) {
+        teamColorFilter.addEventListener('change', () => {
+            currentTeamColorFilter = teamColorFilter.value || 'ALL';
+            const filteredTeams = teamManager.filterTeams(
+                allLoadedTeams,
+                currentTeamNameFilter,
+                currentTeamColorFilter
+            );
+            teamManager.renderFilteredTeams(
+                filteredTeams,
+                document.getElementById('savedTeamsList'),
+                document.getElementById('savedTeamsStatus'),
+                document.getElementById('savedTeamsCount')
+            );
+        });
+    }
+});
 

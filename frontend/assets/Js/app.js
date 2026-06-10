@@ -181,12 +181,16 @@ function getEquipmentImageUrl(equipment) {
     const rawUrl = (equipment?.image_url || '').toString().trim()
 
     if (!rawUrl) {
-        return null
+        return './assets/imgs/Equipments/eq_PlaceHolder.webp'
     }
 
-    return rawUrl
-        .replace('/assets/imgs/equipments/', '/assets/imgs/Equipment/')
-        .replace(/\.wep$/i, '.webp')
+    let url = rawUrl.replace(/\.wep$/i, '.webp')
+
+    if (url.startsWith('/assets')){
+        url = `.${url}`
+    }
+
+    return url;   
 }
 
 function renderTeamEquipmentSlots(character) {

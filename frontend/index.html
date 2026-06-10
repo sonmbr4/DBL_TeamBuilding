@@ -4,105 +4,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Frontend sencillo para mostrar cards con personajes de Dragon Ball Legends">
-    <title>DB Legends Team Builder</title>
+    <meta name="description" content="Lista de equipos guardados de Dragon Ball Legends">
+    <title>Equipos guardados | DB Legends Team Builder</title>
     <link rel="stylesheet" href="./assets/Css/styles.css">
     <link rel="stylesheet" href="./assets/Css/anotherStyle.css">
 </head>
 
 <body>
-    <main class="page-shell">
-        <!--Hero Header-->
+    <main class="saved-page-shell" style="width: min(1180px, calc(100% - 24px)); margin: 0 auto; padding: 20px 0 32px;">
         <section class="hero">
             <div>
                 <p class="eyebrow">DBL Teams</p>
-                <h1>Crea Tu Equipo</h1>
-                <p class="lead">
-                    Selecciona hasta 6 personajes para formar tu equipo.
-                </p>
+                <h1>Equipos guardados</h1>
+                <p class="lead">Revisa, actualiza o elimina los equipos que ya guardaste desde el builder.</p>
             </div>
 
-            <div class="hero-meta">
-                <span class="meta-pill">Equipo: <strong>0/6</strong></span>
+            <div class="saved-page-actions">
+                <a href="./createTeam.html" class="btn-small btn-load btn-back">Crear equipo</a>
+                <button id="refreshSavedTeamsBtn" class="btn-refresh" type="button">Actualizar lista</button>
             </div>
         </section>
 
-        <!--Contenedor principal-->
-        <div class="main-layout">
-            <!--Lista de personajes-->
-            <section class="characters-section">
-                <div class="toolbar" arial-label="Resumen de personajes">
-                    <div>
-                        <h2 id="statusText"></h2>
-                    </div>
-                    <div class="toolbar-actions">
-                        <input type="search" id="characterSearchInput" class="character-search-input"
-                            placeholder="Buscar por nombre..." aria-label="Buscar personajes por nombre">
-                        <select id="characterColorFilter" class="character-color-select"
-                            aria-label="Filtrar personajes por color">
-                            <option value="ALL">Todos los colores</option>
-                            <option value="RED">RED</option>
-                            <option value="BLU">BLU</option>
-                            <option value="YEL">YEL</option>
-                            <option value="PUR">PUR</option>
-                            <option value="GRN">GRN</option>
-                            <option value="LGT">LGT</option>
-                            <option value="DRK">DRK</option>
-                        </select>
-
-                        <select id="characterRarityFilter" class="character-color-select">
-                            <option value="All">Todas las rarezas</option>
-                            <option value="LEGEND">LEGEND</option>
-                            <option value="ULTRA">ULTRA</option>
-                            <option value="SPARKING">SPARKING</option>
-                            <option value="EXTREME">EXTREME</option>
-                            <option value="HERO">HERO</option>
-                        </select>
-                    </div>
+        <section class="saved-teams-section" style="margin-top: 16px;">
+            <div class="saved-teams-header">
+                <div>
+                    <h2 style="margin: 0;">Listado de equipos</h2>
+                    <p id="savedTeamsStatus" class="lead" style="margin-top: 8px;">Cargando equipos guardados...</p>
                 </div>
+                <span class="meta-pill" id="savedTeamsCount">0 equipos</span>
+            </div>
 
-                <div class="characters-grid" id="charactersGrid" aria-live="polite"></div>
-            </section>
+            <!--Filtrar-->
+            <div class="saved-teams-filters">
+                <input
+                    type="search"
+                    id="teamSearchInput"
+                    class="team-search-input"
+                    placeholder="Nombre del equipo. . ."
+                    autocomplete="off"
+                >
+                <select id="teamColorFilter" class="team-color-select">
+                    <option value="">Todos los colores</option>
+                    <option value="RED">RED</option>
+                    <option value="BLU">BLU</option>
+                    <option value="YEL">YEL</option>
+                    <option value="PUR">PUR</option>
+                    <option value="GRN">GRN</option>
+                    <option value="LGT">LGT</option>
+                </select>
+            </div>
 
-            <!-- columna del team-->
-             
-            <aside class="team-section">
-                <div class="team-panel">
-                    <div class="team-header">
-                        <h2>Tu Equipo</h2>
-                        <span class="team-slots-counter" id="teamSlotsCounter">0 / 6</span>
-                    </div>
 
-                    <!-- Slots del equipo -->
-                    <div class="team-slots" id="teamSlots">
-                        <!-- Se generan dinamicamente -->
-                    </div>
 
-                    <!-- Acciones del equipo -->
-                    <div class="team-actions">
-                        <input type="text" id="teamNameInput" class="team-name-input"
-                            placeholder="Nombre del equipo...">
 
-                        <button id="saveTeamBtn" class="btn-save" disabled>
-                            Guardar Equipo
-                        </button>
 
-                        <button id="clearTeamBtn" class="btn-clear">
-                            Limpiar Equipo
-                        </button>
 
-                        <a href="./saved-teams.html" class="btn-small btn-load">Ver equipos guardados</a>
-                    </div>
-                    <div class="team-stats-power">
-                        <p class="stats-label">LP: <span id="teamPower" class="stats-value">0</span> </p>
-                    </div>
-                </div>
-            </aside>
-        </div>
+            <div id="savedTeamsList" class="saved-teams-list">
+                <div class="loading-text">Cargando equipos...</div>
+            </div>
+        </section>
     </main>
 
-    <script src="./assets/Js/equipmentModal.js"></script>
-    <script src="./assets/Js/app.js"></script>
     <script src="./assets/Js/teamManager.js"></script>
 </body>
 

@@ -764,6 +764,412 @@
     "has_zenkai": false
   },
   {
+    "name":"Super Vegito",
+    "id":"DBL92-01L",
+    "color":"PUR",
+    "rarity":"LEGEND",
+    "tags":[
+      "Saiyan",
+      "Super Saiyan",
+      "Potara",
+      "Fusion Warrior",
+      "Male",
+      "LEGEND",
+      "Melee Type",
+      "PUR",
+      "Majin Buu Saga(Z)",
+      "Vegito",
+      "Special Cover Change (Strike)",
+      "Endurance",
+      "Nullify wide-range Special Arts",
+      "Armored Strike Arts"
+    ],
+    "assault_z_ability":{
+      "assault_z_ability_i":{
+        "applies_to": "Increases the following stats of allies when this character is a battle member",
+        "effects":[
+          "+10% to base Strike Attack.",
+          "+10% to base Blast Attack",
+          "+10% to base Strike Defense",
+          "+10% to base Blast Defense"
+        ]
+      }
+    },
+    "z_ability":{
+      "one":{
+        "condition": "If Fusion Warrior",
+        "effect":[
+          "Base Strike Attack +22%",
+          "Base Blast Attack +22%"
+        ]
+      },
+      "two":{
+        "condition": "If Fusion Warrior, Saiyan, or Majin Buu Saga(Z)",
+        "effect":[
+          "Base Strike Attack +26%",
+          "Base Strike Defense +26%"
+        ]
+      },
+      "three":{
+        "condition": "If Fusion Warrior, Saiyan, or Majin Buu Saga(Z)",
+        "effect":[
+          "Base Strike Attack +30%",
+          "Base Strike Defense +30%"
+        ],
+        "condition_2": "If Fusion Warrior",
+        "effect_2": "Base Blast Defense +15%"
+      },
+      "four":{
+        "condition": "If Fusion Warrior, Saiyan, or Majin Buu Saga(Z)",
+        "effect":[
+          "Base Strike Attack +38%",
+          "Base Strike Defense +38%"
+        ],
+        "condition_2": "If Fusion Warrior",
+        "effect_2": "Base Blast Defense +18%"
+      }
+    },
+    "base_stats": {
+      "power": 10505,
+      "health": 25047,
+      "strike_atk": 2756,
+      "strike_def": 1811,
+      "blast_atk": 2523,
+      "blast_def": 1723
+    },
+    "max_stats": {
+      "power": 925203,
+      "health": 2529236,
+      "strike_atk": 278328,
+      "strike_def": 182890,
+      "blast_atk": 254786,
+      "blast_def": 173979
+    },
+    "strike": "Strike (Impact)",
+    "shot": "Blast (Impact)",
+    "image_url": "/assets/imgs/Characters/BChaCut_0717_VegitoSV_717.webp",
+    "is_lf": false,
+    "is_tag": false,
+    "has_zenkai": false
+  },
+  {
+    "name":"Super Saiyan God SS Gogeta",
+    "id":"DBL95-01U",
+    "color":"RED",
+    "rarity":"ULTRA",
+    "tags":[
+      "Saiyan",
+      "Fusion",
+      "Fusion Warrior",
+      "God Ki",
+      "Super Saiyan God SS",
+      "8th",
+      "Male",
+      "ULTRA",
+      "Ranged Type",
+      "RED",
+      "Sagas From The Movies",
+      "Gogeta",
+      "Special Cover Change (Strike/Blast)",
+      "Endurance",
+      "Armored Strike Arts",
+      "Guard Action",
+      "Active Gauge"
+    ],
+    "z_ability":{
+      "one":{
+        "condition": "If Fusion Warrior",
+        "effect":[
+          "Base Strike Attack +28%",
+          "Base Blast Attack +28%"
+        ]
+      },
+      "two":{
+        "condition":"If Fusion Warrior or God Ki",
+        "effect":[
+          "Base Strike Attack +30%",
+          "Base Blast Attack +30%"
+        ]
+      },
+      "three":{
+        "condition": "If Fusion Warrior or God Ki",
+        "effect":[
+          "Base Strike Attack +38%",
+          "Base Blast Attack +38%"
+        ],
+        "condition_2": "If Fusion Warrior",
+        "effect_2": "Ultimate/Awakened damage +3%"
+      },
+      "four":{
+        "condition": "If Fusion Warrior or God Ki",
+        "effect":[
+          "Base Strike Attack +42%",
+          "Base Blast Attack +42%"
+        ],
+        "condition_2": "If Fusion Warrior",
+        "effect_2": "Ultimate/Awakened damage +5%",
+        "condition_3": "If Fusion",
+        "effect_3": "Blast damage +10%"
+      }
+    },
+    "base_stats": {
+      "power": 10505,
+      "health": 25047,
+      "strike_atk": 2756,
+      "strike_def": 1811,
+      "blast_atk": 2523,
+      "blast_def": 1723
+    },
+    "max_stats": {
+      "power": 925203,
+      "health": 2529236,
+      "strike_atk": 278328,
+      "strike_def": 182890,
+      "blast_atk": 254786,
+      "blast_def": 173979
+    },
+    "strike":"Strike (Impact)",
+    "shot": "Blast (Impact)",
+    "image_url":"assets/imgs/Characters/BChaCut_0729_GogetaSSGSS_729.webp",
+    "is_lf": false,
+    "is_tag": false,
+    "has_zenkai": false    
+  },
+  {
+    "name":"Super Saiyan Trunks(Adult)",
+    "id":"DBL93-01U",
+    "color":"GRN",
+    "rarity":"ULTRA",
+    "tags":[
+      "Vegeta Clan",
+      "Hybrid Saiyan",
+      "Super Saiyan",
+      "Future",
+      "Weapon Wielder",
+      "Male",
+      "ULTRA",
+      "Melee Type",
+      "GRN",
+      "'Future' Trunks Saga (S)",
+      "Trunks",
+      "Specia Cover Change(Strike)",
+      "Endurance",
+      "Armored Strike Arts",
+      "Revive Disruption",
+      "Active Gauge"
+    ],
+    "z_ability":{
+      "one":{
+        "condition":"If Future",
+        "effect":[
+          "Base Strike Attack +28%",
+          "Base Strike Defense +28%"
+        ]
+      },
+      "two":{
+        "condition":"If Future or Vegeta Clan",
+        "effect":[
+          "Base Strike Attack +30%",
+          "Base Strike Defense +30%"
+        ]
+      },
+      "three":{
+        "condition":"If Future or Vegeta Clan",
+        "effect":[
+          "Base Strike Attack +38%",
+          "Base Strike Defense +38%"
+        ],
+        "condition_2":"if Future",
+        "effect_2":"Ultimate/Awakened damage +3%"
+      },
+      "four":{
+        "condition":"If Future or Vegeta Clan",
+        "effect":[
+          "Base Strike Attack +42%",
+          "Base Strike Defense +42%"
+        ],
+        "condition_2":"if Future",
+        "effect_2":"Ultimate/Awakened damage +5%"
+      }
+    },
+    "base_stats": {
+      "power": 10505,
+      "health": 25044,
+      "strike_atk": 2756,
+      "strike_def": 1744,
+      "blast_atk": 2523,
+      "blast_def": 1727
+    },
+    "max_stats": {
+      "power": 925203,
+      "health": 2528982,
+      "strike_atk": 278300,
+      "strike_def": 176130,
+      "blast_atk": 254811,
+      "blast_def": 17
+    },
+    "strike":"Strike (Impact)",
+    "shot": "Blast (Impact)",
+    "image_url":"assets/imgs/Characters/BChaCut_0721_TrunksFutureSS1_721.webp",
+    "is_lf": false,
+    "is_tag": false,
+    "has_zenkai": false 
+  },
+  {
+    "name":"Ultimate Gohan Absorbed Buu: Super",
+    "id":"DBL91-03U",
+    "color":"RED",
+    "rarity":"ULTRA",
+    "tags":[
+      "Regeneration",
+      "Absorption",
+      "Powerful Opponent",
+      "Unknown",
+      "ULTRA",
+      "Melee Type",
+      "RED",
+      "Majin Buu Saga(Z)",
+      "Majin Buu",
+      "Special Cover Change (Strike)",
+      "Armored Strike Arts"
+    ],
+    "z_ability":{
+      "one":{
+        "condition":"If Regeneration",
+        "effect":[
+          "Base Strike Attack +28%",
+          "Base Blast Attack +28%"
+        ]
+      },
+      "two":{
+        "condition": "If Regeneration or Powerful Opponent",
+        "effect":[
+          "Base Strike Attack +30%",
+          "Base Blast Attack +30%"
+        ]
+      },
+      "three":{
+        "condition": "If Regeneration or Powerful Opponent",
+        "effect":[
+          "Base Strike Attack +38%",
+          "Base Blast Attack +38%"
+        ],
+        "condition_2": "If Regeneration",
+        "effect_2": "Ultimate/Awakened damage +3%"
+      },
+      "four":{
+        "condition": "If Regeneration or Powerful Opponent",
+        "effect":[
+          "Base Strike Attack +42%",
+          "Base Blast Attack +42%"
+        ],
+        "condition_2": "If Regeneration",
+        "effect_2": "Ultimate/Awakened damage +5%"
+      }
+    },
+    "base_stats": {
+      "power": 10505,
+      "health": 25047,
+      "strike_atk": 2729,
+      "strike_def": 1710,
+      "blast_atk": 2486,
+      "blast_def": 1693
+    },
+    "max_stats": {
+      "power": 925203,
+      "health": 2529236,
+      "strike_atk": 275554,
+      "strike_def": 172646,
+      "blast_atk": 251005,
+      "blast_def": 170930
+    },
+    "strike": "Strike (Impact)",
+    "shot": "Blast (Impact)",
+    "image_url": "/assets/imgs/Characters/BChaCut_0716_BuuGohan_716.webp",
+    "is_lf": false,
+    "is_tag": false,
+    "has_zenkai": false
+  },
+  {
+    "name":"Super Full Power Saiyan 4 Goku",
+    "id":"DBL90-03U",
+    "color":"GRN",
+    "rarity":"ULTRA",
+    "tags":[
+      "Son Family",
+      "Saiyan",
+      "GT",
+      "Super Saiyan 4",
+      "Male",
+      "ULTRA",
+      "Ranged Type",
+      "GRN",
+      "Super Baby Saga (GT)",
+      "Goku",
+      "Special Cover Change (Strike)",
+      "Endurance",
+      "Wide-Range Strike Arts",
+      "RR Disrupt",
+      "Anti-Cover Change Attack"
+    ],
+    "z_ability":{
+      "one":{
+        "condition": "If GT",
+        "effect":[
+          "Base Strike Attack +28%",
+          "Base Blast Attack +28%"
+        ]
+      },
+      "two":{
+        "condition":"If GT or Son Family",
+        "effect":[
+          "Base Strike Attack +30%",
+          "Base Blast Attack +30%"
+        ]
+      },
+      "three":{
+        "condition":"If GT or Son Family",
+        "effect":[
+          "Base Strike Attack +38%",
+          "Base Blast Attack +38%"
+        ],
+        "condition_2":"If GT",
+        "effect_2":"Special Move damage +3%"
+      },
+      "four":{
+        "condition":"If GT or Son Family",
+        "effect":[
+          "Base Strike Attack +42%",
+          "Base Blast Attack +42%"
+        ],
+        "condition_2":"If GT",
+        "effect_2":"Special Move damage +5%"
+      }
+    },
+    "base_stats": {
+      "power": 10505,
+      "health": 25299,
+      "strike_atk": 2414,
+      "strike_def": 1802,
+      "blast_atk": 2581,
+      "blast_def": 1793
+    },
+    "max_stats": {
+      "power": 925203,
+      "health": 2554653,
+      "strike_atk": 243729,
+      "strike_def": 181981,
+      "blast_atk": 260607,
+      "blast_def": 181081
+    },
+    "strike": "Strike (Impact)",
+    "shot": "Blast (Impact)",
+    "image_url": "/assets/imgs/Characters/BChaCut_0712_GokuSS4FP_712.webp",
+    "is_lf": false,
+    "is_tag": false,
+    "has_zenkai": false
+  },
+  {
     "name": "Legendary Super Saiyan Broly",
     "id": "DBL51-03U",
     "color": "PUR",
