@@ -1114,5 +1114,20 @@
         },
         "image_url": "https://i.imgur.com/aaOYWvU.png",
         "Awakened": false
+    },
+    {
+        "name": "This way, buddy",
+        "id": "EQP_73",
+        "rarity": "Unique",
+        "tags":[
+            "Saiyan Saga (Z)"
+        ],
+        "Slots":{
+            "slot_1": "Special Move Damage 5.00% ~ 15.00%",
+            "slot_2": "Base Strike Attack 5.00% ~ 15.00%. 3.00% ~ 5.00% to Strike Attack per 'Episode: Saiyan Saga (Z)' battle member.",
+            "slot_3": "Base Blast Attack 5.00% ~ 15.00%. 3.00% ~ 5.00% to Blast Attack per 'Episode: Saiyan Saga (Z)' battle member."
+        },
+        "image_url": "https://i.imgur.com/UpKKYUJ.png",
+        "Awakened": false
     }
 ]

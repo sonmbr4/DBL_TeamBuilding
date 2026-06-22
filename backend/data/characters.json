@@ -1257,6 +1257,94 @@
     "has_zenkai": false
   },
   {
+    "name":"Half-Corrupted Fusion Zamasu",
+    "id":"DBL88-01U",
+    "color":"PUR",
+    "rarity":"ULTRA",
+    "tags":[
+      "God ki",
+      "Future",
+      "Regeneration",
+      "Fusion Warrior",
+      "Potara",
+      "Powerful Opponent",
+      "Male",
+      "ULTRA",
+      "Melee Type",
+      "PUR",
+      "'Future' Trunks Saga (S)",
+      "Armored Strike Arts",
+      "Special Cover Change (Strike)",
+      "Final Counter",
+      "Rising Rush Counter"
+    ],
+    "base_stats": {
+      "power": 10307,
+      "health": 26198,
+      "strike_atk": 2582,
+      "strike_def": 1694,
+      "blast_atk": 2499,
+      "blast_def": 1728
+    },
+    "max_stats": {
+      "power": 915849,
+      "health": 1600407,
+      "strike_atk": 157723,
+      "strike_def": 103460,
+      "blast_atk": 152676,
+      "blast_def": 105547
+    },
+    "strike": "Strike (Faint)",
+    "shot": "Blast (Impact)",
+    "image_url": "https://i.imgur.com/qkt0htp.png",
+    "is_lf": false,
+    "is_tag": false,
+    "has_zenkai": false
+  },
+  {
+    "name":"Super Saiyan 4 Vegeta",
+    "id":"DBL86-03U",
+    "color": "RED",
+    "rarity": "ULTRA",
+    "tags":[
+      "Saiyan",
+      "Vegeta Clan",
+      "GT",
+      "Super Saiyan 4",
+      "Male",
+      "ULTRA",
+      "Ranged Type",
+      "RED",
+      "Shadow Dragon Saga (GT)",
+      "Endurance",
+      "Special Cover Change (Blast)",
+      "Armored Strike Arts",
+      "Switch Attack"
+    ],
+    "base_stats": {
+      "power": 10586,
+      "health": 25555,
+      "strike_atk": 2608,
+      "strike_def": 1759,
+      "blast_atk": 2647,
+      "blast_def": 1812
+    },
+    "max_stats": {
+      "power": 925464,
+      "health": 1561111,
+      "strike_atk": 159307,
+      "strike_def": 107444,
+      "blast_atk": 161689,
+      "blast_def": 110700
+    },
+    "strike": "Strike (Damage P)",
+    "shot": "Blast (Damage Up)",
+    "image_url": "https://i.imgur.com/uAJIWg9.png",
+    "is_lf": false,
+    "is_tag": false,
+    "has_zenkai": false
+  },
+  {
     "name":"Beast Gohan",
     "id":"DBL78-05U",
     "color":"YEL",
