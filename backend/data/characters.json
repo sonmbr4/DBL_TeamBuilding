@@ -1,5 +1,51 @@
 [
   {
+    "name":"Super Saiyan Trunks (Teen) & Gohan",
+    "id":"DBL96-02L",
+    "color":"RED",
+    "rarity":"LEGEND",
+    "tags":[
+      "Hybrid Saiyan",
+      "Vegeta Clan",
+      "Son Family",
+      "Future",
+      "Super Saiyan",
+      "Weapon Wielder",
+      "Son Family",
+      "8th",
+      "Male",
+      "LEGEND",
+      "Ranged Type",
+      "RED",
+      "PUR",
+      "Game Originals",
+      "Trunks",
+      "Gohan"
+    ],
+    "base_stats": {
+      "power": 924904,
+      "health": 25046,
+      "strike_atk": 2522,
+      "strike_def": 1775,
+      "blast_atk": 2741,
+      "blast_def": 1792
+    },
+    "max_stats": {
+      "power": 952782,
+      "health": 2606662,
+      "strike_atk": 247666,
+      "strike_def": 173042,
+      "blast_atk": 264937,
+      "blast_def": 176525
+    },
+    "strike":"Strike (Slice)",
+    "shot": "Blast (Armor Break)",
+    "image_url":"assets/imgs/Characters/BChaCut_0733_TrunksSS1_733.webp",
+    "is_lf": false,
+    "is_tag": true,
+    "has_zenkai": false
+  },
+  {
     "name": "Broly: Fury",
     "id": "DBL94-02L",
     "color": "GRN",
@@ -851,6 +897,47 @@
     "is_lf": false,
     "is_tag": false,
     "has_zenkai": false
+  },
+  {
+    "name": "Super Saiyan God Shallet",
+    "id": "DBL96-01L",
+    "color": "GRN",
+    "rarity": "LEGEND",
+    "tags":[
+      "Saiyan",
+      "Super Saiyan God",
+      "Fusion Warrior",
+      "God Ki",
+      "Fusion",
+      "8th",
+      "Male",
+      "LEGEND",
+      "Ranged Type",
+      "GRN",
+      "Game Originals"
+    ],
+    "base_stats": {
+      "power": 925871,
+      "health": 25683,
+      "strike_atk": 2488,
+      "strike_def": 1751,
+      "blast_atk": 2648,
+      "blast_def": 1786
+    },
+    "max_stats": {
+      "power": 1180011,
+      "health": 158937,
+      "strike_atk": 151971,
+      "strike_def": 106966,
+      "blast_atk": 161767,
+      "blast_def": 109122
+    },
+    "strike":"Strike (Impact)",
+    "shot": "Blast (Impact)",
+    "image_url":"assets/imgs/Characters/BChaCut_0684_ShalletSSG_684.webp",
+    "is_lf": false,
+    "is_tag": false,
+    "has_zenkai": false  
   },
   {
     "name":"Super Saiyan God SS Gogeta",

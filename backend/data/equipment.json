@@ -1,6 +1,6 @@
 [
     {
-        "name":"Outta the Way! - Awakened",
+        "name":"Truth of the Survival Game - Awakened",
         "id": "EQP_01",
         "rarity": "Unique",
         "tags":[
@@ -166,5 +166,953 @@
         },
         "image_url": "/assets/imgs/Equipment/eq011.wep",
         "Awakened": true
+    },
+    {
+        "name":"Huh? Who´s that weirdo?",
+        "id": "EQP_12",
+        "rarity": "Unique",
+        "tags":[
+            "Android"
+        ],
+        "Slots":{
+            "slot_1":"Base Strike Defense 10.00% ~ 15.00%. Base Blast Defense 10.00% ~ 15.00%",
+            "slot_2": "Base Strike Attack 20.00% ~ 30.00%",
+            "slot_3": "8.00% ~ 15.00% to own Strike Attack if a 'Tag: Android' other than this character is a battle member."
+        },
+        "image_url": "https://i.imgur.com/eZoH2Sb.png",
+        "Awakened": false
+    },
+    {
+        "name":"Say Hi...to Everyone...",
+        "id": "EQP_13",
+        "rarity": "Unique",
+        "tags":[
+            "DB"
+        ],
+        "Slots":{
+            "slot_1":"Special Move Damage 5.00% ~ 12.00%",
+            "slot_2": "Base Strike Defense 5.00% ~ 15.00%. 2.00% ~ 5.00% to own Strike Attack for each Tag: DB battle member.",
+            "slot_3": "Base Blast Defense 5.00% ~ 15.00%. 2.00% ~ 5.00% to Blast Attack for each Tag: DB battle member."
+        },
+        "image_url": "https://i.imgur.com/bu7ViGo.png",
+        "Awakened": false
+    },
+    {
+        "name": "Gohaaaaaan!",
+        "id": "EQP_14",
+        "rarity": "Unique",
+        "tags":[
+            "Son Family",
+            "Vegeta Clan",
+            "Android"
+        ],
+        "Slots":{
+            "slot_1":"Base Strike Defense 5.00% ~ 10.00%. Base Blast Defense 15.00% ~ 35.00%",
+            "slot_2": "8.00% ~ 20.00% to own Blast Defense if there are 2 or more 'Tag: Future' battle members.",
+            "slot_3": "Base Health 5.00% ~ 10.00%"
+        },
+        "image_url": "https://i.imgur.com/oNt6r2K.png",
+        "Awakened": false
+    },
+    {
+        "name": "Regeneration",
+        "id":"EQP_15",
+        "rarity": "Unique",
+        "tags":[
+            "Regeneration"
+        ],
+        "Slots":{
+            "slot_1":"Special Move Damage 5.00% ~ 10.00%",
+            "slot_2": "Base Strike Attack 12.00% ~ 30.00%",
+            "slot_3": "3.00% ~ 7.00% to Base Strike & Blast Defense per party member using this same Equipment."
+        },
+        "image_url": "https://i.imgur.com/JRIwA8M.png",
+        "Awakened": false
+    },
+    {
+        "name":"Obtain your Perfect Form.",
+        "id": "EQP_16",
+        "rarity": "Unique",
+        "tags":[
+            "Vegeta Clan",
+            "Red"
+        ],
+        "Slots":{
+            "slot_1":"Base Strike Defense 5.00% ~ 10.00%. Base Blast Defense 5.00% ~ 10.00%. Health Restoration 5.00% ~ 10.00%",
+            "slot_2": "Base Strike Attack 12.00% ~ 35.00%",
+            "slot_3": "Base Health 5.00% ~ 10.00%"
+        },
+        "image_url": "https://i.imgur.com/kc5PMo3.png",
+        "Awakened": false
+    },
+    {
+        "name":"Cell in his Perfect Form",
+        "id":"EQP_17",
+        "rarity":"Unique",
+        "tags":[
+            "Android"
+        ],
+        "Slots":{
+            "slot_1":"Special Move Damage 5.00% ~ 10.00%. Health Restoration 5.00% ~ 10.00%",
+            "slot_2": "Base Blast Attack 5.00% ~ 12.00%. 5.00% ~ 12.00% to own Blast Attack when 3 battle members are 'Tag: Android'.",
+            "slot_3": "Base Strike Attack 5.00% ~ 12.00%. 5.00% ~ 12.00% to own Strike Attack when 3 battle members are 'Tag: Android'."
+        },
+        "image_url": "https://i.imgur.com/r0IDXjq.png",
+        "Awakened": false
+    },
+    {
+        "name": "Truth of the Survival Game",
+        "id": "EQP_18",
+        "rarity": "Unique",
+        "tags":[
+            "Beerus",
+            "DBL07-11S"
+        ],
+        "Slots":{
+            "slot_1": "Base Strike Attack 5.00% ~ 30.00%. Base Blast Attack 5.00% ~ 30.00%",
+            "slot_2": "Base Strike Defense 5.00% ~ 30.00%. Base Blast Defense 5.00% ~ 30.00%",
+            "slot_3": "Base Health 5.00% ~ 15.00%. Special Move Damage 15.00% ~ 30.00%. Ultimate Damage 15.00% ~ 30.00%"
+        },
+        "image_url": "https://i.imgur.com/SOIrq24.png",
+        "Awakened": false
+    },
+    {
+        "name": "This is Fusion!",
+        "id": "EQP_19",
+        "rarity": "Unique",
+        "tags":[
+            "Fusion"
+        ],
+        "Slots":{
+            "slot_1": "Special Move Damage 5.00% ~ 10.00%. Health Restoration 5.00% ~ 10.00%",
+            "slot_2": "Base Strike Defense 10.00% ~ 28.00%",
+            "slot_3": "Base Strike Attack 15.00% ~ 38.00%"
+        },
+        "image_url": "https://i.imgur.com/pJoGhcM.png",
+        "Awakened": false
+    },
+    {
+        "name":"Frenzied Power",
+        "id": "EQP_20",
+        "rarity": "Unique",
+        "tags":[
+            "Sagas From the Movies",
+            "BLU"
+        ],
+        "Slots":{
+            "slot_1": "Base Strike Defense 12.00% ~ 20.00%",
+            "slot_2": "Base Strike Attack 15.00% ~ 25.00%",
+            "slot_3": "Base Blast Attack 15.00% ~ 35.00%"
+        },
+        "image_url": "https://i.imgur.com/xJRYTMi.png",
+        "Awakened": false
+    },
+    {
+        "name": "Historic Showdown",
+        "id": "EQP_21",
+        "rarity": "Unique",
+        "tags":[
+            "Sagas From the Movies",
+            "Saiyan"
+        ],
+        "Slots":{
+            "slot_1": "Special Move Damage 5.00% ~ 10.00%. Ultimate Damage 5.00% ~ 10.00%",
+            "slot_2": "5.00% ~ 13.00% to own Blast Attack when 3 battle members are 'Episode: Sagas From the Movies'.",
+            "slot_3": "5.00% ~ 13.00% to own Strike Attack when 3 battle members are 'Tag: Saiyan'."
+        },
+        "image_url": "https://i.imgur.com/Ago9sD6.png",
+        "Awakened": false
+    },
+    {
+        "name": "Day of Reckoning",
+        "id": "EQP_22",
+        "rarity": "Unique",
+        "tags":[
+            "Android Saga (Z)",
+            "Cell Saga (Z)"
+        ],
+        "Slots":{
+            "slot_1": "Base Health 5.00% ~ 12.00%",
+            "slot_2": "5.00% ~ 15.00% to Strike Attack when 'Tag: Son Family' or 'Tag: Android' is a battle member.",
+            "slot_3": "5.00% ~ 15.00% to own Strike & Blast Defense when 3 battle members are any combination of 'Episode: Androids Saga (Z)' and 'Episode: Cell Saga (Z)'."
+        },
+        "image_url": "https://i.imgur.com/z79LG01.png",
+        "Awakened": false
+    },
+    {
+        "name": "Do It, Gohan!",
+        "id": "EQP_23",
+        "rarity": "Unique",
+        "tags":[
+            "Son Family",
+            "DB"
+        ],
+        "Slots":{
+            "slot_1": "Special Move Damage 7.00% ~ 12.00%",
+            "slot_2": "Base Blast Attack 8.00% ~ 15.00%. If there is a 'Character: Gohan' battle member, own Blast Attack 8.00% ~ 15.00%.",
+            "slot_3": "Base Strike Attack 8.00% ~ 15.00%. If there is a 'Character: Goku' battle member, own Strike Attack 8.00% ~ 15.00%."
+        },
+        "image_url": "https://i.imgur.com/XSrTVcJ.png",
+        "Awakened": false
+    },
+    {
+        "name": "Too Bad, #16",
+        "id": "EQP_24",
+        "rarity": "Unique",
+        "tags":[
+            "Powerful Opponent",
+            "Cell Saga (Z)"
+        ],
+        "Slots":{
+            "slot_1": "Base Blast Attack 5.00% ~ 15.00%",
+            "slot_2": "Base Blast Defense 10.00% ~ 25.00%",
+            "slot_3": "5.00% ~ 15.00% to own Strike & Blast Attack when 'Battle Style: Ranged Type' and 'Character: Cell' is a battle member."
+        },
+        "image_url": "https://i.imgur.com/VPzR2tu.png",
+        "Awakened": false
+    },
+    {
+        "name": "Nngrhhh!",
+        "id": "EQP_25",
+        "rarity": "Unique",
+        "tags":[
+            "Android"
+        ],
+        "Slots":{
+            "slot_1": "Special Move Damage 5.00% ~ 10.00%. Ultimate Damage 5.00% ~ 10.00%",
+            "slot_2": "Base Blast Attack 5.00% ~ 12.00%. 8.00% ~ 15.00% to own Blast Defense if a 'Tag: Android' other than this character is a battle member.",
+            "slot_3": "Base Strike Attack 5.00% ~ 12.00%. 8.00% ~ 15.00% to own Strike Defense if a 'Tag: Android' other than this character is a battle member."
+        },
+        "image_url": "https://i.imgur.com/C66LXVF.png",
+        "Awakened": false
+    },
+    {
+        "name": "You've Overstepped the Line!",
+        "id": "EQP_26",
+        "rarity": "Unique",
+        "tags":[
+            "Hybrid Saiyan",
+            "GRN"
+        ],
+        "Slots":{
+            "slot_1": "Base Strike Defense 5.00% ~ 10.00%. Special Move Damage 5.00% ~ 10.00%",
+            "slot_2": "Base Blast Defense 10.00% ~ 30.00%",
+            "slot_3": "Base Blast Attack 15.00% ~ 38.00%"
+        },
+        "image_url": "https://i.imgur.com/D5THmEd.png",
+        "Awakened": false
+    },
+    {
+        "name": "Raaaaah!",
+        "id": "EQP_27",
+        "rarity": "Unique",
+        "tags":[
+            "Hybrid Saiyan"
+        ],
+        "Slots":{
+            "slot_1": "Base Strike Attack 5.00% ~ 10.00%. Base Blast Attack 5.00% ~ 10.00%",
+            "slot_2": "Base Strike Defense 8.00% ~ 20.00%. 5.00% ~ 10.00% to own Strike Attack when 3 battle members are 'Tag: Hybrid Saiyan'.",
+            "slot_3": "Base Blast Defense 8.00% ~ 20.00%. 5.00% ~ 10.00% to own Blast Attack when 3 battle members are 'Tag: Hybrid Saiyan'."
+        },
+        "image_url": "https://i.imgur.com/BrroSEs.png",
+        "Awakened": false
+    },
+    {
+        "name": "It's Over For All of You!",
+        "id": "EQP_28",
+        "rarity": "Unique",
+        "tags":[
+            "Cell Saga (Z)"
+        ],
+        "Slots":{
+            "slot_1": "Base Health 5.00% ~ 10.00%",
+            "slot_2": "Base Blast Attack 5.00% ~ 15.00%. 5.00% ~ 10.00% to Blast Attack when 'Tag: Android' is a battle member.",
+            "slot_3": "Base Strike Attack 5.00% ~ 15.00%. 5.00% ~ 10.00% to own Strike Attack if there are 2 or more 'Episode: Cell Saga (Z)' battle members."
+        },
+        "image_url": "https://i.imgur.com/LzYCV7Z.png",
+        "Awakened": false
+    },
+    {
+        "name": "DAAAD!!",
+        "id": "EQP_29",
+        "rarity": "Unique",
+        "tags":[
+            "Hybrid Saiyan"
+        ],
+        "Slots":{
+            "slot_1": "Special Move Damage 5.00% ~ 15.00%",
+            "slot_2": "Base Strike Defense 6.00% ~ 15.00%. Base Blast Defense 15.00% ~ 30.00%",
+            "slot_3": "Base Strike Attack 15.00% ~ 30.00%"
+        },
+        "image_url": "https://i.imgur.com/f90boRV.png",
+        "Awakened": false
+    },
+    {
+        "name": "Instant Transmission",
+        "id": "EQP_30",
+        "rarity": "Unique",
+        "tags":[
+            "Powerful Opponent"
+        ],
+        "Slots":{
+            "slot_1": "Base Blast Defense 8.00% ~ 18.00%",
+            "slot_2": "Base Blast Attack 12.00% ~ 30.00%",
+            "slot_3": "5.00% ~ 10.00% damage to Son Family. 5.00% ~ 10.00% defense against Son Family"
+        },
+        "image_url": "https://i.imgur.com/Eeh2MTC.png",
+        "Awakened": false
+    },
+    {
+        "name": "I'll end this now.",
+        "id": "EQP_31",
+        "rarity": "Unique",
+        "tags":[
+            "Cell",
+            "DBL40-02S"
+        ],
+        "Slots":{
+            "slot_1": "Base Strike Defense 12.00% ~ 25.00%. Base Blast Defense 12.00% ~ 25.00%. Base Ki Recovery 12.00% ~ 25.00%. Base Critical 12.00% ~ 25.00%",
+            "slot_2": "Base Strike Attack 10.00% ~ 25.00%. Base Blast Attack 10.00% ~ 25.00%. Inflicted Damage 10.00% ~ 20.00%. Health Restoration 8.00% ~ 15.00%",
+            "slot_3": "+35% to own Unique Gauge when battle starts. Base Health 15.00% ~ 15.00%"
+        },
+        "image_url": "https://i.imgur.com/j7SEZeq.png",
+        "Awakened": false
+    },
+    {
+        "name": "Ka... me... ha... me...",
+        "id": "EQP_32",
+        "rarity": "Unique",
+        "tags":[
+            "Cell Saga (Z)"
+        ],
+        "Slots":{
+            "slot_1": "Base Strike Defense 10.00% ~ 25.00%",
+            "slot_2": "Special Move Damage 5.00% ~ 10.00%. Ultimate Damage 5.00% ~ 10.00%",
+            "slot_3": "Base Blast Attack 15.00% ~ 35.00%"
+        },
+        "image_url": "https://i.imgur.com/qddl091.png",
+        "Awakened": false
+    },
+    {
+        "name": "Belive in yourself, Gohan!",
+        "id": "EQP_33",
+        "rarity": "Unique",
+        "tags":[
+            "Gohan",
+            "DBL10-06S"
+        ],
+        "Slots":{
+            "slot_1": "Health Restoration 8.00% ~ 10.00%",
+            "slot_2": "8.00% ~ 10.00% to Strike & Blast Defense per 'Tag: Son Family' battle member",
+            "slot_3": "Base Strike Attack 10.00% ~ 25.00%"
+        },
+        "image_url": "https://i.imgur.com/Lx5Zcpd.png",
+        "Awakened": false
+    },
+    {
+        "name": "Advance Toward Victory",
+        "id": "EQP_34",
+        "rarity": "Unique",
+        "tags":[
+            "Gohan",
+            "DBL10-06S"
+        ],
+        "Slots":{
+            "slot_1": "Base Health 8.00% ~ 15.00%. Base Strike Defense 45.00% ~ 90.00%. Base Blast Defense 45.00% ~ 90.00%. Health Restoration 5.00% ~ 10.00%. Restores own health by 5.00% ~ 15.00% when this character enters the battlefield.",
+            "slot_2": "Inflicted Damage 35.00% ~ 100.00%. Base Strike Attack 25.00% ~ 50.00%. Base Blast Attack 25.00% ~ 50.00%. 15.00% ~ 50.00% to Blast damage inflicted. Base Ki Recovery 20.00% ~ 40.00%",
+            "slot_3": "Applies the following effects to self when this character enters the battlefield: Applies Buff Effect 'Nullifies enemy's special actions that activate when changing cover' for 5 timer counts. Draw a Blast Arts Card next. Increases Arts Card Draw Speed by 1 level (activates once). Reduces enemy Ki by 50 when changing cover."
+        },
+        "image_url": "https://i.imgur.com/H4oU8NU.png",
+        "Awakened": false
+    },
+    {
+        "name": "The Time Machine Takes Off",
+        "id": "EQP_35",
+        "rarity": "Unique",
+        "tags":[
+            "Vegeta Clan"
+        ],
+        "Slots":{
+            "slot_1": "Special Move Damage 5.00% ~ 10.00%",
+            "slot_2": "Base Strike Defense 10.00% ~ 20.00%. 5.00% ~ 12.00% to own Strike Attack when 3 battle members are 'Tag: Vegeta Clan'.",
+            "slot_3": "Base Blast Defense 10.00% ~ 20.00%. 5.00% ~ 12.00% to own Blast Attack when 3 battle members are'Tag: Vegeta Clan'."
+        },
+        "image_url": "https://i.imgur.com/E9ZFdPf.png",
+        "Awakened": false
+    },
+    {
+        "name": "I'll Be the One Who Kills You!",
+        "id": "EQP_36",
+        "rarity": "Unique",
+        "tags":[
+            "Frieza",
+            "DBL37-02S"
+        ],
+        "Slots":{
+            "slot_1": "Base Health 5.00% ~ 15.00%. Base Strike Defense 10.00% ~ 25.00%. Base Blast Defense 10.00% ~ 25.00%",
+            "slot_2": "Base Strike Attack 10.00% ~ 25.00%. Base Blast Attack 10.00% ~ 25.00%",
+            "slot_3": "15.00% ~ 15.00% damage to Saiyan. 10.00% ~ 10.00% defense against Saiyan"
+        },
+        "image_url": "https://i.imgur.com/fa9HGc2.png",
+        "Awakened": false
+    },
+    {
+        "name": "You fool!",
+        "id": "EQP_37",
+        "rarity": "Unique",
+        "tags":[
+            "Goku",
+            "DBL15-05S"
+        ],
+        "Slots":{
+            "slot_1": "Base Health 5.00% ~ 10.00%",
+            "slot_2": "Base Blast Attack 8.00% ~ 21.50%",
+            "slot_3": "6.00% ~ 15.00% defense against Lineage of Evil"
+        },
+        "image_url": "https://i.imgur.com/EnTSgy0.png",
+        "Awakened": false
+    },
+    {
+        "name": "Super Saiyan Goten",
+        "id": "EQP_38",
+        "rarity": "Unique",
+        "tags":[
+            "Super Saiyan",
+            "Sagas From the Movies"
+        ],
+        "Slots":{
+            "slot_1": "Health Restoration 5.00% ~ 12.00%",
+            "slot_2": "Base Strike Defense 8.00% ~ 20.00%. 5.00% ~ 15.00% to Strike Defense when 'Tag: Hybrid Saiyan' is a battle member.",
+            "slot_3": "Base Blast Defense 8.00% ~ 20.00%. 5.00% ~ 15.00% to Blast Defense when 'Tag: Saiyan' is a battle member."
+        },
+        "image_url": "https://i.imgur.com/bTTyU4y.png",
+        "Awakened": false
+    },
+    {
+        "name": "Family Kamehameha",
+        "id": "EQP_39",
+        "rarity": "Unique",
+        "tags":[
+            "Goten",
+            "DBL12-06S"
+        ],
+        "Slots":{
+            "slot_1": "Special Move Damage 8.00% ~ 20.00%. Ultimate Damage 8.00% ~ 20.00%",
+            "slot_2": "5.00% ~ 8.00% to Strike & Blast Defense per 'Tag: Son Family' battle member. Restores own health by 1.00% ~ 3.00% when switched to standby",
+            "slot_3": "3.00% ~ 8.00% to Blast Attack for each Tag: Son Family battle member."
+        },
+        "image_url": "https://i.imgur.com/rsgCFw6.png",
+        "Awakened": false
+    },
+    {
+        "name": "This is Super Vegito!",
+        "id": "EQP_40",
+        "rarity": "Unique",
+        "tags":[
+            "Vegito",
+            "DBL13-03S"
+        ],
+        "Slots":{
+            "slot_1": "3.00% ~ 6.00% to Blast Attack for each Tag: Fusion Warrior battle member.",
+            "slot_2": "5.00% ~ 8.00% to Strike & Blast Defense for each Tag: Fusion Warrior battle member.",
+            "slot_3": "4.00% ~ 10.00% to own Strike Attack for 15 timer counts when changing cover. Ultimate Damage 6.00% ~ 15.00%"
+        },
+        "image_url": "https://i.imgur.com/JfCwHQ8.png",
+        "Awakened": false
+    },
+    {
+        "name": "Give up, Buu.",
+        "id": "EQP_41",
+        "rarity": "Unique",
+        "tags":[
+            "Fusion Warrior"
+        ],
+        "Slots":{
+            "slot_1": "Base Critical 8.00% ~ 22.00%",
+            "slot_2": "Base Strike Defense 8.00% ~ 20.00%. 5.00% ~ 12.00% to own Strike Attack when 3 battle members are 'Tag: Fusion Warrior'.",
+            "slot_3": "Base Blast Defense 8.00% ~ 20.00%. 5.00% ~ 12.00% to own Blast Attack when 3 battle members are 'Tag: Fusion Warrior'."
+        },
+        "image_url": "https://i.imgur.com/wiHvthX.png",
+        "Awakened": false
+    },
+    {
+        "name": "You're the idiot.",
+        "id": "EQP_42",
+        "rarity": "Unique",
+        "tags":[
+            "Fusion Warrior",
+            "YEL"
+        ],
+        "Slots":{
+            "slot_1": "Health Restoration 5.00% ~ 10.00%. Base Ki Recovery 5.00% ~ 10.00%",
+            "slot_2": "Special Move Damage 5.00% ~ 10.00%. Ultimate Damage 5.00% ~ 10.00%",
+            "slot_3": "Base Strike Attack 10.00% ~ 20.00%. Base Blast Attack 10.00% ~ 20.00%"
+        },
+        "image_url": "https://i.imgur.com/L7VcYOa.png",
+        "Awakened": false
+    },
+    {
+        "name": "I can beat you with just my legs!",
+        "id": "EQP_43",
+        "rarity": "Unique",
+        "tags":[
+            "Fusion Warrior",
+            "Majin Buu Saga (Z)"
+        ],
+        "Slots":{
+            "slot_1": "Special Move Damage 5.00% ~ 10.00%. Ultimate Damage 5.00% ~ 10.00%",
+            "slot_2": "Base Blast Attack 5.00% ~ 12.00%. 5.00% ~ 12.00% to Blast Attack when 'Tag: Super Saiyan' is a battle member.",
+            "slot_3": "Base Strike Attack 5.00% ~ 12.00%. 5.00% ~ 12.00% to Strike Attack when 'Tag: Potara' is a battle member."
+        },
+        "image_url": "https://i.imgur.com/7LEBUG7.png",
+        "Awakened": false
+    },
+    {
+        "name": "It's impossible, I tell you. Impossible.",
+        "id": "EQP_44",
+        "rarity": "Unique",
+        "tags":[
+            "Saiyan"
+        ],
+        "Slots":{
+            "slot_1": "Base Health 5.00% ~ 10.00%. Health Restoration 5.00% ~ 10.00%",
+            "slot_2": "Base Strike Defense 10.00% ~ 32.00%",
+            "slot_3": "8.00% ~ 20.00% to Blast Defense when 'Tag: Saiyan' and 'Tag: Potara' is a battle member."
+        },
+        "image_url": "https://i.imgur.com/Zys6XQo.png",
+        "Awakened": false
+    },
+    {
+        "name": "This is Super Saiyan Blue!",
+        "id": "EQP_45",
+        "rarity": "Unique",
+        "tags":[
+            "Vegeta",
+            "DBL18-05S"
+        ],
+        "Slots":{
+            "slot_1": "Base Strike Defense 13.00% ~ 20.00%. Base Blast Defense 13.00% ~ 20.00%",
+            "slot_2": "Special Move Damage 8.00% ~ 15.00%. Ultimate Damage 8.00% ~ 15.00%",
+            "slot_3": "1.00% ~ 8.00% to Strike & Blast Attack for each 'Tag: Vegeta Clan' or 'Tag: God Ki' battle member."
+        },
+        "image_url": "https://i.imgur.com/YJn8Yb4.png",
+        "Awakened": false
+    },
+    {
+        "name": "I'm Surprised at My Strength",
+        "id": "EQP_46",
+        "rarity": "Unique",
+        "tags":[
+            "GT"
+        ],
+        "Slots":{
+            "slot_1": "Health Restoration 6.00% ~ 10.00%",
+            "slot_2": "Base Strike Defense 12.00% ~ 20.00%. Base Blast Defense 12.00% ~ 20.00%",
+            "slot_3": "Base Strike Attack 15.00% ~ 30.00%"
+        },
+        "image_url": "https://i.imgur.com/bvbGE3s.png",
+        "Awakened": false
+    },
+    {
+        "name": "See ya!",
+        "id": "EQP_47",
+        "rarity": "Unique",
+        "tags":[
+            "Goku",
+            "DBL17-05S"
+        ],
+        "Slots":{
+            "slot_1": "Health Restoration 5.00% ~ 10.00%. Base Strike Defense 15.00% ~ 30.00%. Base Blast Defense 15.00% ~ 30.00%",
+            "slot_2": "Base Strike Attack 15.00% ~ 30.00%. Base Blast Attack 15.00% ~ 30.00%",
+            "slot_3": "Base Health 5.00% ~ 10.00%. Special Move Damage 10.00% ~ 20.00%. Ultimate Damage 10.00% ~ 30.00%"
+        },
+        "image_url": "https://i.imgur.com/zURgjIl.png",
+        "Awakened": false
+    },
+    {
+        "name": "There's no way that WE...Could lose to someone like you!",
+        "id": "EQP_48",
+        "rarity": "Unique",
+        "tags":[],
+        "Slots":{
+            "slot_1": "+3.00% to Friendship Points gained (activates when equipped in party).",
+            "slot_2": "+3.00% to Friendship Points gained (activates when equipped in party).",
+            "slot_3": "+3.00% to Friendship Points gained (activates when equipped in party)."
+        },
+        "image_url": "https://i.imgur.com/33iL3om.png",
+        "Awakened": false
+    },
+    {
+        "name": "Thanks for 2 years!!",
+        "id": "EQP_49",
+        "rarity": "Unique",
+        "tags":[],
+        "Slots":{
+            "slot_1": "Base Strike Defense 2.50% ~ 7.50%. Base Blast Defense 2.50% ~ 7.50%",
+            "slot_2": "Base Ki Recovery 4.00% ~ 10.00%",
+            "slot_3": "2.00% ~ 6.00% to Strike & Blast Attack when 'Character: Shallot (DBL00-01)' is a battle member."
+        },
+        "image_url": "https://i.imgur.com/QghG5i8.png",
+        "Awakened": false
+    },
+    {
+        "name": "Vegito blue!",
+        "id": "EQP_50",
+        "rarity": "Unique",
+        "tags":[
+            "Vegito",
+            "DBL24-01S"
+        ],
+        "Slots":{
+            "slot_1": "Base Health 8.00% ~ 15.00%. Base Strike Defense 20.00% ~ 40.00%. Base Blast Defense 20.00% ~ 40.00%",
+            "slot_2": "Inflicted Damage 20.00% ~ 50.00%. Base Strike Attack 20.00% ~ 35.00%. Base Blast Attack 20.00% ~ 35.00%. 10.00% ~ 30.00% to Strike Arts damage inflicted against 'Battle Style: Ranged Type' when 3 battle members are 'Tag: God Ki'. 10.00% ~ 30.00% to Blast Arts damage inflicted against 'Battle Style: Melee Type' when 3 battle members are 'Tag: God Ki'.",
+            "slot_3": "Increases Arts Card Draw Speed by 1 level. Applies Buff Effect 'Nullifies enemy's special actions that activate when changing cover' to self when this character enters the battlefield for 3 timer counts. Applies the following effects to self upon landing a Special Arts hit: Restores Ki by 50. Applies Buff Effect 'Nullifies enemy's special actions that activate when changing cover' for 3 timer counts."
+        },
+        "image_url": "https://i.imgur.com/1VLukgS.png",
+        "Awakened": false
+    },
+    {
+        "name": "Raging Hope for the Future",
+        "id": "EQP_51",
+        "rarity": "Unique",
+        "tags":[
+            "'Future' Trunks Saga (S)"
+        ],
+        "Slots":{
+            "slot_1": "Base Strike Defense 5.00% ~ 10.00%. Base Blast Defense 5.00% ~ 10.00%",
+            "slot_2": "Base Strike Defense 5.00% ~ 15.00%. 5.00% ~ 10.00% to own Strike Defense when 3 battle members are 'Episode: 'Future' Trunks Saga (S)'.",
+            "slot_3": "Base Strike Attack 5.00% ~ 15.00%. 5.00% ~ 10.00% to own Strike Attack if there are 2 or more 'Battle Style: Melee Type' battle members."
+        },
+        "image_url": "https://i.imgur.com/wSClZi7.png",
+        "Awakened": false
+    },
+    {
+        "name": "First you'll have to deal with me!",
+        "id": "EQP_52",
+        "rarity": "Unique",
+        "tags":[
+            "Future"
+        ],
+        "Slots":{
+            "slot_1": "Base Blast Defense 10.00% ~ 20.00%",
+            "slot_2": "Base Strike Attack 5.00% ~ 15.00%. 5.00% ~ 10.00% to Strike Attack when 'Tag: Future' and 'Tag: Vegeta Clan' is a battle member.",
+            "slot_3": "Base Blast Attack 5.00% ~ 15.00%. 5.00% ~ 10.00% to Blast Attack when 'Tag: Future' and 'Tag: Powerful Opponent' is a battle member."
+        },
+        "image_url": "https://i.imgur.com/yHrqnId.png",
+        "Awakened": false
+    },
+    {
+        "name": "Me, the invicible, the almighty and divine",
+        "id": "EQP_53",
+        "rarity": "Unique",
+        "tags":[
+            "'Future' Trunks Saga (S)"
+        ],
+        "Slots":{
+            "slot_1": "Base Blast Defense 10.00% ~ 20.00%",
+            "slot_2": "Base Strike Defense 15.00% ~ 30.00%",
+            "slot_3": "Base Health 5.00% ~ 10.00%. Health Restoration 5.00% ~ 10.00%"
+        },
+        "image_url": "https://i.imgur.com/F8mJXjA.png",
+        "Awakened": false
+    },
+    {
+        "name": "Two glorious and unparalleled powers",
+        "id": "EQP_54",
+        "rarity": "Unique",
+        "tags":[
+            "Zamasu",
+            "DBL35-08S"
+        ],
+        "Slots":{
+            "slot_1": "Base Strike Attack 15.00% ~ 35.00%. Base Blast Attack 15.00% ~ 35.00%",
+            "slot_2": "Base Health 5.00% ~ 15.00%. Base Strike Defense 20.00% ~ 45.00%. Base Blast Defense 20.00% ~ 45.00%",
+            "slot_3": "Inflicted Damage 20.00% ~ 20.00%"
+        },
+        "image_url": "https://i.imgur.com/TPnXwfm.png",
+        "Awakened": false
+    },
+    {
+        "name": "Now, Kakarot...",
+        "id": "EQP_55",
+        "rarity": "Unique",
+        "tags":[
+            "Sagas From the Movies",
+            "PUR"
+        ],
+        "Slots":{
+            "slot_1": "Health Restoration 5.00% ~ 10.00%",
+            "slot_2": "Base Strike Attack 12.00% ~ 20.00%. Base Blast Defense 12.00% ~ 20.00%",
+            "slot_3": "Base Blast Attack 15.00% ~ 30.00%"
+        },
+        "image_url": "https://i.imgur.com/98SY5yw.png",
+        "Awakened": false
+    },
+    {
+        "name": "Then die here, fool!",
+        "id": "EQP_56",
+        "rarity": "Unique",
+        "tags":[
+            "Powerful Opponent",
+            "BLU"
+        ],
+        "Slots":{
+            "slot_1": "Base Blast Attack 10.00% ~ 23.00%",
+            "slot_2": "Base Strike Attack 12.00% ~ 30.00%",
+            "slot_3": "Base Blast Attack 5.00% ~ 15.00%. Health Restoration 5.00% ~ 12.00%"
+        },
+        "image_url": "https://i.imgur.com/yOuEPMq.png",
+        "Awakened": false
+    },
+    {
+        "name": "A gift from the Earth!",
+        "id": "EQP_57",
+        "rarity": "Unique",
+        "tags":[
+            "Sagas From the Movies",
+            "Saiyan"
+        ],
+        "Slots":{
+            "slot_1": "Base Health 5.00% ~ 10.00%",
+            "slot_2": "Base Strike Defense 5.00% ~ 10.00%. 5.00% ~ 12.00% to own Strike Defense if a battle member other than this character is both 'Tag: Saiyan' and 'Episode: Sagas From the Movies'.",
+            "slot_3": "Base Blast Attack 5.00% ~ 15.00%. 5.00% ~ 15.00% to own Blast Attack if a battle member other than this character is both 'Tag: Saiyan' and 'Episode: Sagas From the Movies'."
+        },
+        "image_url": "https://i.imgur.com/4lHV4Is.png",
+        "Awakened": false
+    },
+    {
+        "name": "I have the power of nature inside!",
+        "id": "EQP_58",
+        "rarity": "Unique",
+        "tags":[
+            "Sagas From the Movies"
+        ],
+        "Slots":{
+            "slot_1": "Base Strike Defense 5.00% ~ 12.00%. Base Blast Defense 5.00% ~ 12.00%",
+            "slot_2": "Base Strike Defense 5.00% ~ 10.00%. 5.00% ~ 10.00% to Strike Defense when 'Battle Style: Ranged Type' is a battle member.",
+            "slot_3": "Base Blast Defense 5.00% ~ 10.00%. 5.00% ~ 10.00% to Blast Defense when 'Battle Style: Melee Type' is a battle member."
+        },
+        "image_url": "https://i.imgur.com/AB38e3c.png",
+        "Awakened": false
+    },
+    {
+        "name": "MEET THE LIGHT OF DEATH!!!!!",
+        "id": "EQP_59",
+        "rarity": "Unique",
+        "tags":[
+            "Piccolo",
+            "DBL22-03S"
+        ],
+        "Slots":{
+            "slot_1": "Base Blast Attack 13.00% ~ 20.00%",
+            "slot_2": "Base Strike Defense 13.00% ~ 25.00%. Base Blast Defense 13.00% ~ 25.00%",
+            "slot_3": "6.00% ~ 12.50% damage to Saiyan"
+        },
+        "image_url": "https://i.imgur.com/pY2dBGd.png",
+        "Awakened": false
+    },
+    {
+        "name": "Wow, what a great show!",
+        "id": "EQP_60",
+        "rarity": "Unique",
+        "tags":[
+            "Frieza",
+            "DBL22-05S"
+        ],
+        "Slots":{
+            "slot_1": "Special Move Damage 5.00% ~ 15.00%. Ultimate Damage 5.00% ~ 15.00%",
+            "slot_2": "Base Strike Defense 8.00% ~ 15.00%. Base Blast Defense 8.00% ~ 15.00%",
+            "slot_3": "5.00% ~ 8.00% to Strike & Blast Defense per 'Tag: Frieza Force' or 'Tag: Lineage of Evil' battle member when this character enters the battlefield."
+        },
+        "image_url": "https://i.imgur.com/O5ohp1r.png",
+        "Awakened": false
+    },
+    {
+        "name": "I do this for you...",
+        "id": "EQP_61",
+        "rarity": "Unique",
+        "tags":[
+            "Vegeta",
+            "DBL26-06S"
+        ],
+        "Slots":{
+            "slot_1": "Base Strike Defense 10.00% ~ 25.00%. Base Blast Defense 10.00% ~ 25.00%",
+            "slot_2": "Base Health 5.00% ~ 10.00%. Special Move Damage 5.00% ~ 10.00%",
+            "slot_3": "Base Strike Attack 5.00% ~ 10.00%. 5.00% ~ 10.00% damage to Goku"
+        },
+        "image_url": "https://i.imgur.com/xxImb6c.png",
+        "Awakened": false
+    },
+    {
+        "name": "You won't even be able to lay a finger on me.",
+        "id": "EQP_62",
+        "rarity": "Unique",
+        "tags":[
+            "Universe Survival Saga (S)"
+        ],
+        "Slots":{
+            "slot_1": "Base Blast Defense 10.00% ~ 25.00%",
+            "slot_2": "Base Ki Recovery 5.00% ~ 10.00%. Special Move Damage 5.00% ~ 10.00%",
+            "slot_3": "Base Strike Attack 15.00% ~ 35.00%"
+        },
+        "image_url": "https://i.imgur.com/U66P9TD.png",
+        "Awakened": false
+    },
+    {
+        "name": "I'm gonna finish this right now.",
+        "id": "EQP_63",
+        "rarity": "Unique",
+        "tags":[
+            "Goku",
+            "DBL29-04S"
+        ],
+        "Slots":{
+            "slot_1": "Base Strike Attack 20.00% ~ 35.00%. Base Blast Attack 20.00% ~ 35.00%.Base Ki Recovery 15.00% ~ 30.00%",
+            "slot_2": "Base Health 8.00% ~ 15.00%. Base Strike Defense 15.00% ~ 30.00%. Base Blast Defense 15.00% ~ 30.00%",
+            "slot_3": "Restores own Ki by 20 when this character enters the battlefield. Applies the following effects to self upon landing a Special Arts hit: Restores Ki by 30. Cancels Attribute Downgrades. Randomly draws at most 3 new cards when you have 3 or fewer cards (activates twice). *Times where 4 cards are held are also counted as activations."
+        },
+        "image_url": "https://i.imgur.com/z13Ej5h.png",
+        "Awakened": false
+    },
+    {
+        "name": "RRRAAAAAAGH!",
+        "id": "EQP_64",
+        "rarity": "Unique",
+        "tags":[
+            "Majin Buu",
+            "DBL32-02S"
+        ],
+        "Slots":{
+            "slot_1": "Base Health 5.00% ~ 15.00%. Base Strike Defense 10.00% ~ 25.00%. Base Blast Defense 10.00% ~ 25.00%",
+            "slot_2": "Base Strike Attack 10.00% ~ 30.00%. Base Blast Attack 10.00% ~ 30.00%",
+            "slot_3": "+10.00% to Blast damage inflicted per 'Tag: Regeneration' or 'Tag: Powerful Opponent' battle member. Health Restoration 20.00% ~ 20.00%"
+        },
+        "image_url": "https://i.imgur.com/pUB8KCW.png",
+        "Awakened": false
+    },
+    {
+        "name": "Don't screw with me!",
+        "id": "EQP_65",
+        "rarity": "Unique",
+        "tags":[
+            "Regeneration",
+            "RED"
+        ],
+        "Slots":{
+            "slot_1": "Base Strike Defense 5.00% ~ 15.00%",
+            "slot_2": "Special Move Damage 5.00% ~ 15.00%. Ultimate Damage 5.00% ~ 15.00%",
+            "slot_3": "Base Strike Attack 15.00% ~ 38.00%"
+        },
+        "image_url": "https://i.imgur.com/HEMB4sU.png",
+        "Awakened": false
+    },
+    {
+        "name": "You're finished!",
+        "id": "EQP_66",
+        "rarity": "Unique",
+        "tags":[
+            "Regeneration",
+            "Powerful Opponent"
+        ],
+        "Slots":{
+            "slot_1": "Base Strike Defense 10.00% ~ 25.00%",
+            "slot_2": "Base Strike Defense 8.00% ~ 18.00%. 5.00% ~ 15.00% to own Strike Defense when 3 battle members are 'Tag: Regeneration'.",
+            "slot_3": "Base Blast Defense 8.00% ~ 18.00%. 5.00% ~ 15.00% to own Blast Defense when 3 battle members are 'Tag: Regeneration'."
+        },
+        "image_url": "https://i.imgur.com/a33bSBv.png",
+        "Awakened": false
+    },
+    {
+        "name": "Dragon Fist!",
+        "id": "EQP_67",
+        "rarity": "Unique",
+        "tags":[
+            "Goku",
+            "DBL34-01S"
+        ],
+        "Slots":{
+            "slot_1": "Base Health 5.00% ~ 15.00%. Base Strike Defense 10.00% ~ 35.00%. Base Blast Defense 10.00% ~ 35.00%",
+            "slot_2": "5.00% ~ 8.00% to Strike & Blast Attack for each 'Tag: Son Family' battle member.",
+            "slot_3": "Inflicted Damage 20.00% ~ 20.00%. Special Move Damage 10.00% ~ 10.00%. Ultimate Damage 10.00% ~ 10.00%"
+        },
+        "image_url":"https://i.imgur.com/diLpYYy.png",
+        "Awakened": false
+    },
+    {
+        "name": "I have the power to destroy you now!",
+        "id": "EQP_68",
+        "rarity": "Unique",
+        "tags":[
+            "Gogeta",
+            "DBL35-01S"
+        ],
+        "Slots":{
+            "slot_1": "Base Health 5.00% ~ 15.00%. Base Strike Defense 20.00% ~ 35.00%. Base Blast Defense 20.00% ~ 35.00%",
+            "slot_2": "Inflicted Damage 5.00% ~ 35.00%. Base Strike Attack 20.00% ~ 35.00%. Base Blast Attack 20.00% ~ 35.00%",
+            "slot_3": "Revive Disruption: Increases Dragon Balls by 2 and +50% to damage inflicted (cannot be stacked)."
+        },
+        "image_url": "https://i.imgur.com/UBPooDB.png",
+        "Awakened": false
+    },
+    {
+        "name": "For your sake, I hope that wasn't the cavalry!",
+        "id": "EQP_69",
+        "rarity": "Unique",
+        "tags":[
+            "Sagas From the Movies"
+        ],
+        "Slots":{
+            "slot_1": "Special Move Damage 5.00% ~ 10.00%",
+            "slot_2": "Base Blast Defense 10.00% ~ 25.00%. 5.00% ~ 10.00% to own Blast Attack when 3 battle members are 'Episode: Sagas From the Movies'.",
+            "slot_3": "Base Strike Defense 10.00% ~ 25.00%. 5.00% ~ 10.00% to own Strike Attack when 3 battle members are 'Episode: Sagas From the Movies'."
+        },
+        "image_url": "https://i.imgur.com/gOvZflu.png",
+        "Awakened": false
+    },
+    {
+        "name": "Okay, that was a neat trick...",
+        "id": "EQP_70",
+        "rarity": "Unique",
+        "tags":[
+            "Sagas From the Movies",
+            "YEL"
+        ],
+        "Slots":{
+            "slot_1": "Base Strike Defense 10.00% ~ 20.00%",
+            "slot_2": "Base Blast Defense 10.00% ~ 25.00%",
+            "slot_3": "Base Strike Attack 15.00% ~ 35.00%"
+        },
+        "image_url": "https://i.imgur.com/pTlwRSV.png",
+        "Awakened": false
+    },
+    {
+        "name": "No way! You've lived long enough!",
+        "id": "EQP_71",
+        "rarity": "Unique",
+        "tags":[
+            "Anime Original Sagas"
+        ],
+        "Slots":{
+            "slot_1": "Special Move Damage 5.00% ~ 10.00%. Base Critical 5.00% ~ 10.00%",
+            "slot_2": "Base Strike Attack 10.00% ~ 25.00%",
+            "slot_3": "Base Blast Attack 15.00% ~ 35.00%"
+        },
+        "image_url": "https://i.imgur.com/QgWtyS7.png",
+        "Awakened": false
+    },
+    {
+        "name": "There are those actually capable of producing a satellite!",
+        "id": "EQP_72",
+        "rarity": "Unique",
+        "tags":[
+            "Saiyan Saga (Z)"
+        ],
+        "Slots":{
+            "slot_1": "Base Blast Attack 8.00% ~ 20.00%",
+            "slot_2": "Base Ki Recovery 5.00% ~ 10.00%. Base Health 5.00% ~ 10.00%",
+            "slot_3": "Base Strike Attack 15.00% ~ 30.00%"
+        },
+        "image_url": "https://i.imgur.com/aaOYWvU.png",
+        "Awakened": false
     }
 ]
