@@ -122,17 +122,7 @@ app.get("/api/equipment", (req, res) => {
 //API - Equipos(MongoDB)
 app.use('/api/teams', require('../routes/teams'));
 
-//404 - Redirigir al index
-app.use((req, res) => {
-    // Si la ruta no es de API, redirigir al index
-    if (!req.path.startsWith('/api/')) {
-        return res.sendFile(path.join(__dirname, '..', 'frontend', 'index.html'));
-    }
-    res.status(404).json({
-        error: "Ruta no encontrada",
-        message: `La ruta ${req.originalUrl} no existe en esta API`
-    });
-});
+
 
 //Middleware de errores
 app.use((err, req, res, next) => {
