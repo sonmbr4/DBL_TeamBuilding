@@ -40,7 +40,7 @@
     },
     "strike":"Strike (Slice)",
     "shot": "Blast (Armor Break)",
-    "image_url":"assets/imgs/Characters/BChaCut_0733_TrunksSS1_733.webp",
+    "image_url":"https://dblegends.net/assets/card_cutins/BChaCut_0733_TrunksSS1_733.webp",
     "is_lf": false,
     "is_tag": true,
     "has_zenkai": false
@@ -185,7 +185,7 @@
     },
     "strike": "Strike (Impact)",
     "shot": "Blast (Impact)",
-    "image_url": "/assets/imgs/Characters/BChaCut_0730_BrolyB_730.webp",
+    "image_url": "https://dblegends.net/assets/card_cutins/BChaCut_0730_BrolyB_730.webp",
     "is_lf": false,
     "is_tag": false,
     "has_zenkai": false
@@ -344,7 +344,7 @@
     },
     "strike": "Strike (Impact)",
     "shot": "Blast (Impact)",
-    "image_url": "/assets/imgs/Characters/BChaCut_0726_GokuBlackXV2_726.webp",
+    "image_url": "https://dblegends.net/assets/card_cutins/BChaCut_0726_GokuBlackXV2_726.webp",
     "is_lf": false,
     "is_tag": false,
     "has_zenkai": false
@@ -496,7 +496,7 @@
     },
     "strike": "Strike (Impact)",
     "shot": "Blast (Impact)",
-    "image_url": "/assets/imgs/Characters/BChaCut_0725_Bardock_725.webp",
+    "image_url": "https://dblegends.net/assets/card_cutins/BChaCut_0725_Bardock_725.webp",
     "is_lf": false,
     "is_tag": false,
     "has_zenkai": false
@@ -635,7 +635,7 @@
     },
     "strike": "Strike (Impact)",
     "shot": "Blast (Impact)",
-    "image_url": "/assets/imgs/Characters/BChaCut_0722_GokuKidDMSS3_722.webp",
+    "image_url": "https://dblegends.net/assets/card_cutins/BChaCut_0722_GokuKidDMSS3_722.webp",
     "is_lf": false,
     "is_tag": false,
     "has_zenkai": false    
@@ -804,7 +804,7 @@
     },
     "strike": "Strike (Impact)",
     "shot": "Blast (Impact)",
-    "image_url": "/assets/imgs/Characters/BChaCut_0719_Piccolo_719.webp",
+    "image_url": "https://dblegends.net/assets/card_cutins/BChaCut_0719_Piccolo_719.webp",
     "is_lf": false,
     "is_tag": false,
     "has_zenkai": false
@@ -893,7 +893,7 @@
     },
     "strike": "Strike (Impact)",
     "shot": "Blast (Impact)",
-    "image_url": "/assets/imgs/Characters/BChaCut_0717_VegitoSV_717.webp",
+    "image_url": "https://dblegends.net/assets/card_cutins/BChaCut_0717_VegitoSV_717.webp",
     "is_lf": false,
     "is_tag": false,
     "has_zenkai": false
@@ -934,7 +934,7 @@
     },
     "strike":"Strike (Impact)",
     "shot": "Blast (Impact)",
-    "image_url":"assets/imgs/Characters/BChaCut_0684_ShalletSSG_684.webp",
+    "image_url":"https://dblegends.net/assets/card_cutins/BChaCut_0684_ShalletSSG_684.webp",
     "is_lf": false,
     "is_tag": false,
     "has_zenkai": false  
@@ -1097,7 +1097,7 @@
     },
     "strike":"Strike (Impact)",
     "shot": "Blast (Impact)",
-    "image_url":"assets/imgs/Characters/BChaCut_0721_TrunksFutureSS1_721.webp",
+    "image_url":"https://dblegends.net/assets/card_cutins/BChaCut_0721_TrunksFutureSS1_721.webp",
     "is_lf": false,
     "is_tag": false,
     "has_zenkai": false 
@@ -1172,7 +1172,7 @@
     },
     "strike": "Strike (Impact)",
     "shot": "Blast (Impact)",
-    "image_url": "/assets/imgs/Characters/BChaCut_0716_BuuGohan_716.webp",
+    "image_url": "https://dblegends.net/assets/card_cutins/BChaCut_0716_BuuGohan_716.webp",
     "is_lf": false,
     "is_tag": false,
     "has_zenkai": false
@@ -3790,6 +3790,173 @@
     ],
     "is_lf": true,
     "is_tag": true,
+    "has_zenkai": false
+  },
+  {
+    "name":"Super Saiyan Gohan (Youth)",
+    "id":"DBL88-03S",
+    "color":"RED",
+    "rarity":"SPARKING",
+    "tags":[
+      "Hybrid Saiyan",
+      "Son Family",
+      "Super Saiyan",
+      "DB",
+      "Male",
+      "SPARKING",
+      "Support Type",
+      "RED",
+      "DRAGON BALL 40th Annivesary",
+      "Gohan",
+      "Special Cover Change(Blast)"
+    ],
+    "base_stats": {
+      "power": 10240,
+      "health": 24406,
+      "strike_atk": 2403,
+      "strike_def": 1645,
+      "blast_atk": 2595,
+      "blast_def": 1629
+    },
+    "max_stats": {
+      "power": 886194,
+      "health": 1490921,
+      "strike_atk": 146768,
+      "strike_def": 100514,
+      "blast_atk": 158503,
+      "blast_def": 99515
+    },
+    "strike":"Strike (Impact)",
+    "shot": "Blast (Impact)",
+    "image_url":"https://dblegends.net/assets/card_cutins/BChaCut_0706_GohanTeenSS1_706.webp",
+    "is_lf": false,
+    "is_tag": false,
+    "has_zenkai": false
+  },
+  {
+    "name":"Goku",
+    "id":"DBL88-02S",
+    "color":"GRN",
+    "rarity":"SPARKING",
+    "tags":[
+      "Saiyan",
+      "Son Family",
+      "DB",
+      "Male",
+      "SPARKING",
+      "Melee Type",
+      "GRN",
+      "DRAGON BALL 40th Annivesary",
+      "Goku",
+      "Armored Strike Arts",
+      "Special Cover Change (Blast)"
+    ],
+    "base_stats": {
+      "power": 10240,
+      "health": 23044,
+      "strike_atk": 1589,
+      "strike_def": 1645,
+      "blast_atk": 2415,
+      "blast_def": 1589
+    },
+    "max_stats": {
+      "power": 888530,
+      "health": 1407730,
+      "strike_atk": 163321,
+      "strike_def": 97059,
+      "blast_atk": 147498,
+      "blast_def": 97054
+    },
+    "strike":"Strike (Impact)",
+    "shot": "Blast (Impact)",
+    "image_url":"https://dblegends.net/assets/card_cutins/BChaCut_0705_Goku_705.webp",
+    "is_lf": false,
+    "is_tag": false,
+    "has_zenkai": false
+  },
+  {
+    "name":"Android #14 & Android #15",
+    "id":"DBL87-03S",
+    "rarity":"SPARKING",
+    "color":"GRN",
+    "tags":[
+      "Android",
+      "Unknown",
+      "SPARKING",
+      "Melee Type",
+      "GRN",
+      "Sagas From the Movies",
+      "Android #14",
+      "Android #15",
+      "Tag",
+      "Element Switch",
+      "Special Cover Change (Strike)",
+      "Armored Strike Arts"
+    ],
+    "base_stats": {
+      "power": 10240,
+      "health": 24777,
+      "strike_atk": 2497,
+      "strike_def": 1645,
+      "blast_atk": 2474,
+      "blast_def": 1629
+    },
+    "max_stats": {
+      "power": 884612,
+      "health": 1513583,
+      "strike_atk": 152516,
+      "strike_def": 100519,
+      "blast_atk": 151151,
+      "blast_def": 99521
+    },
+    "strike":"Strike (Impact)",
+    "shot": "Blast (Impact)",
+    "image_url":[
+      "https://dblegends.net/assets/card_cutins/BChaCut_0703_Android14_703.webp",
+      "https://dblegends.net/assets/card_cutins/BChaCut_0703_Android15_703.webp"
+    ],
+    "is_lf": false,
+    "is_tag": true,
+    "has_zenkai": false
+  },
+  {
+    "name":"Fusion Android #13",
+    "id":"DBL87-02S",
+    "color":"BLU",
+    "rarity":"SPARKING",
+    "tags":[
+      "Android",
+      "Absorption",
+      "Fusion Warrior",
+      "Powerful Opponent",
+      "Unknown",
+      "SPARKING",
+      "Support Type",
+      "BLU",
+      "Sagas From the Movies",
+      "Android #13"
+    ],
+    "base_stats": {
+      "power": 10240,
+      "health": 25151,
+      "strike_atk": 2447,
+      "strike_def": 1736,
+      "blast_atk": 2425,
+      "blast_def": 1719
+    },
+    "max_stats": {
+      "power": 940403,
+      "health": 1536399,
+      "strike_atk": 149500,
+      "strike_def": 106076,
+      "blast_atk": 148162,
+      "blast_def": 105022
+    },
+    "strike":"Strike (Impact)",
+    "shot": "Blast (Impact)",
+    "image_url":"https://dblegends.net/assets/card_cutins/BChaCut_0702_Android13M_702.webp",
+    "is_lf": false,
+    "is_tag": false,
     "has_zenkai": false
   },
   {

@@ -57,6 +57,9 @@ const RARITY_IMAGE_MAP = {
     HERO: './assets/imgs/Rareza/Gas_txtRarity_HERO.webp'
 }
 
+const TAG_BADGE_IMAGE = 'https://dblegends.net/assets/icon_elements/MChaIco_icnTagChange.webp';
+
+
 const LF_PLATE_IMAGE = './assets/imgs/CharaInfo_icnLimitedPlate.webp'
 
 const TYPE_COLOR_ICON_MAP = {
@@ -186,11 +189,11 @@ function getEquipmentImageUrl(equipment) {
 
     let url = rawUrl.replace(/\.wep$/i, '.webp')
 
-    if (url.startsWith('/assets')){
+    if (url.startsWith('/assets')) {
         url = `.${url}`
     }
 
-    return url;   
+    return url;
 }
 
 function renderTeamEquipmentSlots(character) {
@@ -680,6 +683,7 @@ function showNotification(message, type = "info") {
 
 // Inicializar cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', () => {
+    loadCharacters()
     loadAndRenderSavedTeams()
     renderTeamSlots()
 })
@@ -722,14 +726,38 @@ function buildCard(character) {
     const rarityImg = RARITY_IMAGE_MAP[rarityKey]
     const rarityClass = getRarityClass(rarityLabel)
     const colorLabel = character.color ?? "N/D"
+
+
+
+    //Si es personaje TAG
+    const isTag = character.is_tag === true;
+    const hasMultipleImages = isTag && Array.isArray(character.image_url) && character.image_url.length >= 2;
+
+
+
     const rarityHtml = rarityImg
         ? `<img class="rarity-img" src="${rarityImg}" alt="${rarityKey}">`
         : `<span class="rarity-badge ${rarityClass}">${rarityLabel}</span>`
+
+
+
+    //Tag al lado de la rareza
+    const tagBadgeHtml = isTag
+        ? `<img class="tag-badge-img" src="${TAG_BADGE_IMAGE}" alt="TAG" title="Personaje TAG">`
+        : "";
+
+
+
     const lfCardClass = character.is_lf ? " lf-card" : ""
+    const tagClass = isTag ? " tag-mode" : "";
+
+
     const typeColorIcon = getTypeColorIcon(character.color)
     const typeColorHtml = typeColorIcon
         ? `<img class="character-type-icon" src="${typeColorIcon}" alt="${character.color || 'Attribute'}">`
         : `<span class="character-type-icon character-type-icon-fallback">${character.color || ''}</span>`
+
+
     const lfPlateHtml = character.is_lf
         ? `
             <div class="lf-plate-wrap" aria-hidden="true">
@@ -740,13 +768,53 @@ function buildCard(character) {
         : ""
 
 
+
+    let imageHtml;
+
+
+
+    if (hasMultipleImages) {
+        //Carousel de imagenes para personajes Tag
+        const images = character.image_url;
+        imageHtml = `
+            <div class="tag-image-container" data-tag-images='${JSON.stringify(images)}'>
+                <img class="tag-image active" 
+                     src="${images[0]}" 
+                     alt="${character.name}"
+                     loading="lazy"
+                     onerror="this.src='./assets/imgs/placeholder.webp'">
+                <img class="tag-image inactive" 
+                     src="${images[1]}" 
+                     alt="${character.name} (Alternativo)"
+                     loading="lazy"
+                     onerror="this.src='./assets/imgs/placeholder.webp'">
+                <div class="tag-indicator">
+                    <span class="tag-dot active" data-index="0"></span>
+                    <span class="tag-dot" data-index="1"></span>
+                </div>
+                <span class="tag-label">TAG</span>
+            </div>
+        `
+    } else {
+        //Imagen unica normal
+        const imageUrl = Array.isArray(character.image_url)
+            ? character.image_url[0]
+            : character.image_url;
+        imageHtml = `
+            <img src="${imageUrl}"
+                 alt="${character.name}">
+        `
+    }
+
+
+
     return `
         <article class="character-card${lfCardClass}" style="--card-accent: ${colorBg}">
             <div class="character-type-badge" aria-hidden="true">
                 ${typeColorHtml}
             </div>
             <div class="character-media" style="background: ${colorBg};">
-                <img src="${character.image_url}" alt="${character.name}" loading="lazy">
+                ${imageHtml}
             </div>
 
             <div class="character-info">
@@ -756,9 +824,10 @@ function buildCard(character) {
                 </div>
                 <div class="meta-row">
                     ${rarityHtml}
+                    ${tagBadgeHtml}
                 </div>
                 <button class="btn-add-team" onclick='addToTeam(${JSON.stringify(character).replace(/'/g, "&#39;")})'>
-                    Agregar al equipo
+                    Add to team
                 </button>
             </div>
 
@@ -766,6 +835,10 @@ function buildCard(character) {
         </article>
     `
 }
+
+
+
+
 
 function renderCharacters(characters) {
     if (!characters.length) {
@@ -809,21 +882,21 @@ async function loadCharacters(searchTerm = "", colorFilter = "ALL", rarityFilter
         const hasRarityFilter = rarityFilter !== "ALL"
 
         if (hasSearch && hasColorFilter && hasRarityFilter) {
-            statusText.textContent = `Resultados para "${searchTerm}", color ${colorFilter} y rareza ${rarityFilter}`
+            statusText.textContent = `Results for "${searchTerm}", color ${colorFilter} and rarity ${rarityFilter}`
         } else if (hasSearch && hasColorFilter) {
-            statusText.textContent = `Resultados para "${searchTerm}" y color ${colorFilter}`
+            statusText.textContent = `Results for "${searchTerm}" and color ${colorFilter}`
         } else if (hasSearch && hasRarityFilter) {
-            statusText.textContent = `Resultados para "${searchTerm}" y rareza ${rarityFilter}`
+            statusText.textContent = `Results for "${searchTerm}" and rarity ${rarityFilter}`
         } else if (hasSearch) {
             statusText.textContent = `Resultados para "${searchTerm}"`
         } else if (hasColorFilter && hasRarityFilter) {
-            statusText.textContent = `Filtrando por color ${colorFilter} y rareza ${rarityFilter}`
+            statusText.textContent = `Filtered by color ${colorFilter} and rarity ${rarityFilter}`
         } else if (hasColorFilter) {
-            statusText.textContent = `Filtrando por color ${colorFilter}`
+            statusText.textContent = `Filtered by color ${colorFilter}`
         } else if (hasRarityFilter) {
-            statusText.textContent = `Filtrando por rareza ${rarityFilter}`
+            statusText.textContent = `Filtered by rarity ${rarityFilter}`
         } else {
-            statusText.textContent = "Personajes cargados"
+            statusText.textContent = "Loaded characters"
         }
     } catch (error) {
         console.error(error)
@@ -836,5 +909,62 @@ async function loadCharacters(searchTerm = "", colorFilter = "ALL", rarityFilter
     }
 }
 
-loadCharacters()
-renderTeamSlots()
+
+
+// === Funcion transicon de imagenes para personajes Tag ===
+function initTagImageCarousels() {
+    const tagContainers = document.querySelectorAll('.tag-image-container');
+
+    tagContainers.forEach(container => {
+        //Evitar inicializar multiples veces
+        if (container.dataset.initialized === 'true') return;
+        container.dataset.initialized = 'true';
+
+        const images = container.querySelectorAll('.tag-image');
+        const dots = container.querySelectorAll('.tag-dot');
+
+        if (images.length < 2) return;
+
+        let currentIndex = 0;
+        let intervalId;
+
+        function switchImage(newIndex) {
+            // Remover clases actuales
+            images[currentIndex].classList.remove('active');
+            images[currentIndex].classList.add('inactive');
+            dots[currentIndex].classList.remove('active');
+
+            // Activar nueva imagen
+            currentIndex = newIndex;
+            images[currentIndex].classList.remove('inactive');
+            images[currentIndex].classList.add('active');
+            dots[currentIndex].classList.add('active');
+        }
+
+        function nextImage() {
+            const nextIndex = (currentIndex + 1) % images.length;
+            switchImage(nextIndex);
+        }
+
+        //Cambiar cada 5 segundos
+        intervalId = setInterval(nextImage, 5000);
+        
+        // Guardar referencia para limpieza
+        container.dataset.intervalId = intervalId;
+    })
+}
+
+
+// Llamar después de renderizar personajes
+function renderCharacters(characters) {
+    if (!characters.length) {
+        grid.innerHTML = '<div class="empty-state">No se encontraron personajes para mostrar.</div>';
+        charactersCount.textContent = "0 personajes";
+        return;
+    }
+
+    grid.innerHTML = characters.map(buildCard).join("");
+    
+    // ⭐ Inicializar carousels TAG después de renderizar
+    setTimeout(initTagImageCarousels, 100);
+}

@@ -246,8 +246,8 @@ class TeamManager {
             return;
         }
 
-        if (statusEl) statusEl.textContent = `${teams.length} equipo(s) encontrado(s)`;
-        if (countEl) countEl.textContent = `${teams.length} equipo(s)`;
+        if (statusEl) statusEl.textContent = `${teams.length} Team(s) found`;
+        if (countEl) countEl.textContent = `${teams.length} Team(s)`;
 
         container.innerHTML = teams.map(team => {
             //Obtener URLL de la imagen del primer personaje (lider)
@@ -277,7 +277,7 @@ class TeamManager {
                                 <span class="saved-team-chip">⚡ ${power.toLocaleString()}</span>
                             </div>
                             <div class="saved-team-actions">
-                                <button class="btn-small btn-view" onclick="window.openTeamDetail('${team._id}')"> Ver Equipo completo</button>
+                                <button class="btn-small btn-view" onclick="window.openTeamDetail('${team._id}')"> See complete team</button>
                             </div>
                         </div>
                     </div>

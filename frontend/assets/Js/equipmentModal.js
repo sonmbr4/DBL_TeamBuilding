@@ -219,7 +219,7 @@ class EquipmentModal {
                             <p class="modal-character-meta">
                                 ${this.currentCharacter.rarity || 'N/D'} • 
                                 ${this.currentCharacter.color || 'N/D'} • 
-                                Equipamientos: ${this.currentCharacter.equipments.length}/${this.maxEquipments}
+                                Equipment: ${this.currentCharacter.equipments.length}/${this.maxEquipments}
                             </p>
                         </div>
                     </div>
@@ -231,7 +231,7 @@ class EquipmentModal {
                 </div>
 
                 <div class="equipment-list">
-                    <h3 class="equipment-list-title">Equipamientos Disponibles</h3>
+                    <h3 class="equipment-list-title">Available Equipment</h3>
                     <div class="equipment-list-grid" id="equipmentList">
                         ${this.renderEquipmentList()}
                     </div>

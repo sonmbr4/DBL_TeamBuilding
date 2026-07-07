@@ -100,8 +100,8 @@ function getEquipmentImageUrl(equipment) {
 
 
 function renderTeamDetail(team, container) {
-    const date = new Date(team.createdAt).toLocaleDateString('es-ES', {
-        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+    const date = new Date(team.createdAt).toLocaleDateString('en-EN', {
+        year: 'numeric', month: 'numeric', day: 'numeric',
         hour: '2-digit', minute: '2-digit'
     });
 
@@ -172,26 +172,25 @@ function renderTeamDetail(team, container) {
                 </div>
                 <div class="team-detail-stats">
                     <div class="stat-box">
-                        <span class="stat-label">Personajes</span>
+                        <span class="stat-label">Chracters</span>
                         <span class="stat-value">${charCount} / 6</span>
                     </div>
                     <div class="stat-box">
-                        <span class="stat-label">Power Total</span>
+                        <span class="stat-label">Total Power</span>
                         <span class="stat-value">${power}</span>
                     </div>
                     <div class="stat-box">
-                        <span class="stat-label">Power Promedio</span>
+                        <span class="stat-label">Average Power</span>
                         <span class="stat-value">${avgPower}</span>
                     </div>
                 </div>
             </div>
-                <p class="team-detail-date">Creado el ${date}</p>
             </div>
 
            
 
             <div class="team-detail-characters">
-                <h2>Personajes del equipo</h2>
+                <h2>Team characters</h2>
                 <div class="detail-characters-grid">
                     ${charactersHtml}
                 </div>

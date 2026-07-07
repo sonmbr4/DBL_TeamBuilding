@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -16,14 +16,14 @@
         <section class="hero">
             <div>
                 <p class="eyebrow">DBL Teams</p>
-                <h1>Crea Tu Equipo</h1>
+                <h1>Create your team</h1>
                 <p class="lead">
-                    Selecciona hasta 6 personajes para formar tu equipo.
+                    Select up to 6 characters to form your team.
                 </p>
             </div>
 
             <div class="hero-meta">
-                <span class="meta-pill">Equipo: <strong>0/6</strong></span>
+                <span class="meta-pill">Team: <strong>0/6</strong></span>
             </div>
         </section>
 
@@ -37,10 +37,10 @@
                     </div>
                     <div class="toolbar-actions">
                         <input type="search" id="characterSearchInput" class="character-search-input"
-                            placeholder="Buscar por nombre..." aria-label="Buscar personajes por nombre">
+                            placeholder="Search names..." aria-label="Search characters by name">
                         <select id="characterColorFilter" class="character-color-select"
                             aria-label="Filtrar personajes por color">
-                            <option value="ALL">Todos los colores</option>
+                            <option value="ALL">All Colors</option>
                             <option value="RED">RED</option>
                             <option value="BLU">BLU</option>
                             <option value="YEL">YEL</option>
@@ -51,7 +51,7 @@
                         </select>
 
                         <select id="characterRarityFilter" class="character-color-select">
-                            <option value="All">Todas las rarezas</option>
+                            <option value="All">All Rarities</option>
                             <option value="LEGEND">LEGEND</option>
                             <option value="ULTRA">ULTRA</option>
                             <option value="SPARKING">SPARKING</option>
@@ -69,7 +69,7 @@
             <aside class="team-section">
                 <div class="team-panel">
                     <div class="team-header">
-                        <h2>Tu Equipo</h2>
+                        <h2>Your Team</h2>
                         <span class="team-slots-counter" id="teamSlotsCounter">0 / 6</span>
                     </div>
 
@@ -81,17 +81,17 @@
                     <!-- Acciones del equipo -->
                     <div class="team-actions">
                         <input type="text" id="teamNameInput" class="team-name-input"
-                            placeholder="Nombre del equipo...">
+                            placeholder="Team name...">
 
                         <button id="saveTeamBtn" class="btn-save" disabled>
-                            Guardar Equipo
+                            Save Team
                         </button>
 
                         <button id="clearTeamBtn" class="btn-clear">
-                            Limpiar Equipo
+                            Clear Team
                         </button>
 
-                        <a href="/equipos" class="btn-small btn-load">Ver equipos guardados</a>
+                        <a href="/equipos" class="btn-small btn-load">View Saved Teams</a>
                     </div>
                     <div class="team-stats-power">
                         <p class="stats-label">LP: <span id="teamPower" class="stats-value">0</span> </p>
