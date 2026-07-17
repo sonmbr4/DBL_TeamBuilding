@@ -2,7 +2,13 @@
 
 // Agrega esta función al inicio de teamDetail.js
 function fixImageUrl(url) {
+    if (Array.isArray(url)) {
+        url = url[0];
+    }
+
     if (!url) return './assets/imgs/Characters/BChaCut_9800_Shallot_01.webp';
+
+    url = url.toString().trim().split(',')[0].trim();
     
     // Si ya es una URL absoluta, devolverla
     if (url.startsWith('http://') || url.startsWith('https://')) {
@@ -97,6 +103,10 @@ function getEquipmentImageUrl(equipment) {
         .replace(/\.wep$/i, '.webp');
 }
 
+function getCharacterImageUrl(character) {
+    return fixImageUrl(character?.image_url);
+}
+
 
 
 function renderTeamDetail(team, container) {
@@ -131,7 +141,7 @@ function renderTeamDetail(team, container) {
         return `
             <div class="detail-character-card">
                 <div class="detail-character-image" style="background-color: ${getColorForCharacter(char)}">
-                    <img src="${fixImageUrl(char.image_url)}" alt="${char.name}" 
+                    <img src="${getCharacterImageUrl(char)}" alt="${char.name}" 
                          onerror="this.src='./assets/imgs/Characters/BChaCut_9800_Shallot_01.webp'">
                 </div>
                 <div class="detail-character-info">
@@ -155,7 +165,7 @@ function renderTeamDetail(team, container) {
     const leaderHtml = leader ? `
         <div class="team-detail-leader">
         <div class="leader-image" style="background: linear-gradient(to left, ${leaderColor}, ${leaderColor}dd 40%, transparent 90%);">
-            <img src="${fixImageUrl(leader.image_url)}" 
+              <img src="${getCharacterImageUrl(leader)}" 
                  alt="${leader.name}"
                  onerror="this.src='./assets/imgs/Characters/BChaCut_9800_Shallot_01.webp'">
         </div>
@@ -166,7 +176,7 @@ function renderTeamDetail(team, container) {
 
     const html = `
         <div class="team-detail">
-            <div class="team-detail-header" style="background-image: url('${fixImageUrl(leader?.image_url) || null}'); --leader-color: ${getColorForCharacter(leader)};">
+            <div class="team-detail-header" style="background-image: url('${getCharacterImageUrl(leader) || null}'); --leader-color: ${getColorForCharacter(leader)};">
                 <div class="team-detail-header-left">
                     <h1>${escapeHtml(team.name)}</h1>
                 </div>

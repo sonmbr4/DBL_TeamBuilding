@@ -84,6 +84,19 @@ class EquipmentModal {
             .replace(/\.wep$/i, '.webp');
     }
 
+    getCharacterImageUrl(character) {
+        const rawValue = Array.isArray(character?.image_url)
+            ? character.image_url[0]
+            : character?.image_url;
+        const rawUrl = (rawValue || '').toString().trim();
+
+        if (!rawUrl) {
+            return './assets/imgs/Characters/BChaCut_9800_Shallot_01.webp';
+        }
+
+        return rawUrl.split(',')[0].trim().replace(/\.wep$/i, '.webp');
+    }
+
     getEquipmentFallbackLabel(equipment) {
         return (equipment?.name || '?').trim().charAt(0).toUpperCase();
     }
@@ -210,7 +223,7 @@ class EquipmentModal {
                 <div class="modal-header">
                     <div class="modal-character-info">
                         <img class="modal-character-img" 
-                             src="${this.currentCharacter.image_url}" 
+                                src="${this.getCharacterImageUrl(this.currentCharacter)}" 
                              alt="${this.currentCharacter.name}"
                              style="border-color: ${colorBg}"
                              onerror="this.onerror=null;this.src='./assets/imgs/Equipment/eq_PlaceHolder.webp';">

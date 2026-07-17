@@ -8,6 +8,7 @@ const charactersCount = document.getElementById("charactersCount")
 const characterSearchInput = document.getElementById("characterSearchInput")
 const characterColorFilter = document.getElementById("characterColorFilter")
 const characterRarityFilter = document.getElementById("characterRarityFilter")
+const characterTagFilter = document.getElementById("characterTagFilter")
 const teamSlots = document.getElementById("teamSlots")
 const teamSlotsCounter = document.getElementById("teamSlotsCounter")
 const teamCounter = document.getElementById("teamCounter")
@@ -74,6 +75,7 @@ const TYPE_COLOR_ICON_MAP = {
 let searchDebounceTimer = null
 let currentColorFilter = "ALL"
 let currentRarityFilter = "ALL"
+let currentTagFilter = "ALL"
 
 
 if (characterSearchInput) {
@@ -84,7 +86,8 @@ if (characterSearchInput) {
             loadCharacters(
                 characterSearchInput.value.trim(),
                 currentColorFilter,
-                currentRarityFilter
+                currentRarityFilter,
+                currentTagFilter
             )
         }, 150)
     })
@@ -96,7 +99,8 @@ if (characterColorFilter) {
         loadCharacters(
             characterSearchInput ? characterSearchInput.value.trim() : "",
             currentColorFilter,
-            currentRarityFilter
+            currentRarityFilter,
+            currentTagFilter
         )
     })
 }
@@ -107,7 +111,20 @@ if (characterRarityFilter) {
         loadCharacters(
             characterSearchInput ? characterSearchInput.value.trim() : "",
             currentColorFilter,
-            currentRarityFilter
+            currentRarityFilter,
+            currentTagFilter
+        )
+    })
+}
+
+if (characterTagFilter) {
+    characterTagFilter.addEventListener("change", () => {
+        currentTagFilter = characterTagFilter.value || "ALL"
+        loadCharacters(
+            characterSearchInput ? characterSearchInput.value.trim() : "",
+            currentColorFilter,
+            currentRarityFilter,
+            currentTagFilter
         )
     })
 }
@@ -179,6 +196,24 @@ function applyRarityFilter(characters, rarityFilter = "ALL") {
     })
 }
 
+function applyTagFilter(characters, tagFilter = "ALL") {
+    const normalizedFilter = tagFilter.toString().trim().toUpperCase()
+
+    if (normalizedFilter === "ALL" || !normalizedFilter) {
+        return characters
+    }
+
+    return characters.filter((character) => {
+        const tags = Array.isArray(character.tags)
+            ? character.tags
+            : typeof character.tags === "string"
+                ? character.tags.split(",")
+                : []
+
+        return tags.some((tag) => tag.toString().trim().toUpperCase() === normalizedFilter)
+    })
+}
+
 
 function getEquipmentImageUrl(equipment) {
     const rawUrl = (equipment?.image_url || '').toString().trim()
@@ -194,6 +229,25 @@ function getEquipmentImageUrl(equipment) {
     }
 
     return url;
+}
+
+function getCharacterImageUrl(character) {
+    const rawValue = Array.isArray(character?.image_url)
+        ? character.image_url[0]
+        : character?.image_url
+    const rawUrl = (rawValue || '').toString().trim()
+
+    if (!rawUrl) {
+        return './assets/imgs/Characters/BChaCut_9800_Shallot_01.webp'
+    }
+
+    const url = rawUrl.split(',')[0].trim().replace(/\.wep$/i, '.webp')
+
+    if (url.startsWith('/assets')) {
+        return `.${url}`
+    }
+
+    return url
 }
 
 function renderTeamEquipmentSlots(character) {
@@ -254,10 +308,10 @@ function renderTeamSlots() {
                 <div class="team-slot filled team-slot-tile" onclick="openEquipmentModal(${i})" onkeydown="if(event.key==='Enter' || event.key===' '){openEquipmentModal(${i})}" tabindex="0" role="button" aria-label="Abrir equipamientos de ${character.name}">
                     <div class="team-slot-portrait">
                         <img class="slot-image" 
-                             src="${character.image_url}" 
+                                src="${getCharacterImageUrl(character)}" 
                              alt="${character.name}"
                              loading="lazy"
-                             onerror="this.src='./assets/imgs/placeholder.webp'">
+                             onerror="this.src='./assets/imgs/Characters/BChaCut_9800_Shallot_01.webp'">
                     </div>
                     <div class="team-equipment-row" aria-label="Equipamientos de ${character.name}">
                         ${renderTeamEquipmentSlots(character)}
@@ -329,7 +383,7 @@ function buildTeamPayload() {
             name: character.name || "Desconocido",
             color: character.color || "N/D",
             rarity: character.rarity || "N/D",
-            image_url: character.image_url || "",
+            image_url: getCharacterImageUrl(character),
             position: index + 1,
             power: getCharacterPower(character),
             health: Number(character?.max_stats?.health || character?.health || 0) || 0,
@@ -424,7 +478,7 @@ async function loadTeamToBuilder(teamId) {
         name: char.name,
         color: char.color,
         rarity: char.rarity,
-        image_url: char.image_url,
+        image_url: getCharacterImageUrl(char),
         power: char.power || 0,
         health: char.health || 0,
         tags: char.tags || [],
@@ -850,7 +904,7 @@ function renderCharacters(characters) {
     grid.innerHTML = characters.map(buildCard).join("")
 }
 
-async function loadCharacters(searchTerm = "", colorFilter = "ALL", rarityFilter = "ALL") {
+async function loadCharacters(searchTerm = "", colorFilter = "ALL", rarityFilter = "ALL", tagFilter = "ALL") {
     try {
         statusText.textContent = "Cargando personajes..."
 
@@ -865,7 +919,8 @@ async function loadCharacters(searchTerm = "", colorFilter = "ALL", rarityFilter
         try {
             const colorFilteredCharacters = applyColorFilter(characters, colorFilter)
             const filteredCharacters = applyRarityFilter(colorFilteredCharacters, rarityFilter)
-            renderCharacters(filteredCharacters)
+            const tagFilteredCharacters = applyTagFilter(filteredCharacters, tagFilter)
+            renderCharacters(tagFilteredCharacters)
         } catch (renderError) {
             console.error(renderError)
             grid.innerHTML = `
@@ -880,21 +935,38 @@ async function loadCharacters(searchTerm = "", colorFilter = "ALL", rarityFilter
         const hasSearch = Boolean(searchTerm)
         const hasColorFilter = colorFilter !== "ALL"
         const hasRarityFilter = rarityFilter !== "ALL"
+        const hasTagFilter = tagFilter !== "ALL"
 
-        if (hasSearch && hasColorFilter && hasRarityFilter) {
+        if (hasSearch && hasColorFilter && hasRarityFilter && hasTagFilter) {
+            statusText.textContent = `Results for "${searchTerm}", color ${colorFilter}, rarity ${rarityFilter} and tag ${tagFilter}`
+        } else if (hasSearch && hasColorFilter && hasRarityFilter) {
             statusText.textContent = `Results for "${searchTerm}", color ${colorFilter} and rarity ${rarityFilter}`
+        } else if (hasSearch && hasColorFilter && hasTagFilter) {
+            statusText.textContent = `Results for "${searchTerm}", color ${colorFilter} and tag ${tagFilter}`
+        } else if (hasSearch && hasRarityFilter && hasTagFilter) {
+            statusText.textContent = `Results for "${searchTerm}", rarity ${rarityFilter} and tag ${tagFilter}`
+        } else if (hasColorFilter && hasRarityFilter && hasTagFilter) {
+            statusText.textContent = `Filtered by color ${colorFilter}, rarity ${rarityFilter} and tag ${tagFilter}`
         } else if (hasSearch && hasColorFilter) {
             statusText.textContent = `Results for "${searchTerm}" and color ${colorFilter}`
         } else if (hasSearch && hasRarityFilter) {
             statusText.textContent = `Results for "${searchTerm}" and rarity ${rarityFilter}`
+        } else if (hasSearch && hasTagFilter) {
+            statusText.textContent = `Results for "${searchTerm}" and tag ${tagFilter}`
         } else if (hasSearch) {
             statusText.textContent = `Resultados para "${searchTerm}"`
         } else if (hasColorFilter && hasRarityFilter) {
             statusText.textContent = `Filtered by color ${colorFilter} and rarity ${rarityFilter}`
+        } else if (hasColorFilter && hasTagFilter) {
+            statusText.textContent = `Filtered by color ${colorFilter} and tag ${tagFilter}`
+        } else if (hasRarityFilter && hasTagFilter) {
+            statusText.textContent = `Filtered by rarity ${rarityFilter} and tag ${tagFilter}`
         } else if (hasColorFilter) {
             statusText.textContent = `Filtered by color ${colorFilter}`
         } else if (hasRarityFilter) {
             statusText.textContent = `Filtered by rarity ${rarityFilter}`
+        } else if (hasTagFilter) {
+            statusText.textContent = `Filtered by tag ${tagFilter}`
         } else {
             statusText.textContent = "Loaded characters"
         }

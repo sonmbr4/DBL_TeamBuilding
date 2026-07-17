@@ -242,7 +242,6 @@ body {
 
 .lf-plate-wrap {
     position: absolute;
-    left: 16px;
     bottom: -18px;
     z-index: 5;
     width: 210px;
@@ -260,7 +259,7 @@ body {
 .lf-plate-label {
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 45%;
     transform: translate(-50%, -30%);
     z-index: 2;
     font-family: "Arial Black", "Trebuchet MS", sans-serif;

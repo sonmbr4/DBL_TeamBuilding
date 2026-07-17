@@ -740,7 +740,7 @@
         ]
       },
       "two":{
-        "condition":"If Regeneration or Super Warrior or Cell Saga (Z)",
+        "condition":"If Regeneration or Super Warrior or  (ZCell Saga)",
         "effect":[
           "Base Blast Attack +26%",
           "Base Strike Defense +26%"
@@ -938,6 +938,60 @@
     "is_lf": false,
     "is_tag": false,
     "has_zenkai": false  
+  },
+  {
+    "name":"Super Saiyan 3 & Super Saiyan 2 Goku",
+    "id":"DBL97-01U",
+    "color":"BLU",
+    "rarity":"ULTRA",
+    "tags":[
+      "Saiyan",
+      "Super Saiyan 3",
+      "Son Family",
+      "Super Saiyan 2",
+      "Vegeta Clan",
+      "Otherworld Warrior",
+      "8th",
+      "Male",
+      "ULTRA",
+      "Melee Type",
+      "BLU",
+      "Majin Buu Saga (Z)",
+      "Goku",
+      "Vegeta",
+      "Armored Strike Arts",
+      "Special Cover Change (Blast)",
+      "Special Cover Change (Strike)",
+      "Tag",
+      "Revive",
+      "Active Gauge",
+      "KO Prevention Nullification"
+    ],
+    "base_stats": {
+      "power": 925871,
+      "health": 26705,
+      "strike_atk": 2769,
+      "strike_def": 1717,
+      "blast_atk": 2547,
+      "blast_def": 1666
+    },
+    "max_stats": {
+      "power": 930419,
+      "health": 1631339,
+      "strike_atk": 169155,
+      "strike_def": 104894,
+      "blast_atk": 155691,
+      "blast_def": 101796
+    },
+    "strike":"Strike (Impact)",
+    "shot": "Blast (Impact)",
+    "image_url":[
+      "https://dblegends.net/assets/card_cutins/BChaCut_0735_GokuSS3_735.webp",
+      "https://dblegends.net/assets/card_cutins/BChaCut_0735_VegetaSS2_735.webp"
+    ],
+    "is_lf": false,
+    "is_tag": true,
+    "has_zenkai": false 
   },
   {
     "name":"Super Saiyan God SS Gogeta",
@@ -3955,7 +4009,224 @@
     "strike":"Strike (Impact)",
     "shot": "Blast (Impact)",
     "image_url":"https://dblegends.net/assets/card_cutins/BChaCut_0702_Android13M_702.webp",
+    "is_lf": true,
+    "is_tag": false,
+    "has_zenkai": false
+  },
+  {
+    "name":"Super Saiyan 3 Goku",
+    "id":"DBL87-01S",
+    "color":"PUR",
+    "rarity":"SPARKING",
+    "tags":[
+      "Saiyan",
+      "Super Saiyan 3",
+      "Son Family",
+      "GT",
+      "Kids",
+      "Male",
+      "SPARKING",
+      "Ranged Type",
+      "PUR",
+      "Super Baby Saga (GT)",
+      "Goku",
+      "Special Cover Change (Strike)",
+      "Nullify wide-range Special Arts",
+      "Final Counter"
+    ],
+    "base_stats": {
+      "power": 10420,
+      "health": 25300,
+      "strike_atk": 2474,
+      "strike_def": 1785,
+      "blast_atk": 2608,
+      "blast_def": 1812
+    },
+    "max_stats": {
+      "power": 906736,
+      "health": 1545502,
+      "strike_atk": 151151,
+      "strike_def": 109061,
+      "blast_atk": 159291,
+      "blast_def": 110700
+    },
+    "strike":"Strike (Impact)",
+    "shot": "Blast (Impact)",
+    "image_url":"https://i.imgur.com/cXfhGNU.png",
+    "is_lf": true,
+    "is_tag": false,
+    "has_zenkai": false
+  },
+  {
+    "name":"King Cold",
+    "id":"DBL-86-01S",
+    "color":"BLU",
+    "rarity":"SPARKING",
+    "tags":[
+      "Lineage of Evil",
+      "Weapon Wielder",
+      "Male",
+      "SPARKING",
+      "Melee Type",
+      "BLU",
+      "Android Saga (Z)",
+      "King Cold",
+      "Special Cover Change (Strike)",
+      "Armored Strike Arts"
+    ],
+    "base_stats": {
+      "power": 9857,
+      "health": 23806,
+      "strike_atk": 2575,
+      "strike_def": 1613,
+      "blast_atk": 2427,
+      "blast_def": 1597
+    },
+    "max_stats": {
+      "power": 888979,
+      "health": 1454240,
+      "strike_atk": 157305,
+      "strike_def": 98527,
+      "blast_atk": 148249,
+      "blast_def": 97549
+    },
+    "strike":"Strike (Impact)",
+    "shot": "Blast (Impact)",
+    "image_url":"https://i.imgur.com/wybQYFQ.png",
     "is_lf": false,
+    "is_tag": false,
+    "has_zenkai": false
+  },
+  {
+    "name":"Metal Cooler",
+    "id":"DBL86-02S",
+    "color":"PUR",
+    "rarity":"SPARKING",
+    "tags":[
+      "Linage of Evil",
+      "Merging",
+      "Regeneration",
+      "Powerfu Opponent",
+      "Male",
+      "SPARKING",
+      "Defense Type",
+      "PUR",
+      "Sagas From the Movies",
+      "Special Cover Change (Strike)",
+      "Armored Strike Arts",
+      "Comeback"
+    ],
+    "base_stats": {
+      "power": 10146,
+      "health": 24776,
+      "strike_atk": 2472,
+      "strike_def": 1803,
+      "blast_atk": 2367,
+      "blast_def": 1794
+    },
+    "max_stats": {
+      "power": 907695,
+      "health": 1513508,
+      "strike_atk": 151001,
+      "strike_def": 110150,
+      "blast_atk": 144588,
+      "blast_def": 109606
+    },
+    "strike":"Strike (Impact)",
+    "shot": "Blast (Impact)",
+    "image_url":"https://i.imgur.com/mD6zYeQ.png",
+    "is_lf": true,
+    "is_tag": false,
+    "has_zenkai": false
+  },
+  {
+    "name":"Final Form Frost: Full Power",
+    "id":"DBL85-05S",
+    "color":"RED",
+    "rarity":"SPARKING",
+    "tags":[
+      "Universe 6",
+      "Transforming Warrior",
+      "Lineage of Evil",
+      "Rival Universe",
+      "Universe Rep",
+      "7th",
+      "Male",
+      "SPARKING",
+      "Melee Type",
+      "RED",
+      "Universe Survival Saga (S)",
+      "Frost",
+      "Special Cover Change (Strike)",
+      "Guard Action"
+    ],
+    "base_stats": {
+      "power": 9768,
+      "health": 23806,
+      "strike_atk": 2575,
+      "strike_def": 1589,
+      "blast_atk": 2379,
+      "blast_def": 1579
+    },
+    "max_stats": {
+      "power": 888260,
+      "health": 1454240,
+      "strike_atk": 157305,
+      "strike_def": 97064,
+      "blast_atk": 145310,
+      "blast_def": 96482
+    },
+    "strike":"Strike (Impact)",
+    "shot": "Blast (Impact)",
+    "image_url":"https://i.imgur.com/stAG67p.png",
+    "is_lf": false,
+    "is_tag": false,
+    "has_zenkai": false
+  },
+  {
+    "name":"Super Saiyan 2 Kefla",
+    "id":"DBL85-04S",
+    "color":"GRN",
+    "rarity":"SPARKING",
+    "tags":[
+      "Girls",
+      "Saiyan",
+      "Universe 6",
+      "Potara",
+      "Super Saiyan 2",
+      "Fusion Warrior",
+      "Rival Universe",
+      "Universe Rep",
+      "7th",
+      "Female",
+      "SPARKING",
+      "Melee Type",
+      "GRN",
+      "Universe Survival Saga (S)",
+      "Kefla",
+      "Special Cover Change (Strike)",
+      "Guard Action"
+    ],
+    "base_stats": {
+      "power": 10513,
+      "health": 23806,
+      "strike_atk": 2813,
+      "strike_def": 1719,
+      "blast_atk": 2647,
+      "blast_def": 16925
+    },
+    "max_stats": {
+      "power": 915805,
+      "health": 1454240,
+      "strike_atk": 171817,
+      "strike_def": 105017,
+      "blast_atk": 161710,
+      "blast_def": 103362
+    },
+    "strike":"Strike (Impact)",
+    "shot": "Blast (Impact)",
+    "image_url":"https://i.imgur.com/4q3D9jH.png",
+    "is_lf": true,
     "is_tag": false,
     "has_zenkai": false
   },
